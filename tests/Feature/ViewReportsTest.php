@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ViewReportsTest extends TestCase
@@ -14,7 +12,10 @@ class ViewReportsTest extends TestCase
         $response->assertViewIs('pages.superadmin.reports');
     }
 
-    
+
+
+
+
 
 
 }
