@@ -14,5 +14,6 @@ class Admin extends Model
         'last_name',
         'username',
         'password',
+        'municipality',
     ];
 }

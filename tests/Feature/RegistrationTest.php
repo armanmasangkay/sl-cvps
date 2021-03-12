@@ -12,6 +12,6 @@ class RegistrationTest extends TestCase
     {
         $response=$this->get(route('person.registration'));
         $response->assertViewIs('pages.register');
-        
+
     }
 }
