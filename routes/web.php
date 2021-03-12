@@ -3,6 +3,8 @@
 use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ReportsController;
+use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,24 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('admin', AdminController::class);
 
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.registration');
 
 Route::resource('admin', AdminController::class);
 
-Route::get('/reports',function(){
-
-    $vaccinateds=[];
-
-    foreach (Person::all() as $person){
-        if($person->isVaccinated()){
-            $vaccinateds=$person;
-        }
-    }
-    return view('pages.superadmin.reports',[
-        'vaccinateds'=>$vaccinateds
-    ]);
-
-})->name('superadmin.reports');
+Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');

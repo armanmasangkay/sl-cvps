@@ -9,14 +9,12 @@ use Tests\TestCase;
 
 class ViewReportsTest extends TestCase
 {
-  use RefreshDatabase;
+    use RefreshDatabase;
     public function test_view_reports_ui_can_be_rendered()
     {
         $response=$this->get(route('superadmin.reports'));
         $response->assertViewIs('pages.superadmin.reports');
-
     }
-
     public function test_view_reports_ui_with_vaccinated_individuals()
     {
         $person=Person::create([
@@ -36,23 +34,26 @@ class ViewReportsTest extends TestCase
             'sex'=>'male',
             'birth_date'=>'2017-08-20'
         ]);
-    
-
         Vaccination::create([
             'person_id'=>$person->id,
         ]);
 
         $response=$this->get(route('superadmin.reports'));
+
+        $response->dump();
         $response->assertViewIs('pages.superadmin.reports');
         $response->assertViewHas('vaccinateds');
+        
         $hasVaccinateds=$response['vaccinateds']->count()>0?true:false;
         $vaccinatedPerson=$response['vaccinateds']->first();
         $this->assertEquals('Arman',$vaccinatedPerson->firstname);
         $this->assertTrue($hasVaccinateds);
-
-
-
     }
+
+
+
+
+
 
 
 }

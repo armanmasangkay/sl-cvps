@@ -35,7 +35,7 @@ class Person extends Model
         return true;
     }
 
-    public function vaccination()
+    public function vaccinations()
     {
         return $this->hasMany(Vaccination::class);
     }
