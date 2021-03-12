@@ -21,3 +21,8 @@ Route::get('/', function () {
 
 Route::resource('admin', AdminController::class);
 
+Route::get('/reports',function(){
+
+    return view('pages.superadmin.reports');
+
+})->name('superadmin.reports');
