@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [RegistrationController::class, 'view'])->name('person.registration');
+Route::get('/register', [RegistrationController::class, 'render'])->name('person.registration');
+Route::post('/register', [RegistrationController::class, 'store']);
 
 Route::get('/reports',function(){
 
