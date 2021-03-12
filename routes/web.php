@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Person;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::resource('admin', AdminController::class);
+
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.registration');
+
+Route::resource('admin', AdminController::class);
 
 Route::get('/reports',function(){
 
