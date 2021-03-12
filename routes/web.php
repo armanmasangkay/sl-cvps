@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Person;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,15 @@ Route::get('/', function () {
 
 Route::get('/reports',function(){
 
-    return view('pages.superadmin.reports');
+    $vaccinateds=[];
+
+    foreach (Person::all() as $person){
+        if($person->isVaccinated()){
+            $vaccinateds=$person;
+        }
+    }
+    return view('pages.superadmin.reports',[
+        'vaccinateds'=>$vaccinateds
+    ]);
 
 })->name('superadmin.reports');
