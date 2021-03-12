@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\AdminController;
-=======
 use App\Http\Controllers\RegistrationController;
->>>>>>> 04fef21bdf725dfef2da682915d4c9308b1d9cc5
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,16 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 
 Route::resource('admin', AdminController::class);
 
-=======
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.registration');
+
+Route::resource('admin', AdminController::class);
 
 Route::get('/reports',function(){
 
     return view('pages.superadmin.reports');
 
 })->name('superadmin.reports');
->>>>>>> 04fef21bdf725dfef2da682915d4c9308b1d9cc5
