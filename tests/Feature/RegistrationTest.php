@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -12,6 +10,6 @@ class RegistrationTest extends TestCase
     {
         $response=$this->get(route('person.registration'));
         $response->assertViewIs('pages.register');
-        
+
     }
 }
