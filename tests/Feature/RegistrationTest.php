@@ -56,7 +56,6 @@ class RegistrationTest extends TestCase
         $this->assertDatabaseCount('people',0);
     }
 
-
     public function test_save_registration_data()
     {
         $response=$this->post(route('person.store'),[
