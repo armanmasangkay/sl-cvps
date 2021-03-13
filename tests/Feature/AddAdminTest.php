@@ -51,7 +51,8 @@ class AddAdminTest extends TestCase
             'last_name',
             'username',
             'password',
-            'confirm_password'
+            'confirm_password',
+            'municipality'
         ]);
 
     }
