@@ -73,6 +73,7 @@ class RegistrationTest extends TestCase
             'loc_region'=>'Region 8',
             'loc_prov'=>'Southern Leyte',
             'loc_muni'=>'Malitbog',
+            'loc_brgy'=>'Taliwa',
             'sex'=>'male',
             'birth_date'=>'1992-01-07'
         ]);
