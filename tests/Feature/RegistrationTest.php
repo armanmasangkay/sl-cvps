@@ -56,7 +56,6 @@ class RegistrationTest extends TestCase
         $this->assertDatabaseCount('people',0);
     }
 
-
     public function test_save_registration_data()
     {
         $response=$this->post(route('person.register'),[
@@ -79,6 +78,7 @@ class RegistrationTest extends TestCase
         ]);
 
         $response->assertRedirect(route('person.register'));
+
         $response->assertSessionHas([
             'registered'=>true,
             'message'=>'Registration went through successfully. Thank you!'
