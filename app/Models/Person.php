@@ -9,22 +9,36 @@ class Person extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'qr_code',
+    protected $fillable=[
         'category',
         'category_id',
         'category_id_num',
         'philhealth_id',
         'pwd_id',
-        'last_name',
-        'first_name',
-        'middle_name',
+        'lastname',
+        'firstname',
+        'middlename',
         'suffix',
-        'current_reside_reg',
-        'current_reside_prov',
-        'current_reside_mun',
-        'current_reside_brgy',
+        'contact_num',
+        'loc_region',
+        'loc_prov',
+        'loc_muni',
+        'loc_brgy',
         'sex',
         'birth_date'
     ];
+
+    public function isVaccinated()
+    {
+        if($this->vaccination->count()<=0){
+            return false;
+        }
+        return true;
+    }
+
+    public function vaccinations()
+    {
+        return $this->hasMany(Vaccination::class);
+    }
+
 }

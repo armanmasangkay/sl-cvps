@@ -9,32 +9,48 @@ use App\Models\Person;
 
 class RegistrationController extends Controller
 {
-    public function render()
+    public function view()
     {
         return view('pages.register')
-        ->with(['success' => true, 'title' => 'Great!', 'text' => 'Registration was successful!']);;
+                ->with(['success' => true, 'title' => 'Great!', 'text' => 'Registration was successful!']);;
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'qr_code'            => 'required',
             'category'           => 'required',
             'category_id'        => 'required',
             'category_id_num'    => 'required',
             'last_name'          => 'required',
             'first_name'         => 'required',
-            'current_reside_prov'=> 'required',
-            'current_reside_mun' => 'required',
-            'current_reside_brgy'=> 'required',
+            'middle_name'        => 'required',
+            'suffix'             => 'required',
+            'contact_num'        => 'required',
+            'loc_region'         => 'required',
+            'loc_prov'           => 'required',
+            'loc_muni'           => 'required',
+            'loc_brgy'           => 'required',
             'sex'                => 'required',
             'birth_date'         => 'required'
         ]);
 
         if($validator->fails())
         {
-            return redirect(route('person.registration'))
-                    ->withErrors($validator)
+            return redirect(route('person.register'))
+                    ->withErrors([
+                        'category'=>'Please select category',
+                        'category_id'=>'Please enter category ID',
+                        'category_id_num'=>'Please enter category ID number',
+                        'lastname'=>'Please enter last name',
+                        'firstname'=>'Please enter first name',
+                        'contact_num'=>'Please provide working contact number',
+                        'loc_region'=>'Please enter residence region',
+                        'loc_prov'=>'Please enter residence province',
+                        'loc_muni'=>'Please enter residence municipality',
+                        'loc_brgy'=>'Please enter residence barangay',
+                        'sex'=>'Please select gender',
+                        'birth_date'=>'Please specify your birthdate',
+                    ])
                     ->withInput();
         }
 
@@ -58,6 +74,9 @@ class RegistrationController extends Controller
         ]);
 
         return redirect(route('person.registration'))
-                ->with(['success' => true, 'title'=> 'Great!', 'text'=> 'Registration was successful!']);
+                ->with([
+                    'registered'=>true,
+                    'message'=>'Registration went through successfully. Thank you!'
+                ]);
     }
 }

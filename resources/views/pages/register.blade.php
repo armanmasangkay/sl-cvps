@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-</head>
-<style>
-    .swal2-footer{
-        border: 0px !important;
-        padding: 0em 0 0 !important;
-    }
-</style>
-<body>
-    Registration
-    @if($success === true)
+@extends('layout.main_layout')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="container pt-3 pb-3 mt-4">
+            <h3 class="text-secondary text-province">PROVINCE OF SOUTHERN LEYTE</h3>
+            <h4 class="text-primary text-slsu">Southern Leyte State University</h4>
+            <h5 class="text-warning text-ccsit">College of Computer Studies in Information Technology</h5>
+        </div>
+        <div class="container border border-gray pt-3 pb-3 pl-4 pr-4 mt-3 rounded">
+            <h4 class="text-primary mt-1 pt-1 text-content-heading">COVID-19 Vaccination Passport</h4>
+        </div>
+        <form action="" method="post">
+            @include('templates.registration-field')
+        </form>
+    </div>
+
+    @if($success === false)
     <script>
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -38,5 +32,5 @@
         })
     </script>
     @endif
-</body>
-</html>
+
+@endsection
