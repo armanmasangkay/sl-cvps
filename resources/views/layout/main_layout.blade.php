@@ -21,6 +21,26 @@
     @yield('content')
 
 
+    <div class="container mt-5 pt-5">
+        <p class="text-center text-gray text-muted text-dev">in colaboration with</p>
+        <div class="row mt-5">
+            <div class="col-md-3">
+                <h5 class="text-center text-secondary">Southern Leyte State University - Main Campus</h5>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-center text-secondary">College of Computer Studies in Information Technology</h5>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-center text-secondary">Province of Southern Leyte</h5>
+                <h5 class="text-center text-secondary">and</h5>
+                <h5 class="text-center text-secondary">SOYMPH</h5>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-center text-secondary">Department of Health</h5>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5 pt-3">
         <p class="text-center text-gray text-muted text-dev">Developed by: SLSU-CCSIT Developer Team</p>
     </div>

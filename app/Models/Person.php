@@ -9,7 +9,7 @@ class Person extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'category',
         'category_id',
         'category_id_num',
@@ -30,9 +30,10 @@ class Person extends Model
 
     public function isVaccinated()
     {
-        if($this->vaccination->count()<=0){
+        if($this->vaccination->count() <= 0){
             return false;
         }
+        
         return true;
     }
 

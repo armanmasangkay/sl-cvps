@@ -60,15 +60,18 @@
 
     <!-- gender and birthdate -->
     <div class="row">
-        <div class="col-md-6 pr-md-1 mt-1">
+        <div class="col-md-4 pr-md-1 mt-1">
             <select name="" class="form-control">
                 <option value="">Sex</option>
                 <option value="">Male</option>
                 <option value="">Female</option>
             </select>
         </div>
-        <div class="col-md-6 pl-md-1 mt-1">
+        <div class="col-md-4 px-md-1 mt-1">
             <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+        </div>
+        <div class="col-md-4 pl-md-1 mt-1">
+            <input type="text" class="form-control" placeholder="Contact No">
         </div>
     </div>
 
@@ -77,7 +80,8 @@
         <div class="col-md-12 pr-md-1 mt-1">
             <div class="d-flex justify-content-start">
                 <input type="checkbox" name="consent" class="mt-1 checkbox">
-                <p class="text-secondary pl-2 text-confirm">I confirmed that the above information are true and correct base on my knowledge.</p>
+                <p class="text-secondary pl-2 text-confirm">I confirmed that the above information are 
+                    true and correct base on my knowledge.</p>
             </div>
         </div>
     </div>
