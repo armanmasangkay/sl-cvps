@@ -6,7 +6,7 @@
         <div class="col-md-4 pr-md-1 mt-1">
             <input type="text" class="form-control" placeholder="Category">
         </div>
-        <div class="col-md-4 px-md-1 mt-1">
+        <div class="col-md-4 pl-md-1 pr-md-1 mt-1">
             <select name="" class="form-control">
                 <option value="">Category ID</option>
             </select>

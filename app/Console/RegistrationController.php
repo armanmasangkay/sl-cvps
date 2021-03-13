@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Person;
+// use App\Models\Person;
 
 class RegistrationController extends Controller
 {
     public function view()
     {
-        return view('pages.register')
-                ->with([
-                    'success'=> true, 
-                    'title'  => 'Great!', 
-                    'text'   => 'Registration was successful!'
-                ]);
+        return view('pages.register');
+                // ->with([
+                //     'success'=> true, 
+                //     'title'  => 'Great!', 
+                //     'text'   => 'Registration was successful!'
+                // ]);
     }
 
     public function store(Request $request)

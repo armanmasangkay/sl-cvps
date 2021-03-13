@@ -81,9 +81,8 @@ class RegistrationTest extends TestCase
             'sex'            => 'male',
             'birth_date'     => '1992-01-07'
         ]);
-        
+        $response->dump();
         $response->assertRedirect(route('person.register'));
-        $response->dumpSession();
         $response->assertSessionHas([
             'registered'=> true,
             'title'     => 'Great!',
