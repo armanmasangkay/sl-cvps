@@ -18,6 +18,44 @@ class RegistrationTest extends TestCase
         $response->assertViewIs('pages.register');
     }
 
+    public function test_fail_registration_when_all_required_files_are_not_filled()
+    {
+        $response=$this->post(route('person.register'),[
+            'category'=>'',
+            'category_id'=>'',
+            'category_id_num'=>'',
+            'philhealth_id'=>'',
+            'pwd_id'=>'',
+            'lastname'=>'',
+            'firstname'=>'',
+            'middlename'=>'',
+            'suffix'=>'',
+            'contact_num'=>'',
+            'loc_region'=>'',
+            'loc_prov'=>'',
+            'loc_muni'=>'',
+            'sex'=>'',
+            'birth_date'=>'',
+        ]);
+
+        $response->assertRedirect(route('person.register'));
+        $response->assertSessionHasErrors([
+            'category',
+            'category_id',
+            'category_id_num',
+            'lastname'=>'',
+            'firstname'=>'',
+            'contact_num'=>'',
+            'loc_region'=>'',
+            'loc_prov'=>'',
+            'loc_muni'=>'',
+            'sex'=>'',
+            'birth_date'=>'',
+        ]);
+
+        $this->assertDatabaseCount('people',0);
+    }
+
 
     public function test_save_registration_data()
     {
@@ -36,7 +74,7 @@ class RegistrationTest extends TestCase
             'loc_prov'=>'Southern Leyte',
             'loc_muni'=>'Malitbog',
             'sex'=>'male',
-            'birth_date=>1992-01-07'
+            'birth_date'=>'1992-01-07'
         ]);
 
         $response->assertRedirect(route('person.register'));
@@ -45,6 +83,7 @@ class RegistrationTest extends TestCase
             'message'=>'Registration went through successfully. Thank you!'
         ]);
 
+        $this->assertDatabaseCount('people',1);
         $this->assertDatabaseHas('people',[
             'firstname'=>'Arman',
             'lastname'=>'Masangkay',
