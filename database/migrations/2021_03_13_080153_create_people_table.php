@@ -28,6 +28,7 @@ class CreatePeopleTable extends Migration
             $table->string('loc_region');
             $table->string('loc_prov');
             $table->string('loc_muni');
+            $table->string('loc_brgy')->nullable();
             $table->string('sex');
             $table->date('birth_date');
             $table->timestamps();

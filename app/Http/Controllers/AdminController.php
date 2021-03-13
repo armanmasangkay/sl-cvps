@@ -35,13 +35,22 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     private function passwordCheck($password, $confirm_password)
+     {
+        if($password !== $confirm_password)
+        {
+            return true;
+        }
+     }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
-            'username'              =>      'required|unique:admins,username',
-            'password'              =>      'required',
+            'username'              =>      'required',
+            'password'              =>      'required|min:4',
             'confirm_password'      =>      'required',
             'municipality'          =>      'required',
         ]);
@@ -51,6 +60,20 @@ class AdminController extends Controller
             return redirect(route('admin.create'))->withErrors($validator)->withInput();
         }
 
+
+        if(Admin::adminExist($request->username))
+        {
+            return redirect(route('admin.create'))->withErrors(['username' => 'Username already in use']);
+        }
+
+        if($this->passwordCheck($request->password, $request->confirm_password))
+        {
+            return redirect(route('admin.create'))->withErrors(['password' => 'Password does not match']);
+        }
+
+        
+
+
         $admin = Admin::create([
             'first_name'    =>      $request->first_name,
             'last_name'     =>      $request->last_name,
@@ -59,7 +82,7 @@ class AdminController extends Controller
             'municipality'  =>      $request->municipality
         ]);
 
-        return redirect(route('admin.create'))->with('message' , 'New Admin user added');
+        return redirect(route('admin.create'))->with('created',true)->with('message' , 'New Admin user added');
     }
 
     // /**

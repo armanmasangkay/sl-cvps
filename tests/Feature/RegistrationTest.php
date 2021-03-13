@@ -37,7 +37,7 @@ class RegistrationTest extends TestCase
             'sex'=>'',
             'birth_date'=>'',
         ]);
-
+        
         $response->assertRedirect(route('person.register'));
         $response->assertSessionHasErrors([
             'category',
@@ -58,17 +58,17 @@ class RegistrationTest extends TestCase
 
     public function test_save_registration_data()
     {
-        $response=$this->post(route('person.register'),[
+        $response=$this->post(route('person.store'),[
             'category'=>'Health Care Worker',
             'category_id'=>'PRC Number',
             'category_id_num'=>'123123',
-            'philhealth_id'=>'',
-            'pwd_id'=>'',
+            'philhealth_id'=>'123',
+            'pwd_id'=>'123',
             'lastname'=>'Masangkay',
             'firstname'=>'Arman',
             'middlename'=>'Macasuhot',
-            'suffix'=>'',
-            'contact_num'=>'097573757475',
+            'suffix'=>'123',
+            'contact_num'=>'09757375747',
             'loc_region'=>'Region 8',
             'loc_prov'=>'Southern Leyte',
             'loc_muni'=>'Malitbog',
@@ -76,10 +76,9 @@ class RegistrationTest extends TestCase
             'sex'=>'male',
             'birth_date'=>'1992-01-07'
         ]);
-
+        
         $response->assertRedirect(route('person.register'));
-
-        $response->assertSessionHas([
+        $response->assertSessionHasAll([
             'registered'=>true,
             'message'=>'Registration went through successfully. Thank you!'
         ]);

@@ -9,6 +9,8 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $table = 'people';
+
     protected $fillable=[
         'category',
         'category_id',
@@ -23,6 +25,7 @@ class Person extends Model
         'loc_region',
         'loc_prov',
         'loc_muni',
+        'loc_brgy',
         'sex',
         'birth_date'
     ];

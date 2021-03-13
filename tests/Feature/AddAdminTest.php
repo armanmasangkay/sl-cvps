@@ -38,9 +38,10 @@ class AddAdminTest extends TestCase
             'municipality'  =>  'Tomas Oppus',
         ]);
  
+        // dd($response);
         $response->assertRedirect(route('admin.create'));
         $response->assertSessionHasErrors(['username']);
-        $this->assertDatabaseCount('admins',0);
+        $this->assertDatabaseCount('admins',1);
     }
 
     public function test_add_admin_user_with_valid_information()
@@ -55,7 +56,7 @@ class AddAdminTest extends TestCase
         ]);
     
         $response->assertRedirect(route('admin.create'));
-        $response->assertSessionHas([
+        $response->assertSessionHasAll([
             'created'=>true,
             'message'=>'New Admin user added'
         ]);
@@ -78,6 +79,8 @@ class AddAdminTest extends TestCase
             'confirm_password'=>'1234',
             'municipality'  =>  'Tomas Oppus',
         ]);
+
+
         $response->assertRedirect(route('admin.create'));
         $response->assertSessionHasErrors([
             'password'
