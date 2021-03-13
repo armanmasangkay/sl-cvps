@@ -7,9 +7,7 @@ use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
-    //save registration data
-    //
-
+   
     use RefreshDatabase;
 
     public function test_registration_form_can_be_rendered()
@@ -17,6 +15,7 @@ class RegistrationTest extends TestCase
         $response=$this->get(route('person.register'));
         $response->assertViewIs('pages.register');
     }
+
 
     public function test_fail_registration_when_all_required_files_are_not_filled()
     {
@@ -34,6 +33,7 @@ class RegistrationTest extends TestCase
             'loc_region'=>'',
             'loc_prov'=>'',
             'loc_muni'=>'',
+            'loc_brgy'=>'',
             'sex'=>'',
             'birth_date'=>'',
         ]);
@@ -43,16 +43,16 @@ class RegistrationTest extends TestCase
             'category',
             'category_id',
             'category_id_num',
-            'lastname'=>'',
-            'firstname'=>'',
-            'contact_num'=>'',
-            'loc_region'=>'',
-            'loc_prov'=>'',
-            'loc_muni'=>'',
-            'sex'=>'',
-            'birth_date'=>'',
+            'lastname',
+            'firstname',
+            'contact_num',
+            'loc_region',
+            'loc_prov',
+            'loc_muni',
+            'loc_brgy',
+            'sex',
+            'birth_date',
         ]);
-
         $this->assertDatabaseCount('people',0);
     }
 
@@ -82,7 +82,6 @@ class RegistrationTest extends TestCase
             'registered'=>true,
             'message'=>'Registration went through successfully. Thank you!'
         ]);
-
         $this->assertDatabaseCount('people',1);
         $this->assertDatabaseHas('people',[
             'firstname'=>'Arman',

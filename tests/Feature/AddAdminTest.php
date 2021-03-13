@@ -27,28 +27,32 @@ class AddAdminTest extends TestCase
             'confirm_password'=>'1234',
             'municipality'  =>  'Tomas Oppus',
         ]);
-
         $this->assertDatabaseHas('admins',[
             'username'=>'jvcadz'
         ]);
-
         $response->assertRedirect(route('admin.create'));
         $response->assertSessionHas('message', 'New Admin user added');
     }
-
-    public function test_add_admin_user_with_invalid_information()
+    
+    public function test_fail_when_all_required_info_was_not_supplied()
     {
         $response = $this->post(route('admin.store'),[
             'first_name'=>'',
-            'last_name'=>'Cadz',
-            'username'=>'jvcadz',
-            'password'=>'1234',
-            'confirm_password'=>'1234',
-            'municipality'  =>  'Tomas Oppus',
+            'last_name'=>'',
+            'username'=>'',
+            'password'=>'',
+            'confirm_password'=>'',
+            'municipality'  =>  '',
         ]);
 
-        $response->assertRedirect();
-        $response->assertSessionHasErrors();
+        $response->assertRedirect(route('admin.create'));
+        $response->assertSessionHasErrors([
+            'first_name',
+            'last_name',
+            'username',
+            'password',
+            'confirm_password'
+        ]);
 
     }
 }
