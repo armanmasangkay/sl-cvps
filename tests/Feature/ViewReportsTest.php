@@ -15,6 +15,8 @@ class ViewReportsTest extends TestCase
         $response=$this->get(route('superadmin.reports'));
         $response->assertViewIs('pages.superadmin.reports');
     }
+
+
     public function test_view_reports_ui_with_vaccinated_individuals()
     {
         $person=Person::create([
@@ -34,12 +36,11 @@ class ViewReportsTest extends TestCase
             'sex'=>'male',
             'birth_date'=>'2017-08-20'
         ]);
+
         Vaccination::create([
             'person_id'=>$person->id,
         ]);
-
         $response=$this->get(route('superadmin.reports'));
-
         $response->dump();
         $response->assertViewIs('pages.superadmin.reports');
         $response->assertViewHas('vaccinateds');
@@ -49,6 +50,7 @@ class ViewReportsTest extends TestCase
         $this->assertEquals('Arman',$vaccinatedPerson->firstname);
         $this->assertTrue($hasVaccinateds);
     }
+
 
 
 

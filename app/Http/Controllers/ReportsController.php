@@ -14,7 +14,6 @@ class ReportsController extends Controller
         $this->personRepository=$personRepository;
     }
 
-
     public function index()
     {
         $vaccinateds=$this->personRepository->getAllVaccinated();
