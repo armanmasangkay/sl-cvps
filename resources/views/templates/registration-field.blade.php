@@ -18,59 +18,59 @@
 
     <!-- philhealth and pwd id -->
     <div class="row">
-        <div class="col-md-6 pr-md-1 mt-1">
+        <div class="col-md-6 pr-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Philhealth ID">
         </div>
-        <div class="col-md-6 pl-md-1 mt-1">
+        <div class="col-md-6 pl-md-1 mt-2">
             <input type="text" class="form-control" placeholder="PWD ID">
         </div>
     </div>
 
     <!-- name -->
     <div class="row">
-        <div class="col-md-3 pr-md-1 mt-1">
+        <div class="col-md-3 pr-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Lastname">
         </div>
-        <div class="col-md-3 px-md-1 mt-1">
+        <div class="col-md-3 px-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Firstname">
         </div>
-        <div class="col-md-3 px-md-1 mt-1">
+        <div class="col-md-3 px-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Middlename">
         </div>
-        <div class="col-md-3 pl-md-1 mt-1">
+        <div class="col-md-3 pl-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Suffix">
         </div>
     </div>
 
     <!-- address -->
     <div class="row">
-        <div class="col-md-6 pr-md-1 mt-1">
+        <div class="col-md-6 pr-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Current Residence Region">
         </div>
-        <div class="col-md-6 pl-md-1 mt-1">
+        <div class="col-md-6 pl-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Current Residence Province">
         </div>
-        <div class="col-md-6 pr-md-1 mt-1">
+        <div class="col-md-6 pr-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Current Residence Municipality/City">
         </div>
-        <div class="col-md-6 pl-md-1 mt-1">
+        <div class="col-md-6 pl-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Current Residence Barangay">
         </div>
     </div>
 
     <!-- gender and birthdate -->
     <div class="row">
-        <div class="col-md-4 pr-md-1 mt-1">
+        <div class="col-md-4 pr-md-1 mt-2">
             <select name="" class="form-control">
                 <option value="">Sex</option>
                 <option value="">Male</option>
                 <option value="">Female</option>
             </select>
         </div>
-        <div class="col-md-4 px-md-1 mt-1">
+        <div class="col-md-4 px-md-1 mt-2">
             <input type="date" class="form-control" placeholder="dd/mm/yyyy">
         </div>
-        <div class="col-md-4 pl-md-1 mt-1">
+        <div class="col-md-4 pl-md-1 mt-2">
             <input type="text" class="form-control" placeholder="Contact No">
         </div>
     </div>
