@@ -24,11 +24,11 @@ class RegistrationController extends Controller
             'category'       => 'required',
             'category_id'    => 'required',
             'category_id_num'=> 'required',
-            'philhealth_id'  =>'',
+            'philhealth_id'  =>'', 
             'pwd_id'         =>'',
-            'last_name'      => 'required',
-            'first_name'     => 'required',
-            'middle_name'    => '',
+            'lastname'      => 'required',
+            'firstname'     => 'required',
+            'middlename'    => '',
             'suffix'         => '',
             'contact_num'    => 'required|min:11|numeric',
             'loc_region'     => '',
@@ -39,6 +39,7 @@ class RegistrationController extends Controller
             'birth_date'     => 'required'
         ]);
 
+        // dd($validator->errors());
         if($validator->fails())
         {
             return redirect(route('person.register'))
@@ -59,8 +60,8 @@ class RegistrationController extends Controller
                     ->withInput();
         }
 
-        $date = new DateTime($request->birth_date);
-        $preson = Person::create([
+        // $date = new DateTime($request->birth_date);
+        $person = Person::create([
             'category'       => $request->category,
             'category_id'    => $request->category_id,
             'category_id_num'=> $request->category_id_num,
@@ -76,14 +77,13 @@ class RegistrationController extends Controller
             'loc_muni'       => $request->loc_muni,
             'loc_brgy'       => $request->loc_brgy,
             'sex'            => $request->sex,
-            'birth_date'     => $date->format('Y-m-d')
+            // 'birth_date'     => $date->format('Y-m-d')
+            'birth_date'    => $request->birth_date
         ]);
 
         return redirect(route('person.register'))
-                ->with([
-                    'registered'=> true,
-                    'message'   => 'Registration went through successfully. Thank you!'
-                ]);
-    
+            ->with('registered',true,)
+            ->with('message', 'Registration went through successfully. Thank you!');
+        
     }
 }

@@ -11,6 +11,7 @@
             <h4 class="text-primary mt-1 pt-1 text-content-heading">COVID-19 Vaccination Passport</h4>
         </div>
         <form action="" method="post">
+            @csrf
             @include('templates.registration-field')
         </form>
     </div>

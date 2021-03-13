@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::resource('admin', AdminController::class);
 
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
-Route::post('/register', [RegistrationController::class, 'store']);
+Route::post('/register', [RegistrationController::class, 'store'])->name('person.store');
 
 Route::resource('admin', AdminController::class);
 
