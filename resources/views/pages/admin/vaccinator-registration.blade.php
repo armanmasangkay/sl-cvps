@@ -61,6 +61,12 @@
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
 
+                        <label class="text-secondary">Role <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="role" value="{{ old('role') }}" required>
+                        @error('role')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
+
                         <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
                         <select name="facility" class="form-control mb-1" required>
                             <option value="11"></option>
