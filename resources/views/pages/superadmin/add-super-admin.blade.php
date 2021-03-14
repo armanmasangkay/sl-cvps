@@ -27,8 +27,8 @@
                         <small class="text-secondary text-p-info pt-2">User Account</small>
                         <div class="form-group pt-1">
                             <input type="text" class="form-control mb-1" placeholder="Username">
-                            <input type="text" class="form-control mb-1" placeholder="Password">
-                            <input type="text" class="form-control mb-1" placeholder="Confirm Password">
+                            <input type="password" class="form-control mb-1" placeholder="Password">
+                            <input type="password" class="form-control mb-1" placeholder="Confirm Password">
                         </div>
                         
                         <center>
