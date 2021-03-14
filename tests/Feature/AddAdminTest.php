@@ -38,7 +38,7 @@ class AddAdminTest extends TestCase
             'municipality'  =>  'Tomas Oppus',
         ]);
  
-        // dd($response);
+
         $response->assertRedirect(route('admin.create'));
         $response->assertSessionHasErrors(['username']);
         $this->assertDatabaseCount('admins',1);

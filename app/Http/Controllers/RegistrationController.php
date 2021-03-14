@@ -38,8 +38,6 @@ class RegistrationController extends Controller
             'sex'            => 'required',
             'birth_date'     => 'required'
         ]);
-
-        // dd($validator->errors());
         if($validator->fails())
         {
             return redirect(route('person.register'))
@@ -59,8 +57,6 @@ class RegistrationController extends Controller
                     ])
                     ->withInput();
         }
-
-        // $date = new DateTime($request->birth_date);
         $person = Person::create([
             'category'       => $request->category,
             'category_id'    => $request->category_id,
@@ -77,12 +73,11 @@ class RegistrationController extends Controller
             'loc_muni'       => $request->loc_muni,
             'loc_brgy'       => $request->loc_brgy,
             'sex'            => $request->sex,
-            // 'birth_date'     => $date->format('Y-m-d')
             'birth_date'    => $request->birth_date
         ]);
 
         return redirect(route('person.register'))
-            ->with('registered',true,)
+            ->with('registered',true)
             ->with('message', 'Registration went through successfully. Thank you!');
         
     }
