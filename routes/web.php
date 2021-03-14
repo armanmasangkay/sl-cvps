@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ViewAddUserAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::post('/register', [RegistrationController::class, 'store']);
 Route::resource('admin', AdminController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
+
+Route::get('/add-new-user',[ViewAddUserAdminController::class,'view']);
