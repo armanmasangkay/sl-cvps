@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VaccinatorRequest;
 use App\Repositories\Contracts\VaccinatorRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,9 +32,9 @@ class VaccinatorController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(VaccinatorRequest $request)
     {
-        $validator=$this->createVaccinatorValidator($request->all());
+        $validator=$this->createVaccinatorValidator($request->validated());
 
         if($validator->fails()){
             return redirect(route('vaccinator.create'))->withErrors($validator);
