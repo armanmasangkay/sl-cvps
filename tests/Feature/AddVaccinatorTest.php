@@ -22,6 +22,31 @@ class AddVaccinatorTest extends TestCase
       $response->assertViewIs('pages.admin.vaccinator-registration');
   }
 
+  public function test_fail_if_required_data_is_not_available()
+  {
+    $response=$this->post(route('vaccinator.store'),[
+      'firstname'=>'',
+      'middlename'=>'',
+      'lastname'=>'',
+      'position'=>'',
+      'role'=>'',
+      'facility'=>'',
+      'prc'=>''
+    ]);
+    
+    $response->assertRedirect(route('vaccinator.create'));
+    $response->assertSessionHasErrors([
+      'firstname',
+      'lastname',
+      'position',
+      'role',
+      'facility',
+      'prc'
+    ]);
+    $this->assertDatabaseCount('vaccinators',0);
+  
+  }
+
   public function test_vaccinator_can_be_saved_to_db()
   {
     $response=$this->post(route('vaccinator.store'),[
