@@ -17,7 +17,7 @@ class VaccinatorController extends Controller
     }
     public function create()
     {
-        return view('pages.admin.vaccinator-registration');
+        return view('pages.admin.vaccinator-registration', ['user' => 'Admin']);
     }
 
     private function createVaccinatorValidator($data)
@@ -44,7 +44,8 @@ class VaccinatorController extends Controller
 
         return redirect(route('vaccinator.create'))->with([
             'created'=>true,
-            'message'=>'Vaccinator successfully registered.'
+            'title' => 'Great!',
+            'text'=>'Vaccinator successfully registered.'
         ]);
     }
 }

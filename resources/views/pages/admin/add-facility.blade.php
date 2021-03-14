@@ -3,7 +3,7 @@
 @include('templates.navigation')
 
 @section('content')
-<div class="container mt-3">
+<div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
@@ -18,15 +18,18 @@
 
                 <form action="" method="post" class="mt-2">
                     <div class="form-group">
-                        <input type="text" class="form-control mb-1" placeholder="Facility name">
+                        <label class="text-secondary">Facility Name <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1">
+
+                        <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="" class="form-control mb-1">
-                            <option value="">Select municipality</option>
+                            <option value=""></option>
                         </select>
                     </div>
                     
                     <center>
-                        <button class="btn btn-primary pb-2">Register</button>
-                        <button class="btn btn-secondary pb-2">Cancel</button>
+                        <button type="submit" class="btn btn-primary pb-2">Register</button>
+                        <a href="" class="btn btn-secondary pb-2">Cancel</a>
                     </center>
                 </form>
             </div>

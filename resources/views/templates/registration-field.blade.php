@@ -103,7 +103,7 @@
     <div class="row">
         <div class="col-md-4 pr-md-1 mt-2">
             <label class="text-secondary">Sex <small class="text-danger">(required)</small></label>
-            <select name="sex" class="form-control">
+            <select name="sex" class="form-control" required>
                 <option value=""></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>

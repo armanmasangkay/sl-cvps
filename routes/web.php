@@ -27,7 +27,7 @@ Route::resource('admin', AdminController::class);
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
 Route::post('/register', [RegistrationController::class, 'store']);
 
-Route::resource('admin', AdminController::class);
+// Route::resource('admin', AdminController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
 

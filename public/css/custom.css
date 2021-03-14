@@ -14,7 +14,7 @@ input::placeholder{
 }
 
 .register input[type='text'], .register select,
-.register input[type='date']{
+.register input[type='date'], .register input[type="password"]{
     margin-top: -5px !important;
 }
 

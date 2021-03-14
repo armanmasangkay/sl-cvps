@@ -3,7 +3,26 @@
 @include('templates.navigation')
 
 @section('content')
-<div class="container mt-3">
+
+@if(Session::get('created') === true)
+<script>
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+        icon: 'success',
+        title: '{{ Session::get("title") }}',
+        text: '{{ Session::get("text") }}',
+        footer: ' '
+    })
+</script>
+@endif
+
+<div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
@@ -16,22 +35,49 @@
             <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded">
                 <small class="text-secondary text-p-info pt-2">Basic Information</small>
 
-                <form action="" method="post" class="mt-2">
+                <form action="{{ route('vaccinator.store') }}" method="post" class="mt-2">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control mb-1" placeholder="Firstname">
-                        <input type="text" class="form-control mb-1" placeholder="Middlename">
-                        <input type="text" class="form-control mb-1" placeholder="Lastname">
-                        <select name="" class="form-control mb-1">
-                            <option value="">Select position</option>
+                        <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
+                        @error('lastname')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
+
+                        <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="firstname" value="{{ old('firstname') }}" required>
+                        @error('firstname')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
+
+                        <label class="text-secondary">Middlename <small class="text-gray">(optional)</small></label>
+                        <input type="text" class="form-control mb-1" name="middlename" value="{{ old('middlename') }}">
+
+                        <label class="text-secondary">Position <small class="text-danger">(required)</small></label>
+                        <select name="position" class="form-control mb-1" required>
+                            <option value="1"></option>
                         </select>
-                        <select name="" class="form-control mb-1">
-                            <option value="">Select facility</option>
+                        @error('position')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
+
+                        <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
+                        <select name="facility" class="form-control mb-1" required>
+                            <option value="11"></option>
                         </select>
-                        <input type="text" class="form-control mb-1" placeholder="PRC number">
+                        @error('facility')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
+
+                        <label class="text-secondary">PRC No <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="prc" value="{{ old('prc') }}" required>
+                        @error('prc')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
                     </div>
                     
                     <center>
-                        <button class="btn btn-primary pb-2">Register</button>
+                        <button type="submit" class="btn btn-primary pb-2">Register</button>
                         <button class="btn btn-secondary pb-2">Cancel</button>
                     </center>
                 </form>

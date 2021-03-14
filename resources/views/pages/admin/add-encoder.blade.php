@@ -3,7 +3,7 @@
 @include('templates.navigation')
 
 @section('content')
-<div class="container mt-3">
+<div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
@@ -18,23 +18,39 @@
 
                 <form action="" method="post" class="mt-2">
                     <div class="form-group">
-                        <input type="text" class="form-control mb-1" placeholder="Firstname">
-                        <input type="text" class="form-control mb-1" placeholder="Middlename">
-                        <input type="text" class="form-control mb-1" placeholder="Lastname">
-                        <input type="text" class="form-control mb-1" placeholder="Suffix">
+                        <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="firstname">
+
+                        <label class="text-secondary">Mirstname <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="middlename">
+
+                        <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="lastname">
+
+                        <label class="text-secondary">Suffix <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="suffix">
+
+                        <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="" class="form-control mb-1">
-                            <option value="">Select municipality</option>
+                            <option value=""></option>
                         </select>
+
+                        <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
                         <select name="" class="form-control">
-                            <option value="">Select facility</option>
+                            <option value=""></option>
                         </select>
                     </div>
 
                     <small class="text-secondary text-p-info pt-2">User Account</small>
                     <div class="form-group pt-1">
-                        <input type="text" class="form-control mb-1" placeholder="Username">
-                        <input type="password" class="form-control mb-1" placeholder="Password">
-                        <input type="password" class="form-control mb-1" placeholder="Confirm Password">
+                        <label class="text-secondary">Username <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1">
+
+                        <label class="text-secondary">Password <small class="text-danger">(required)</small></label>
+                        <input type="password" class="form-control mb-1">
+
+                        <label class="text-secondary">Confirm Password <small class="text-danger">(required)</small></label>
+                        <input type="password" class="form-control mb-1">
                     </div>
                     
                     <center>
