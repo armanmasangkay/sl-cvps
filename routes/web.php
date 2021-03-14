@@ -25,5 +25,6 @@ Route::get('/register', [RegistrationController::class, 'view'])->name('person.r
 Route::post('/register', [RegistrationController::class, 'store'])->name('person.store');
 
 Route::resource('admin', AdminController::class);
+Route::resource('vaccine', App\Http\Controller\VaccineController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');

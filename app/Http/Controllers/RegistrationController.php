@@ -39,7 +39,6 @@ class RegistrationController extends Controller
             'birth_date'     => 'required'
         ]);
 
-        // dd($validator->errors());
         if($validator->fails())
         {
             return redirect(route('person.register'))
