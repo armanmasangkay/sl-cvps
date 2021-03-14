@@ -16,4 +16,9 @@ class Admin extends Model
         'password',
         'municipality',
     ];
+
+    public static function adminExist($username)
+    {
+        return Admin::where('username', '=', $username)->exists();
+    }
 }
