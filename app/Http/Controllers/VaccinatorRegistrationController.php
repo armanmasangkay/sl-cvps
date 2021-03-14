@@ -7,6 +7,6 @@ class VaccinatorRegistrationController extends Controller
     public function create()
     {
 
-        return view('pages.admin.vaccinator-registration', ['user' => 'Admin']);
+        return view('pages.admin.add-encoder', ['user' => 'Admin']);
     }
 }
