@@ -69,13 +69,17 @@
             @enderror
         </div>
         <div class="col-md-6 pr-md-1 mt-2">
-            <input type="text" class="form-control" name="loc_muni" placeholder="Current Residence Municipality/City  (required)" required value="{{ old('loc_muni') }}">
+            <select type="text" class="form-control" name="loc_muni" required value="{{ old('loc_muni') }}">
+                <option value="">Current Residence Municipality/City  (required)</option>
+            </select>
             @error('loc_muni')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
-            <input type="text" class="form-control" name="loc_brgy" placeholder="Current Residence Barangay  (required)" required value="{{ old('loc_brgy') }}">
+            <select type="text" class="form-control" name="loc_brgy"  required value="{{ old('loc_brgy') }}">
+                <option value="">Current Residence Barangay  (required)</option>
+            </select>
             @error('loc_brgy')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
