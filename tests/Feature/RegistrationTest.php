@@ -80,7 +80,8 @@ class RegistrationTest extends TestCase
         $response->assertRedirect(route('person.register'));
         $response->assertSessionHasAll([
             'registered'=>true,
-            'message'=>'Registration went through successfully. Thank you!'
+            'title'=>'Great!',
+            'text'=>'Registration went through successfully. Thank you!'
         ]);
         $this->assertDatabaseCount('people',1);
         $this->assertDatabaseHas('people',[

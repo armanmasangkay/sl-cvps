@@ -12,9 +12,9 @@ class RegistrationController extends Controller
     {
         return view('pages.register')
                 ->with([
-                    'success'=> true, 
-                    'title'  => 'Great!', 
-                    'text'   => 'Registration was successful!'
+                    'registered'=> '', 
+                    'title'     => '', 
+                    'text'      => ''
                 ]);
     }
 
@@ -38,6 +38,7 @@ class RegistrationController extends Controller
             'sex'            => 'required',
             'birth_date'     => 'required'
         ]);
+
         if($validator->fails())
         {
             return redirect(route('person.register'))
@@ -57,18 +58,29 @@ class RegistrationController extends Controller
                     ])
                     ->withInput();
         }
+        
+        if($request->confirm === null)
+        {
+            return redirect(route('person.register'))
+                    ->with([
+                        'registered' => false,
+                        'title'      => 'Sorry!',
+                        'text'       => 'Cannot register information, please confirm your information to register. Thank you!'
+                    ])->withInput();
+        }
+
         $person = Person::create([
             'category'       => $request->category,
             'category_id'    => $request->category_id,
             'category_id_num'=> $request->category_id_num,
-            'philhealth_id'  => $request->philhealth_id,
-            'pwd_id'         => $request->pwd_id,
+            'philhealth_id'  => (empty($request->philhealth_id) ? 'N/A' : $request->philhealth_id),
+            'pwd_id'         => (empty($request->pwd_id) ? 'N/A' : $request->pwd_id),
             'lastname'       => $request->lastname,
             'firstname'      => $request->firstname,
-            'middlename'     => $request->middlename,
-            'suffix'         => $request->suffix,
+            'middlename'     => (empty($request->middlename) ? 'N/A' : $request->middlename),
+            'suffix'         => (empty($request->suffix) ? 'N/A' : $request->suffix),
             'contact_num'    => $request->contact_num,
-            'loc_region'     => $request->loc_region,
+            'loc_region'     => (empty($request->loc_region) ? 'N/A' : $request->loc_region),
             'loc_prov'       => $request->loc_prov,
             'loc_muni'       => $request->loc_muni,
             'loc_brgy'       => $request->loc_brgy,
@@ -77,8 +89,11 @@ class RegistrationController extends Controller
         ]);
 
         return redirect(route('person.register'))
-            ->with('registered',true)
-            ->with('message', 'Registration went through successfully. Thank you!');
-        
+            ->with([
+                'registered' => true,
+                'title'      => 'Great!',
+                'text'       => 'Registration went successfully. Thank you!'
+            ]);
+    
     }
 }
