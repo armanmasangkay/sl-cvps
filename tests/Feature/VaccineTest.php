@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Municipality;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -9,7 +10,7 @@ use Tests\TestCase;
 class VaccineTest extends TestCase
 {
 
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
     public function test_display_the_add_form_vaccine()
     {
@@ -19,13 +20,15 @@ class VaccineTest extends TestCase
 
     public function test_add_vaccine_with_valid_information()
     {
-        $response = $this->post(route('vaccine.store'),
-        [
-            'batch_number'          =>      '1',
-            'lot_number'            =>      '1',
-            'vaccine_manufacturer'  =>      'Pfizer',
-            'municipality_id'          =>      'Tomas Oppus'
-        ]);
+        $response = $this->post(
+            route('vaccine.store'),
+            [
+                'batch_number'          =>      '1',
+                'lot_number'            =>      '1',
+                'vaccine_manufacturer'  =>      'Pfizer',
+                'municipality_id'          =>      'Tomas Oppus'
+            ]
+        );
 
 
         $response->assertRedirect(route('vaccine.create'));
@@ -34,7 +37,7 @@ class VaccineTest extends TestCase
             'message' => 'New vaccine added'
         ]);
 
-        $this->assertDatabaseHas('vaccines',[
+        $this->assertDatabaseHas('vaccines', [
             'batch_number'  => '1'
         ]);
 
@@ -43,19 +46,32 @@ class VaccineTest extends TestCase
 
     public function test_fail_if_required_information_are_not_supplied()
     {
-        $response = $this->post(route('vaccine.store'),[
+        $response = $this->post(route('vaccine.store'), [
             'batch'                 =>      '',
             'lot_number'            =>      '',
             'vaccine_manufacturer'  =>      '',
             'municipality_id'       =>      '',
         ]);
 
-        $response->assertRediret(route('vaccine.craete'));
+        $response->assertRedirect(route('vaccine.create'));
         $response->assertSessionHasErrors([
-            'batch',
+            'batch_number',
             'lot_number',
             'vaccine_manufacturer',
-            'municipality'
+            'municipality_id'
         ]);
+    }
+
+    public function test_fail_if_supplied_municipality_not_exist_in_database_list()
+    {
+        $response = $this->post(route('vaccine.store'), [
+            'batch_number'          =>      '1',
+            'lot_number'            =>      '1',
+            'vaccine_manufacturer'  =>      'Pfizer',
+            'municipality_id'          =>      'Tomas Oppussss'
+        ]);
+
+        $response->assertRedirect(route('vaccine.create'));
+        $response->assertSessionHasErrors(['municipality_id']);
     }
 }

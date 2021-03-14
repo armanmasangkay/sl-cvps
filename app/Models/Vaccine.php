@@ -13,6 +13,6 @@ class Vaccine extends Model
         'batch_number',
         'lot_number',
         'vaccine_manufacturer',
-        'municipality'
+        'municipality_id'
     ];
 }

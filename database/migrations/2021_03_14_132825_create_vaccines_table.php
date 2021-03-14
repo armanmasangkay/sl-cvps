@@ -20,7 +20,7 @@ class CreateVaccinesTable extends Migration
             $table->string('vaccine_manufacturer');
             $table->unsignedBigInteger('municipality_id');
             $table->timestamps();
-            $table->foreign('municipality_id')->references('id')->on('municipality')->onDelete('cascade');
+            $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade');
         });
     }
 

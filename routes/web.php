@@ -4,7 +4,7 @@ use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
-use App\Models\Vaccination;
+use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +25,6 @@ Route::get('/register', [RegistrationController::class, 'view'])->name('person.r
 Route::post('/register', [RegistrationController::class, 'store'])->name('person.store');
 
 Route::resource('admin', AdminController::class);
-Route::resource('vaccine', App\Http\Controller\VaccineController::class);
+Route::resource('vaccine', VaccineController::class);
 
-Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
+Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
