@@ -30,10 +30,6 @@ Route::resource('admin', AdminController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
 
-<<<<<<< HEAD
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 
-=======
-Route::get('/add-new-user',[ViewAddUserAdminController::class,'view']);
->>>>>>> 58922f10ac2b9d951a39ea508ec92184774104f2
 Route::get('/register/vaccinator',[VaccinatorRegistrationController::class,'create'])->name('admin.vaccinator-registration');
