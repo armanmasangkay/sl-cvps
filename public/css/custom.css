@@ -5,10 +5,21 @@
 
 h3, h4, h5, select, input[type="date"],
 input::placeholder, p, .form-control, 
-button, small{
+button, small, .register label{
     font-weight: 100 !important;
 }
 
+input::placeholder{
+    color: #c2c2c2 !important
+}
+
+.register input[type='text'], .register select{
+    margin-top: -5px !important;
+}
+
+select ~ option:nth-child(1){
+    color: #c2c2c2 !important
+}
 select{
     color: #575757 !important
 }
