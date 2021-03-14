@@ -13,7 +13,8 @@ input::placeholder{
     color: #c2c2c2 !important
 }
 
-.register input[type='text'], .register select{
+.register input[type='text'], .register select,
+.register input[type='date']{
     margin-top: -5px !important;
 }
 
