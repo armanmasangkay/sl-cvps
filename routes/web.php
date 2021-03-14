@@ -4,9 +4,9 @@ use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ViewAddUserAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +19,14 @@ use App\Http\Controllers\ViewAddUserAdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::resource('admin', AdminController::class);
 
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
-Route::post('/register', [RegistrationController::class, 'store']);
+Route::post('/register', [RegistrationController::class, 'store'])->name('person.store');
 
 Route::resource('admin', AdminController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
 
-Route::get('/add-new-user',[ViewAddUserAdminController::class,'view']);
+Route::get('/register/vaccinator',[VaccinatorRegistrationController::class,'create'])->name('admin.vaccinator-registration');
