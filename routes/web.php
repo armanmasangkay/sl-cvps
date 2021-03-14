@@ -33,5 +33,4 @@ Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.repo
 
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 
-Route::get('/register/vaccinator',[VaccinatorRegistrationController::class,'create'])->name('admin.vaccinator-registration');
 Route::resource('vaccinator',VaccinatorController::class);
