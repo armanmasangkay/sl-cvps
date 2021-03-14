@@ -10,7 +10,7 @@
                 <!-- super admin nav menu -->
                 @if($user == 'Super Admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Add Amin</a>
+                    <a class="nav-link" href="{{ route('admin.create') }}">Add Amin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('superadmin.reports') }}">View Reports</a>
@@ -23,10 +23,11 @@
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item text-secondary" href="#">Vaccinator</a>
-                        <a class="dropdown-item text-secondary" href="#">Facility</a>
-                        <a class="dropdown-item text-secondary" href="#">Vaccine</a>
-                        <a class="dropdown-item text-secondary mb-1" href="#">Encoder</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('admin.create') }}">Admin</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('vaccinator.create') }}">Vaccinator</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('facility.create') }}">Facility</a>
+                        <a class="dropdown-item text-secondary" href="">Vaccine</a>
+                        <a class="dropdown-item text-secondary mb-1" href="{{ route('encoder.create') }}">Encoder</a>
                     </div>
                 </li>
                 <li class="nav-item">

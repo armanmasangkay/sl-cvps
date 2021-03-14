@@ -3,6 +3,25 @@
 @include('templates.navigation')
 
 @section('content')
+
+@if(Session::get('registered') === true)
+<script>
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+        icon: 'success',
+        title: '{{ Session::get("title") }}',
+        text: '{{ Session::get("text") }}',
+        footer: ' '
+    })
+</script>
+@endif
+
 <div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -16,15 +35,22 @@
             <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded">
                 <small class="text-secondary text-p-info pt-2">Basic Facility Information</small>
 
-                <form action="" method="post" class="mt-2">
+                <form action="{{ route('facility.store') }}" method="post" class="mt-2">
+                    @csrf
                     <div class="form-group">
                         <label class="text-secondary">Facility Name <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1">
+                        <input type="text" class="form-control mb-1" name="facility_name" value="{{ old('facility') }}" required>
+                        @error('facility_name')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
 
                         <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
-                        <select name="" class="form-control mb-1">
-                            <option value=""></option>
+                        <select name="municipality" class="form-control mb-1" required>
+                            <option value="1"></option>
                         </select>
+                        @error('municipality')
+                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                        @enderror
                     </div>
                     
                     <center>
