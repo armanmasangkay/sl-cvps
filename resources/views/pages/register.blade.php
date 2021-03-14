@@ -16,6 +16,8 @@
         </form>
     </div>
 
+    @include('templates.collaboration')
+
     @if($success === false)
     <script>
         const swalWithBootstrapButtons = Swal.mixin({
