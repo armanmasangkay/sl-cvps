@@ -34,13 +34,8 @@ class AdminController extends Controller
 
     public function index()
     {
-<<<<<<< HEAD
-
-    
-=======
         $user = User::where('role', '1')->get();
         return view('pages.superadmin.admin-lists')->with('users', $user);
->>>>>>> 2ef2c531bd617904d9ce9d8cce4ce37e650d6c4a
     }
 
     // /**
