@@ -20,21 +20,27 @@
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
-                        <tr class="border-bottom-1">
-                            <td class="pt-2 pb-0">1</td>
-                            <td class="pt-2 pb-0">12344</td>
-                            <td class="pt-2 pb-0">N/A</td>
-                            <td class="pt-2 pb-0">SLSU Chemists</td>
-                            <td class="pt-2 pb-0" colspan="2">
-                                <div class="d-flex justify-content-start">
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="" method="post">
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        @forelse ($vaccines as $vaccine)
+                            <tr class="border-bottom-1">
+                                <td class="pt-2 pb-0">1</td>
+                                <td class="pt-2 pb-0">12344</td>
+                                <td class="pt-2 pb-0">N/A</td>
+                                <td class="pt-2 pb-0">SLSU Chemists</td>
+                                <td class="pt-2 pb-0" colspan="2">
+                                    <div class="d-flex justify-content-start">
+                                        <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                        <form action="" method="post">
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr class="border-bottom-1">
+                                <td colspan="6" class="text-center text-gray">No record found</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
