@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User as FacadesUser;
 use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,9 +26,17 @@ class AdminController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
+    
+
+
     public function create()
     {
-        return view('pages.admin.add-new');
+        return view('pages.admin.add-new',['user'=>]);
+    }
+
+    public function view()
+    {
+        return view('pages.admin.admin-lists');
     }
 
     /**
@@ -80,15 +89,21 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
+<<<<<<< HEAD
+        
+        User::create([
+=======
 
 
 
         $admin = Admin::create([
+>>>>>>> 28c49a4e25bc95722578164ce742f646abbb0ccb
             'first_name'    =>      $request->first_name,
             'last_name'     =>      $request->last_name,
             'username'      =>      $request->username,
             'password'      =>      bcrypt($request->password),
-            'municipality'  =>      $request->municipality
+            'municipality'  =>      $request->municipality,
+            'role'          =>      FacadesUser::ADMIN
         ]);
 
         return redirect(route('admin.create'))->with([
