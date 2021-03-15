@@ -26,7 +26,7 @@ class EncoderController extends Controller
         $validator = Validator::make($request->all(), [
             'firstname'            =>      'required',
             'lastname'             =>      'required',
-            'username'              =>      'required',
+            'username'              =>      'required|unique:users,username',
             'password'              =>      'required|min:4',
             'confirm'               =>      'required',
             'municipality'          =>      'required',

@@ -89,8 +89,6 @@ class AdminController extends Controller
         }
 
         
-
-
         User::create([
             'first_name'    =>      Str::title($request->first_name),
             'last_name'     =>      Str::title($request->last_name),
