@@ -107,7 +107,6 @@
 
                     <center class="mt-4">
                         <button type="submit" class="btn btn-primary pb-2">Register</button>
-                        <button class="btn btn-secondary pb-2">Cancel</button>
                     </center>
                 </form>
             </div>

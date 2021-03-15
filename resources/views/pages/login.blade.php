@@ -33,7 +33,6 @@
 
                             <center>
                                 <button class="btn btn-primary pb-2 mb-2 mt-1">Log in</button>
-                                <button class="btn btn-secondary pb-2 mb-2 mt-1">Cancel</button>
                             </center>
                         </form>
                     </div>

@@ -151,7 +151,6 @@
     <div class="row mt-3">
         <div class="col-md-12 pr-md-1 mt-1">
             <button type="sbumit" class="btn btn-primary pb-2">Confirm</button>
-            <a href="" class="btn btn-secondary pb-2">Cancel</a>
         </div>
     </div>
 </div>
