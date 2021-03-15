@@ -1,4 +1,4 @@
-<div class="container mt-5 pt-3">
+<div class="container mt-2">
     <p class="text-center text-gray text-muted text-dev">Developed by: SLSU-CCSIT Developer Team</p>
 </div>
 

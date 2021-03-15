@@ -1,21 +1,21 @@
-<div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register">
+<div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register shadow-sm bg-white">
     <h5 class="text-secondary text-p-info">Personal Information</h5>
 
     <!-- name -->
     <div class="row">
         <div class="col-md-3 pr-md-1 mt-2">
-            <label class="text-secondary">Firstname<small class="text-danger">(required)</small></label>
+            <label class="text-secondary">First name<small class="text-danger">(required)</small></label>
             <input type="text" class="form-control" name="firstname" required value="{{ old('firstname') }}">
             @error('firstname')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
         </div>
         <div class="col-md-3 px-md-1 mt-2">
-            <label class="text-secondary">Middlename <small class="text-gray">(optional)</small></label>
+            <label class="text-secondary">Middle name <small class="text-gray">(optional)</small></label>
             <input type="text" class="form-control" name="middlename" value="{{ old('middlename') }}">
         </div>
         <div class="col-md-3 px-md-1 mt-2">
-            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+            <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
             <input type="text" class="form-control" name="lastname" required value="{{ old('lastname') }}">
             @error('lastname')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
             <label class="text-secondary">Province <small class="text-danger">(required)</small></label>
-            <input type="text" id="Province" class="form-control" name="loc_prov" required value="{{ old('loc_prov') }}">
+            <input type="text" id="Province" class="form-control" name="loc_prov" required value="Southern Leyte" disabled>
             @error('loc_prov')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
@@ -95,7 +95,11 @@
     <div class="row mt-3">
         <div class="col-md-4 pr-md-1 mt-1">
             <label class="text-secondary">Category <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control position-relative" name="category" value="{{ old('category') }}" style="">
+            <select name="category" class="form-control" required>
+                @foreach($categories as $categoryKey=>$categoryValue)
+                <option value="{{$categoryKey}}" style="color: #c2c2c2 !important;">{{$categoryValue}}</option>
+                @endforeach
+            </select>
             @error('category')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
@@ -103,7 +107,9 @@
         <div class="col-md-4 pl-md-1 pr-md-1 mt-1">
             <label class="text-secondary">Category ID <small class="text-danger">(required)</small></label>
             <select name="category_id" class="form-control" required>
-                <option value="" style="color: #c2c2c2 !important;"></option>
+                @foreach($categoryIds as $categoryIdsKey=>$categoryIdsValue)
+                <option value="{{$categoryIdsKey}}" style="color: #c2c2c2 !important;">{{$categoryIdsValue}}</option>
+                @endforeach
             </select>
             @error('category_id')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>

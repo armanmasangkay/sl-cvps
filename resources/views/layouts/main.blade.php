@@ -15,10 +15,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 </head>
-<body>
+<body style="background-color: #fdfdfd !important;">
 
     @yield('content')
 
+    @include('templates.collaboration')
     @include('templates.footer')
 
 </body>
