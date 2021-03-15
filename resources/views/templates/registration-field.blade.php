@@ -35,14 +35,14 @@
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
             <label class="text-secondary">Province <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control" name="loc_prov" required value="{{ old('loc_prov') }}">
+            <input type="text" id="Province" class="form-control" name="loc_prov" required value="{{ old('loc_prov') }}">
             @error('loc_prov')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
         </div>
         <div class="col-md-6 pr-md-1 mt-2">
             <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
-            <select type="text" class="form-control" name="loc_muni" required value="{{ old('loc_muni') }}">
+            <select type="text" id="Municipality" class="form-control" name="loc_muni" required value="{{ old('loc_muni') }}">
                 <option value=""></option>
             </select>
             @error('loc_muni')
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
             <label class="text-secondary">Barangay <small class="text-danger">(required)</small></label>
-            <select type="text" class="form-control" name="loc_brgy"  required value="{{ old('loc_brgy') }}">
+            <select type="text" id="Barangay" class="form-control" name="loc_brgy"  required value="{{ old('loc_brgy') }}">
                 <option value=""></option>
             </select>
             @error('loc_brgy')
@@ -135,7 +135,7 @@
         <div class="col-md-12 pr-md-1 mt-1">
             <div class="d-flex justify-content-start">
                 <input type="checkbox" class="mt-1 checkbox" name="confirm">
-                <p class="text-secondary pl-2 text-confirm">I confirmed that the above information are 
+                <p class="text-secondary pl-2 text-confirm">I confirmed that the above information are
                     true and correct base on my knowledge.</p>
             </div>
         </div>
@@ -149,3 +149,5 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/r8.js') }}"></script>
