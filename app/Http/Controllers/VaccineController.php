@@ -19,7 +19,8 @@ class VaccineController extends Controller
     public function index()
     {
         Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
-        return view('pages.admin.lists.vaccines-lists');
+        $vaccines = Vaccine::all();
+        return view('pages.admin.lists.vaccines-lists',['vaccines' => $vaccines]);
     }
 
     /**
