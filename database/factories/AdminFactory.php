@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AdminFactory extends Factory
@@ -12,7 +13,7 @@ class AdminFactory extends Factory
      *
      * @var string
      */
-    protected $model = Admin::class;
+    protected $model = User::class;
 
     /**
      * Define the model's default state.
@@ -27,6 +28,7 @@ class AdminFactory extends Factory
         'username'       => 'admin',
         'password'       => bcrypt('1234'),
         'municipality_id'   => '18',
+        'role'          => '1',
         ];
     }
 }

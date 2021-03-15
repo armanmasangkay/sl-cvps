@@ -6,6 +6,7 @@ use App\Classes\Facades\User as FacadesUser;
 
 use App\Models\Municipality;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -26,7 +27,8 @@ class AdminController extends Controller
 
     public function index()
     {
-
+        $user = User::where('role', '1')->get();
+        return view('pages.superadmin.admin-lists')->with('users', $user);
     }
 
     // /**
@@ -41,11 +43,6 @@ class AdminController extends Controller
             'user'=>FacadesUser::ADMIN,
             'municipalities'=>$this->getMunicipalities()
         ]);
-    }
-
-    public function view()
-    {
-        return view('pages.admin.admin-lists');
     }
 
     /**
@@ -146,9 +143,20 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        try
+        {
+            $user = User::findOrFail($id);
 
-        return redirect('admin.index')->with('message', 'User successfully deleted');
+            $user->delete();
+
+            return redirect(route('admin.index'))->with('message', 'User successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
+
+
 
     }
 }

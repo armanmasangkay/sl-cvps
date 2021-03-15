@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -49,4 +51,9 @@ class User extends Authenticatable
     {
         return Admin::where('username', '=', $username)->exists();
     }
+
+     public function municipality()
+     {
+         return $this->hasOne(Municipality::class,'id', 'municipality_id');
+     }
 }
