@@ -42,6 +42,11 @@ class AdminController extends Controller
         ]);
     }
 
+    public function view()
+    {
+        return view('pages.admin.admin-lists');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
