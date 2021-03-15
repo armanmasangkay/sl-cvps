@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Classes\Facades\User as FacadesUser;
 use App\Models\Admin;
+use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -16,6 +18,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private function getMunicipalities()
+    {
+        return Municipality::all();
+    }
+
     public function index()
     {
 
@@ -27,11 +35,12 @@ class AdminController extends Controller
     //  * @return \Illuminate\Http\Response
     //  */
     
-
-
     public function create()
     {
-        return view('pages.admin.add-new',['user'=>]);
+        return view('pages.superadmin.add-admin',[
+            'user'=>FacadesUser::ADMIN,
+            'municipalities'=>$this->getMunicipalities()
+        ]);
     }
 
     public function view()
@@ -59,7 +68,7 @@ class AdminController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
-            'username'              =>      'required',
+            'username'              =>      'required|unique:users,username',
             'password'              =>      'required|min:4',
             'confirm_password'      =>      'required',
             'municipality'          =>      'required',
@@ -68,16 +77,6 @@ class AdminController extends Controller
         if($validator->fails())
         {
             return redirect(route('admin.create'))->withErrors($validator)->withInput();
-        }
-
-
-        if(Admin::adminExist($request->username))
-        {
-            return redirect(route('admin.create'))->with([
-                    'found'    => true,
-                    'title'    => 'Warning!',
-                    'text'     => 'Username already taken, please choose another one'
-                ])->withInput();
         }
 
         if($this->passwordCheck($request->password, $request->confirm_password))
@@ -89,23 +88,15 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
-<<<<<<< HEAD
         
         User::create([
-=======
-
-
-
-        $admin = Admin::create([
->>>>>>> 28c49a4e25bc95722578164ce742f646abbb0ccb
-            'first_name'    =>      $request->first_name,
-            'last_name'     =>      $request->last_name,
+            'first_name'    =>      Str::title($request->first_name),
+            'last_name'     =>      Str::title($request->last_name),
             'username'      =>      $request->username,
             'password'      =>      bcrypt($request->password),
-            'municipality'  =>      $request->municipality,
+            'municipality_id'  =>      $request->municipality,
             'role'          =>      FacadesUser::ADMIN
         ]);
-
         return redirect(route('admin.create'))->with([
                 'registered' => true,
                 'title'      => 'Great!',

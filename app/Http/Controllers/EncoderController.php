@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User as FacadesUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Encoder;
-
+use App\Models\Municipality;
+use App\Models\User;
+use Illuminate\Support\Str;
 class EncoderController extends Controller
 {
+    private function getMunicipalities()
+    {
+        return Municipality::all();
+    }
     public function create()
     {
-        return view('pages.admin.add-encoder', ['user' => 'Admin']);
+        return view('pages.admin.add-encoder', [
+            'user' => 'Admin',
+            'municipalities'=>$this->getMunicipalities()
+        ]);
     }
 
     private function passwordCheck($password, $confirm_password)
@@ -26,11 +36,10 @@ class EncoderController extends Controller
         $validator = Validator::make($request->all(), [
             'firstname'            =>      'required',
             'lastname'             =>      'required',
-            'username'              =>      'required',
+            'username'              =>      'required|unique:users,username',
             'password'              =>      'required|min:4',
             'confirm'               =>      'required',
-            'municipality'          =>      'required',
-            'facility'              =>      'required',
+            'municipality'          =>      'required'
         ]);
 
         if($validator->fails())
@@ -47,15 +56,13 @@ class EncoderController extends Controller
                 ])->withInput();
         }
 
-        Encoder::create([
-            'firstname'    =>      $request->firstname,
-            'lastname'     =>      $request->lastname,
-            'middlename'   =>      (!empty($request->middle_name) ? $request->middle_name : "N/A"),
-            'suffix'       =>      (!empty($request->suffix) ? $request->suffix : "N/A"),
+        User::create([
+            'first_name'    =>      Str::title($request->firstname),
+            'last_name'     =>      Str::title($request->lastname),
             'username'      =>     $request->username,
             'password'      =>     bcrypt($request->password),
-            'municipality'  =>     $request->municipality,
-            'facility'     =>      $request->facility,
+            'municipality_id'  =>     $request->municipality,
+            'role'     =>      FacadesUser::ENCODER,
         ]);
 
         return redirect(route('encoder.create'))->with([
