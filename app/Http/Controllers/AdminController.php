@@ -29,7 +29,7 @@ class AdminController extends Controller
     
     public function create()
     {
-        return view('pages.admin.add-new',['user'=>FacadesUser::ADMIN]);
+        return view('pages.superadmin.add-admin',['user'=>FacadesUser::ADMIN]);
     }
 
     /**
