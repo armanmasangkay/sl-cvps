@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\Facades\User as FacadesUser;
 use App\Models\Admin;
+use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,6 +17,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private function getMunicipalities()
+    {
+        return Municipality::all();
+    }
+
     public function index()
     {
 
@@ -29,7 +36,10 @@ class AdminController extends Controller
     
     public function create()
     {
-        return view('pages.superadmin.add-admin',['user'=>FacadesUser::ADMIN]);
+        return view('pages.superadmin.add-admin',[
+            'user'=>FacadesUser::ADMIN,
+            'municipalities'=>$this->getMunicipalities()
+        ]);
     }
 
     /**
@@ -88,7 +98,7 @@ class AdminController extends Controller
             'last_name'     =>      $request->last_name,
             'username'      =>      $request->username,
             'password'      =>      bcrypt($request->password),
-            'municipality'  =>      $request->municipality,
+            'municipality_id'  =>      $request->municipality,
             'role'          =>      FacadesUser::ADMIN
         ]);
 

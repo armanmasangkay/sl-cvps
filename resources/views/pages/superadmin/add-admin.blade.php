@@ -69,7 +69,9 @@
 
                         <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="municipality" class="form-control" required>
-                            <option value=""></option>
+                            @foreach($municipalities as $municipality)
+                            <option value="{{$municipality->id}}">{{$municipality->name}}</option>
+                            @endforeach
                         </select>
                         @error('municipality')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
