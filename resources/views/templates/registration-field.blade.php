@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-md-6 pr-md-1 mt-2">
             <label class="text-secondary">Region <small class="text-gray">(optional)</small></label>
-            <input type="text" class="form-control" name="loc_reg" value="{{ old('loc_reg') }}">
+            <input type="text" class="form-control" name="loc_reg" value="8" disabled>
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
             <label class="text-secondary">Province <small class="text-danger">(required)</small></label>
