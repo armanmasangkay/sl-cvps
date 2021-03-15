@@ -10,7 +10,7 @@
                 <!-- super admin nav menu -->
                 @if($user == 'Super Admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.create') }}">Add Amin</a>
+                    <a class="nav-link" href="{{ route('admin.create') }}">Add Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('superadmin.reports') }}">View Reports</a>
