@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
 use App\Classes\Facades\User as FacadesUser;
 
 use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +34,7 @@ class AdminController extends Controller
     public function index()
     {
 
+    
     }
 
     // /**
@@ -37,6 +45,8 @@ class AdminController extends Controller
 
     public function create()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+
         return view('pages.superadmin.add-admin',[
             'user'=>FacadesUser::ADMIN,
             'municipalities'=>$this->getMunicipalities()
@@ -45,6 +55,7 @@ class AdminController extends Controller
 
     public function view()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
         return view('pages.admin.admin-lists');
     }
 
@@ -65,6 +76,8 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+        
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
