@@ -24,12 +24,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['admin'])->group(function () {
-    Route::resource('admin', AdminController::class);
-});
+// Route::middleware(['admin'])->group(function () {
+   
+// });
 
 
-
+Route::resource('admin', AdminController::class);
 Route::resource('facility', FacilityController::class);
 
 Route::resource('encoder', EncoderController::class);

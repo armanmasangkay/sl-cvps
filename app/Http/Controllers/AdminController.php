@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User as FacadesUser;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -24,9 +26,13 @@ class AdminController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
+    
+
+
     public function create()
     {
-        return view('pages.superadmin.add-super-admin', ['user' => 'Super Admin']);
+
+        return view('pages.superadmin.add-admin', ['user' => 'Super Admin']);
     }
 
     /**
@@ -80,14 +86,13 @@ class AdminController extends Controller
         }
 
         
-
-
-        $admin = Admin::create([
+        User::create([
             'first_name'    =>      $request->first_name,
             'last_name'     =>      $request->last_name,
             'username'      =>      $request->username,
             'password'      =>      bcrypt($request->password),
-            'municipality'  =>      $request->municipality
+            'municipality'  =>      $request->municipality,
+            'role'          =>      FacadesUser::ADMIN
         ]);
 
         return redirect(route('admin.create'))->with([

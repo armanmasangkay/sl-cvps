@@ -65,7 +65,7 @@ class RegistrationController extends Controller
                     ->withInput();
         }
         
-        if($request->confirm === null)
+        if(!$request->confirm)
         {
             return redirect(route('person.register'))
                     ->with([
