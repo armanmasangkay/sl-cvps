@@ -10,11 +10,11 @@ class Municipality extends Model
     use HasFactory;
 
     protected $fillable = [
-        'municipality_name'
+        'name'
     ];
 
     public static function checkMunicipalityExist($municipality)
     {
-        return Municipality::where('municipality_name', '=', $municipality)->exists();
+        return Municipality::where('name', '=', $municipality)->exists();
     }
 }

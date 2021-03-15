@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Facility;
+use App\Models\Municipality;
 
 class FacilityController extends Controller
 {
+    private function getAllMunicipalities()
+    {
+        return Municipality::all();
+    }
+
     public function create()
     {
-        return view('pages.admin.add-facility', ['user' => 'Admin']);
+        return view('pages.admin.add-facility', [
+            'user' => 'Admin',
+            'municipalities'=>$this->getAllMunicipalities()
+        ]);
     }
 
     public function store(Request $request)
@@ -22,7 +31,6 @@ class FacilityController extends Controller
 
         if($validator->fails())
         {
-            dd($validator);
             return redirect(route('facility.create'))->withErrors($validator)->withInput();
         }
 

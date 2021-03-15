@@ -39,7 +39,7 @@ class MunicipalitiesSeeder extends Seeder
     {
         foreach (self::MUNICIPALITIES_NAMES as $municipality) {
             Municipality::create([
-                'municipality_name' => $municipality
+                'name' => $municipality
             ]);
         }
     }
