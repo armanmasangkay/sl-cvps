@@ -25,7 +25,7 @@
 <div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
+            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded text-center">
                 <h4 class="text-primary mt-2 pt-1 text-content-heading">Vaccination Facilities Registration</h4>
             </div>
         </div>
