@@ -62,7 +62,7 @@ class AdminController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
-            'username'              =>      'required',
+            'username'              =>      'required|unique:users,username',
             'password'              =>      'required|min:4',
             'confirm_password'      =>      'required',
             'municipality'          =>      'required',
@@ -74,14 +74,14 @@ class AdminController extends Controller
         }
 
 
-        if(Admin::adminExist($request->username))
-        {
-            return redirect(route('admin.create'))->with([
-                    'found'    => true,
-                    'title'    => 'Warning!',
-                    'text'     => 'Username already taken, please choose another one'
-                ])->withInput();
-        }
+        // if(Admin::adminExist($request->username))
+        // {
+        //     return redirect(route('admin.create'))->with([
+        //             'found'    => true,
+        //             'title'    => 'Warning!',
+        //             'text'     => 'Username already taken, please choose another one'
+        //         ])->withInput();
+        // }
 
         if($this->passwordCheck($request->password, $request->confirm_password))
         {
