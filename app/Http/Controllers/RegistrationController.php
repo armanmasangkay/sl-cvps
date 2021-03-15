@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Person;
+use Illuminate\Support\Str;
 
 class RegistrationController extends Controller
 {
@@ -81,10 +82,10 @@ class RegistrationController extends Controller
             'category_id_num'=> $request->category_id_num,
             'philhealth_id'  => (empty($request->philhealth_id) ? 'N/A' : $request->philhealth_id),
             'pwd_id'         => (empty($request->pwd_id) ? 'N/A' : $request->pwd_id),
-            'lastname'       => $request->lastname,
-            'firstname'      => $request->firstname,
-            'middlename'     => (empty($request->middlename) ? 'N/A' : $request->middlename),
-            'suffix'         => (empty($request->suffix) ? 'N/A' : $request->suffix),
+            'lastname'       => Str::title($request->lastname),
+            'firstname'      => Str::title($request->firstname),
+            'middlename'     => Str::title($request->middlename),
+            'suffix'         => Str::title($request->suffix),
             'contact_num'    => $request->contact_num,
             'loc_region'     => (empty($request->loc_region) ? 'N/A' : $request->loc_region),
             'loc_prov'       => $request->loc_prov,

@@ -8,6 +8,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <!-- super admin nav menu -->
+                @if(Auth::user()->role==App\Classes\Facades\User::SUPER_ADMIN)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.create') }}">New Admin</a>
                 </li>
@@ -18,9 +19,11 @@
                         <a class="dropdown-item text-secondary" href="">Reports</a>
                     </div>
                 </li>
+                @endif
                 <!-- end super admin nav menu -->
 
                 <!-- admin nav menu -->
+                @if(Auth::user()->role==App\Classes\Facades\User::ADMIN)
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add&nbsp;</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
@@ -42,18 +45,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">View Reports</a>
                 </li>
+                @endif
                 <!-- end admin nav menu -->
 
                 <!-- encoder nav menu -->
+                @if(Auth::user()->role==App\Classes\Facades\User::ENCODER)
                 <li class="nav-item">
                     <a class="nav-link" href="#">New Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">View Reports</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Pre-registrations</a>
                 </li>
+                @endif
                 <!-- end encoder nav menu -->
 
                 <li class="nav-item">

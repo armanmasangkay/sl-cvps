@@ -1,5 +1,5 @@
 <div class="container mt-2">
-    <p class="text-center text-gray text-muted text-dev">Developed by: SLSU-CCSIT Developer Team</p>
+    <p class="text-center text-gray text-muted text-dev">Developed by: SLSU-CCSIT Development Team</p>
 </div>
 
 <div class="container mt-5 pb-3">

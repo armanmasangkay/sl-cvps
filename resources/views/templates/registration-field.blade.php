@@ -82,7 +82,7 @@
         </div>
         <div class="col-md-4 pl-md-1 mt-2">
             <label class="text-secondary">Contact No <small class="text-danger">(required)</small></label>
-            <input type="text" name="contact_num" class="form-control" required value="{{ old('contact_num') }}">
+            <input type="number" name="contact_num" class="form-control" required value="{{ old('contact_num') }}">
             @error('contact_num')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
