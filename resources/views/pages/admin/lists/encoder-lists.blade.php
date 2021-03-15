@@ -22,28 +22,33 @@
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
-                        <tr class="border-bottom-1">
-                            <td class="pt-2 pb-0">1</td>
-                            <td class="pt-2 pb-0">Jun Vic</td>
-                            <td class="pt-2 pb-0">Cadayona</td>
-                            <td class="pt-2 pb-0">cadz@admin-slcvps</td>
-                            <td class="pt-2 pb-0">Bontoc</td>
-                            <td class="pt-2 pb-0">Dev</td>
-                            <td class="pt-2 pb-0" colspan="2">
-                                <div class="d-flex justify-content-start">
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="" method="post">
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
+                        @forelse ($encoders as $encoder)
+                            <tr class="border-bottom-1">
+                                <td class="pt-2 pb-0">{{ $encoder->id }}</td>
+                                <td class="pt-2 pb-0">{{ $user->first_name }}</td>
+                                <td class="pt-2 pb-0">{{ $user->last_name }}</td>
+                                <td class="pt-2 pb-0">{{ $user->username }}</td>
+                                <td class="pt-2 pb-0">{{ $user->municipality->name }}</td>
+                                <td class="pt-2 pb-0" colspan="2">
+                                    <div class="d-flex justify-content-start">
+                                        <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                        <form action="{{ route('admin.destroy', $encoder->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>      
+    </div>
 </div>
 
 @endsection
