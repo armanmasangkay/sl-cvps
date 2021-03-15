@@ -26,12 +26,12 @@ class AdminController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
-    
+
 
 
     public function create()
     {
-        return view('pages.admin.add-new',['user'=>]);
+        return view('pages.admin.add-new',['user'=>'']);
     }
 
     public function view()
@@ -89,15 +89,10 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
-<<<<<<< HEAD
-        
-        User::create([
-=======
 
 
 
         $admin = Admin::create([
->>>>>>> 28c49a4e25bc95722578164ce742f646abbb0ccb
             'first_name'    =>      $request->first_name,
             'last_name'     =>      $request->last_name,
             'username'      =>      $request->username,
