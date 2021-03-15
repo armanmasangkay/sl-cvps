@@ -9,6 +9,7 @@ use App\Models\Encoder;
 use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 class EncoderController extends Controller
 {
@@ -19,12 +20,14 @@ class EncoderController extends Controller
 
     public function index()
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         $encoder = User::where('role', '3')->get();
         return view('pages.admin.lists.encoder-lists')->with('encoders', $encoder);
     }
 
     public function create()
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         return view('pages.admin.add-encoder', [
             'user' => 'Admin',
             'municipalities'=>$this->getMunicipalities()
@@ -41,6 +44,7 @@ class EncoderController extends Controller
 
     public function store(Request $request)
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
             'firstname'            =>      'required',
             'lastname'             =>      'required',
@@ -83,6 +87,7 @@ class EncoderController extends Controller
 
     public function destroy($id)
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         try
         {
             $user = User::findOrFail($id);

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Facility;
 use App\Models\Municipality;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -16,11 +18,13 @@ class FacilityController extends Controller
 
     public function index()
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.lists.facilities-lists');
     }
 
     public function create()
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.add-facility', [
             'user'=> 'Admin',
             'municipalities'=>$this->getAllMunicipalities()
@@ -28,6 +32,7 @@ class FacilityController extends Controller
     }
     public function store(Request $request)
     {
+        Auth::user()->allowIf(User::ADMIN);
         $validator = Validator::make($request->all(), [
             'facility_name'         =>      'required',
             'municipality'          =>      'required',

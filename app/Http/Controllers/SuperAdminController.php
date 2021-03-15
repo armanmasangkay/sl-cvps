@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SuperAdminController extends Controller
 {
@@ -13,6 +15,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
+        Auth::user()->allowIf(User::SUPER_ADMIN);
         return view('pages.superadmin.admin-lists', ['user' => 'Super Admin']);
     }
 

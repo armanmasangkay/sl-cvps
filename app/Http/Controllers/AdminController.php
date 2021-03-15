@@ -46,8 +46,8 @@ class AdminController extends Controller
 
     public function create()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
-
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
+    
         return view('pages.superadmin.add-admin',[
             'user'=>FacadesUser::ADMIN,
             'municipalities'=>$this->getMunicipalities()
@@ -56,7 +56,7 @@ class AdminController extends Controller
 
     public function view()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         return view('pages.admin.admin-lists');
     }
 
@@ -77,7 +77,7 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User;
 use App\Models\Municipality;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class VaccineController extends Controller
@@ -16,6 +18,7 @@ class VaccineController extends Controller
     //  */
     public function index()
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.lists.vaccines-lists');
     }
 
@@ -26,6 +29,7 @@ class VaccineController extends Controller
      */
     public function create()
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.vaccine.add-vaccine');
     }
 
@@ -51,6 +55,7 @@ class VaccineController extends Controller
      */
     public function store(Request $request)
     {
+        Auth::user()->allowIf(User::ADMIN);
         $validator = Validator::make($request->all(), [
             'batch_number'  =>   'required',
             'lot_number'    =>   'required',
