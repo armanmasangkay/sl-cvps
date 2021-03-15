@@ -14,6 +14,6 @@ class SuperAdminSeeder extends Seeder
      */
     public function run()
     {
-        SuperAdmin::factory()-create();
+        SuperAdmin::factory()->create();
     }
 }
