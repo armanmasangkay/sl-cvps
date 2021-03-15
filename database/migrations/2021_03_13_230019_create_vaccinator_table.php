@@ -23,6 +23,7 @@ class CreateVaccinatorTable extends Migration
             $table->string('role');
             $table->string('facility');
             $table->string('prc');
+            $table->unsignedBigInteger('municipality_id');
             $table->timestamps();
         });
     }

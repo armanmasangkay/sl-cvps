@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
 use App\Classes\Facades\User as FacadesUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

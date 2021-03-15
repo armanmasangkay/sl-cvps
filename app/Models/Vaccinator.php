@@ -15,7 +15,8 @@ class Vaccinator extends Model
         'lastname',
         'position',
         'role',
-        'facility',
-        'prc'
+        'facility_id',
+        'prc',
+        'municipality_id'
     ];
 }

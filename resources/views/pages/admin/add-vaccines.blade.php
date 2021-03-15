@@ -65,7 +65,6 @@
                     
                     <center>
                         <button type="submit" class="btn btn-primary pb-2">Register</button>
-                        <a href="" class="btn btn-secondary pb-2">Cancel</a>
                     </center>
                 </form>
             </div>

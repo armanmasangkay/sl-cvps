@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Classes\Facades\User;
 use App\Http\Requests\VaccinatorRequest;
+use App\Classes\Facades\User as FacadesUser;
+use App\Models\Vaccinator;
 use App\Repositories\Contracts\VaccinatorRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,14 +16,15 @@ class VaccinatorController extends Controller
     private $vaccinatorRepository;
 
     public function __construct(VaccinatorRepositoryInterface $vaccinatorRepository)
-    {  
-       $this->vaccinatorRepository=$vaccinatorRepository; 
+    {
+       $this->vaccinatorRepository=$vaccinatorRepository;
     }
 
     public function index()
     {
         Auth::user()->allowIf(User::ADMIN);
-        return view('pages.admin.lists.vaccinators-lists');
+
+        return view('pages.admin.lists.vaccinators-lists',['vaccinators' => Vaccinator::all()]);
     }
 
     public function create()
@@ -38,7 +41,8 @@ class VaccinatorController extends Controller
             'position'=>'required',
             'role'=>'required',
             'facility'=>'required',
-            'prc'=>'required'
+            'prc'=>'required',
+            'municipality_id' => 'required'
         ]);
     }
 
@@ -50,7 +54,7 @@ class VaccinatorController extends Controller
         if($validator->fails()){
             return redirect(route('vaccinator.create'))->withErrors($validator)->withInput();
         }
-        
+
         $this->vaccinatorRepository->store($request->all());
 
         return redirect(route('vaccinator.create'))->with([

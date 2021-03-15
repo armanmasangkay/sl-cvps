@@ -33,7 +33,6 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded shadow-sm bg-white">
-                <h5 class="text-secondary text-p-info pt-2">Basic Facility Information</h5>
 
                 <form action="{{ route('facility.store') }}" method="post" class="mt-2">
                     @csrf
@@ -44,20 +43,11 @@
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
 
-                        <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
-                        <select name="municipality" class="form-control mb-1" required>
-                            @foreach ($municipalities as $municipality)
-                                <option value="{{$municipality->id}}">{{$municipality->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('municipality')
-                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                        @enderror
+                        <input type="hidden" name="municipality_id" value="{{ Auth::user()->municipality_id }}">
                     </div>
-                    
+
                     <center>
-                        <button type="submit" class="btn btn-primary pb-2">Register</button>
-                        <a href="" class="btn btn-secondary pb-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary pb-2">Create</button>
                     </center>
                 </form>
             </div>

@@ -26,6 +26,7 @@ class SuperAdminController extends Controller
      */
     public function create()
     {
+        Auth::user()->allowIf(User::SUPER_ADMIN);
         return view('pages.superadmin.add-super-admin', ['user' => 'Super Admin']);
     }
 

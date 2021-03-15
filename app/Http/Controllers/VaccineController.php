@@ -19,7 +19,9 @@ class VaccineController extends Controller
     public function index()
     {
         Auth::user()->allowIf(User::ADMIN);
-        return view('pages.admin.lists.vaccines-lists');
+    
+        $vaccines = Vaccine::all();
+        return view('pages.admin.lists.vaccines-lists',['vaccines' => $vaccines]);
     }
 
     /**
@@ -128,6 +130,7 @@ class VaccineController extends Controller
     //  */
     // public function destroy($id)
     // {
+    //     Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
     //     //
     // }
 }

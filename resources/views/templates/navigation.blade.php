@@ -36,10 +36,10 @@
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View Lists&nbsp;</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item text-secondary" href="{{ route('vaccinator.create') }}">Vaccinators</a>
-                        <a class="dropdown-item text-secondary" href="{{ route('facility.create') }}">Facilities</a>
-                        <a class="dropdown-item text-secondary" href="{{ route('vaccine.create') }}">Vaccines</a>
-                        <a class="dropdown-item text-secondary mb-1" href="{{ route('encoder.create') }}">Encoders</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('vaccinator.index') }}">Vaccinators</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('facility.index') }}">Facilities</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('vaccine.index') }}">Vaccines</a>
+                        <a class="dropdown-item text-secondary mb-1" href="{{ route('encoder.index') }}">Encoders</a>
                     </div>
                 </li>
                 <li class="nav-item">

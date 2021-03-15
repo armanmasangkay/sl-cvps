@@ -52,7 +52,7 @@
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
-                      
+
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6 pr-md-1">
@@ -103,9 +103,10 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="municipality_id" value="{{ Auth::user()->municipality_id }}">
+
                     <center class="mt-4">
                         <button type="submit" class="btn btn-primary pb-2">Register</button>
-                        <button class="btn btn-secondary pb-2">Cancel</button>
                     </center>
                 </form>
             </div>
