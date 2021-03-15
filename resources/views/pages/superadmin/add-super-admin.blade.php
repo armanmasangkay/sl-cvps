@@ -42,7 +42,7 @@
 <div class="container mt-3 register">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
+            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 text-center rounded shadow-sm">
                 <h4 class="text-primary mt-2 pt-1 text-content-heading">Admin User Registration</h4>
             </div>
         </div>
@@ -50,12 +50,11 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded">
-                <small class="text-secondary text-p-info pt-2">Basic Information</small>
+                <h5 class="text-secondary text-p-info pt-2">Basic Information</h5>
 
                 <form action="{{ route('admin.store') }}" method="post" class="mt-2">
                     @csrf
                     <div class="form-group">
-<<<<<<< HEAD
                         <label class="text-secondary">First name <small class="text-danger">(required)</small></label>
                         <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
                         @error('first_name')
@@ -67,21 +66,6 @@
                         @error('last_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
-=======
-                        <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
-                        @error('first_name')
-                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                        @enderror
-                        
-                        <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
-                        @error('last_name')
-                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                        @enderror
-
-                      
->>>>>>> 8f7fd0c7f048c9d606a0cf420d0233c5d226f5b7
 
                         <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="municipality" class="form-control" required>
@@ -92,7 +76,7 @@
                         @enderror
                     </div>
 
-                    <small class="text-secondary text-p-info pt-2">User Account</small>
+                    <h5 class="text-secondary text-p-info pt-2">User Account</h5>
                     <div class="form-group pt-1">
                         <label class="text-secondary">Username <small class="text-danger">(required)</small></label>
                         <input type="text" class="form-control mb-1"name="username" value="{{ old('username') }}" required>

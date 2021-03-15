@@ -22,18 +22,18 @@
 </script>
 @endif
 
-<div class="container mt-3 register">
+<div class="container mt-5 register">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded text-center">
+            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 text-center rounded shadow-sm">
                 <h4 class="text-primary mt-2 pt-1 text-content-heading">Vaccinator Registration</h4>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded">
-                <small class="text-secondary text-p-info pt-2">Basic Information</small>
+            <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded shadow-sm">
+                <h5 class="text-secondary text-p-info pt-2">Basic Information</h5>
 
                 <form action="{{ route('vaccinator.store') }}" method="post" class="mt-2">
                     @csrf
@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    <small class="text-secondary text-p-info pt-2">Additional Information</small>
+                    <h5 class="text-secondary text-p-info pt-2">Additional Information</h5>
                     <div class="row mt-2">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Position <small class="text-danger">(required)</small></label>
