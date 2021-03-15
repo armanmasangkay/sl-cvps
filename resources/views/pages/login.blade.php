@@ -5,9 +5,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <div class="border border-gray pt-4 pb-4 pl-5 pr-5 mt-5 rounded">
+                    <div class="border border-gray pt-4 pb-4 pl-5 pr-5 mt-5 rounded shadow-sm bg-white">
                         <center>
-                            <small class="text-secondary text-p-info pt-2">Sytem User Login</small>
+                            <h5 class="text-secondary text-p-info pt-2">Sytem User Login</h5>
                         </center>
                         
                         <form action="" method="post" class="mt-3">

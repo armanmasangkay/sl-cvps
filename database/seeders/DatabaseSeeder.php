@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             MunicipalitiesSeeder::class,
-            SuperAdminSeeder::class
+            SuperAdminSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }
