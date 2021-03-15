@@ -25,7 +25,7 @@
 <div class="container mt-3 register">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
+            <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded text-center">
                 <h4 class="text-primary mt-2 pt-1 text-content-heading">Vaccinator Registration</h4>
             </div>
         </div>
@@ -39,19 +39,20 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
-                            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-                            <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
-                            @error('lastname')
-                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 pl-md-1">
                             <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
                             <input type="text" class="form-control mb-1" name="firstname" value="{{ old('firstname') }}" required>
                             @error('firstname')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
+                        <div class="col-md-6 pl-md-1">
+                            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+                            <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
+                            @error('lastname')
+                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                            @enderror
+                        </div>
+                      
                     </div>
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
