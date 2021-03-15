@@ -71,27 +71,20 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 pr-md-1">
-                            <label class="text-secondary">Middle name <small class="text-gray">(optional)</small></label>
-                            <input type="text" class="form-control mb-1" name="middlename" value="{{ old('middlename') }}">
-                        </div>
-                        <div class="col-md-6 pl-md-1">
-                            <label class="text-secondary">Suffix <small class="text-gray">(optional)</small></label>
-                            <input type="text" class="form-control mb-1" name="suffix" value="{{ old('suffix') }}">
-                        </div>
-                    </div>
+               
                     <div class="row mb-2">
-                        <div class="col-md-6 pr-md-1">
+                        <div class="col-md-12 pr-md-1">
                             <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                             <select name="municipality" class="form-control mb-1" required>
-                                <option value="1"></option>
+                                @foreach($municipalities as $municipality)
+                                <option value="{{$municipality->id}}">{{$municipality->name}}</option>
+                                @endforeach
                             </select>
                             @error('municipality')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="col-md-6 pl-md-1">
+                        {{-- <div class="col-md-6 pl-md-1">
                             <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
                             <select name="facility" class="form-control" required>
                                 <option value="1"></option>
@@ -99,7 +92,7 @@
                             @error('facility')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
 
                     <h5 class="text-secondary text-p-info mt-3">User Account</h5>
