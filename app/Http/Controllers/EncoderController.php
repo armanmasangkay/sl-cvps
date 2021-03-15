@@ -15,6 +15,12 @@ class EncoderController extends Controller
     {
         return Municipality::all();
     }
+
+    public function index()
+    {
+        return view('pages.admin.lists.encoder-lists');
+    }
+
     public function create()
     {
         return view('pages.admin.add-encoder', [
