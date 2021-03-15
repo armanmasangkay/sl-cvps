@@ -9,6 +9,7 @@ use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\EncoderController;
+use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\UserLogin;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,5 @@ Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.repo
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 
 Route::resource('vaccinator',VaccinatorController::class);
+
+Route::resource('adminstrator', [SuperAdminController::class]);
