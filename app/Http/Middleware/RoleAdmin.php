@@ -18,12 +18,12 @@ class RoleAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() instanceof Admin)
+        if(!Auth::user() instanceof Admin)
         {
-            return $next($request);
+            return redirect(route('user.login'));
         }
 
-        return redirect(route('user.login'));
+        return $next($request);
 
     }
 }

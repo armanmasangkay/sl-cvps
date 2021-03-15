@@ -14,10 +14,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     return view('pages.admin.add-new');
-    // }
+    public function index()
+    {
+
+    }
 
     // /**
     //  * Show the form for creating a new resource.
@@ -26,7 +26,7 @@ class AdminController extends Controller
     //  */
     public function create()
     {
-        return view('pages.superadmin.add-super-admin', ['user' => 'Super Admin']);
+        return view('pages.admin.add-new');
     }
 
     /**
@@ -79,7 +79,7 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
-        
+
 
 
         $admin = Admin::create([
@@ -131,14 +131,14 @@ class AdminController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy($id)
-    // {
-    //     //
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+
+    }
 }
