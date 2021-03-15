@@ -64,8 +64,8 @@ class RegistrationController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         }
-
-        if($request->confirm === null)
+        
+        if(!$request->confirm)
         {
             return redirect(route('person.register'))
                     ->with([
