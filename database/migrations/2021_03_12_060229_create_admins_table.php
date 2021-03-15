@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('last_name');
             $table->string('username');
             $table->string('password');
-            $table->string('municipality');
+            $table->unsignedBigInteger('municipality_id');
             $table->timestamps();
         });
     }

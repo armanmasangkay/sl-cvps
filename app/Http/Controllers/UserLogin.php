@@ -11,4 +11,5 @@ class UserLogin extends Controller
     {
         return view('pages.login');
     }
+
 }
