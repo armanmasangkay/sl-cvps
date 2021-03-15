@@ -5,6 +5,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\VaccinatorController;
+use App\Http\Controllers\VaccinatorRegistrationController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\EncoderController;
+use App\Http\Controllers\UserLogin;
+use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +27,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('admin', AdminController::class);
 
+Route::resource('facility', FacilityController::class);
+
+Route::resource('encoder', EncoderController::class);
+
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
-Route::post('/register', [RegistrationController::class, 'store'])->name('person.store');
+Route::post('/register', [RegistrationController::class, 'store']);
 
 Route::resource('admin', AdminController::class);
 Route::resource('vaccine', VaccineController::class);
 
 Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
+// Route::resource('admin', AdminController::class);
+
+Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
+
+Route::get('/login',[UserLogin::class,'view'])->name('user.login');
+
+Route::resource('vaccinator',VaccinatorController::class);

@@ -26,7 +26,7 @@ class AdminController extends Controller
     //  */
     public function create()
     {
-        return view('pages.admin.add-new');
+        return view('pages.superadmin.add-super-admin', ['user' => 'Super Admin']);
     }
 
     /**
@@ -63,12 +63,20 @@ class AdminController extends Controller
 
         if(Admin::adminExist($request->username))
         {
-            return redirect(route('admin.create'))->withErrors(['username' => 'Username already in use']);
+            return redirect(route('admin.create'))->with([
+                    'found'    => true,
+                    'title'    => 'Warning!',
+                    'text'     => 'Username already taken, please choose another one'
+                ])->withInput();
         }
 
         if($this->passwordCheck($request->password, $request->confirm_password))
         {
-            return redirect(route('admin.create'))->withErrors(['password' => 'Password does not match']);
+            return redirect(route('admin.create'))->with([
+                    'matched'  => false,
+                    'title'    => 'Warning!',
+                    'text' => 'Password does not match'
+                ])->withInput();
         }
 
         
@@ -82,7 +90,11 @@ class AdminController extends Controller
             'municipality'  =>      $request->municipality
         ]);
 
-        return redirect(route('admin.create'))->with('created',true)->with('message' , 'New Admin user added');
+        return redirect(route('admin.create'))->with([
+                'registered' => true,
+                'title'      => 'Great!',
+                'text'       => 'New admin account added'
+            ]);
     }
 
     // /**

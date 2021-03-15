@@ -37,6 +37,7 @@ class AddAdminTest extends TestCase
             'confirm_password' => '1234',
             'municipality'  =>  'Tomas Oppus',
         ]);
+ 
 
 
         $response->assertRedirect(route('admin.create'));

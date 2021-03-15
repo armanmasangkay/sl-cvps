@@ -41,7 +41,6 @@ class ViewReportsTest extends TestCase
             'person_id'=>$person->id,
         ]);
         $response=$this->get(route('superadmin.reports'));
-        $response->dump();
         $response->assertViewIs('pages.superadmin.reports');
         $response->assertViewHas('vaccinateds');
         

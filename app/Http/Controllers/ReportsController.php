@@ -19,7 +19,8 @@ class ReportsController extends Controller
         $vaccinateds=$this->personRepository->getAllVaccinated();
 
         return view('pages.superadmin.reports',[
-            'vaccinateds'=>$vaccinateds
+            'vaccinateds'=>$vaccinateds,
+            'user' => 'Super Admin'
         ]);
     }
 }
