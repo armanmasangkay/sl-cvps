@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    
+
     use HasFactory, Notifiable;
 
     /**
@@ -44,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function userExist($username)
+    {
+        return Admin::where('username', '=', $username)->exists();
+    }
 }

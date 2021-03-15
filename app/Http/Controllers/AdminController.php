@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Facades\User as FacadesUser;
-use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,17 +20,9 @@ class AdminController extends Controller
 
     }
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-
-
-
     public function create()
     {
-        return view('pages.admin.add-new',['user'=>'']);
+        return view('pages.superadmin.add-admin');
     }
 
     public function view()
@@ -71,7 +62,7 @@ class AdminController extends Controller
         }
 
 
-        if(Admin::adminExist($request->username))
+        if(User::userExist($request->username))
         {
             return redirect(route('admin.create'))->with([
                     'found'    => true,
@@ -92,7 +83,7 @@ class AdminController extends Controller
 
 
 
-        $admin = Admin::create([
+        $user = User::create([
             'first_name'    =>      $request->first_name,
             'last_name'     =>      $request->last_name,
             'username'      =>      $request->username,
@@ -150,9 +141,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $admin = Admin::where('id', $id)->delete();
+        $user = User::findOrFail($id);
 
-        return redirect('');
+        return redirect('admin.index')->with('message', 'User successfully deleted');
 
     }
 }

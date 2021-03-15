@@ -37,7 +37,7 @@ class AddAdminTest extends TestCase
             'confirm_password' => '1234',
             'municipality'  =>  'Tomas Oppus',
         ]);
- 
+
 
 
         $response->assertRedirect(route('admin.create'));
@@ -125,5 +125,10 @@ class AddAdminTest extends TestCase
             'confirm_password',
             'municipality'
         ]);
+    }
+
+    public function test_delete_user_admin()
+    {
+        $response = $this->delete(route('admin.destroy'));
     }
 }
