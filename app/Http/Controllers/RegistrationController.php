@@ -43,7 +43,7 @@ class RegistrationController extends Controller
             'category'       => 'required',
             'category_id'    => 'required',
             'category_id_num'=> 'required',
-            'philhealth_id'  =>'', 
+            'philhealth_id'  =>'',
             'pwd_id'         =>'',
             'lastname'      => 'required',
             'firstname'     => 'required',
@@ -100,6 +100,6 @@ class RegistrationController extends Controller
                 'title'      => 'Great!',
                 'text'       => 'Registration went successfully. Thank you!'
             ]);
-    
+
     }
 }
