@@ -41,7 +41,9 @@
                                 </td>
                             </tr>
                         @empty
-
+                            <tr class="border-bottom-1">
+                                <td colspan="8" class="text-center text-gray">No record found</td>
+                            </tr>
                         @endforelse
 
                     </tbody>
