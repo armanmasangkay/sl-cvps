@@ -12,8 +12,8 @@ class VaccinatorController extends Controller
     private $vaccinatorRepository;
 
     public function __construct(VaccinatorRepositoryInterface $vaccinatorRepository)
-    {  
-       $this->vaccinatorRepository=$vaccinatorRepository; 
+    {
+       $this->vaccinatorRepository=$vaccinatorRepository;
     }
 
     public function index()
@@ -34,7 +34,8 @@ class VaccinatorController extends Controller
             'position'=>'required',
             'role'=>'required',
             'facility'=>'required',
-            'prc'=>'required'
+            'prc'=>'required',
+            'municipality_id' => 'required'
         ]);
     }
 
@@ -45,7 +46,7 @@ class VaccinatorController extends Controller
         if($validator->fails()){
             return redirect(route('vaccinator.create'))->withErrors($validator)->withInput();
         }
-        
+
         $this->vaccinatorRepository->store($request->all());
 
         return redirect(route('vaccinator.create'))->with([
