@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
-                <h4 class="text-primary mt-2 pt-1 text-content-heading">Encoder Registration</h4>
+                <h4 class="text-primary mt-2 pt-1 text-content-heading text-center">Encoder Registration</h4>
             </div>
         </div>
     </div>

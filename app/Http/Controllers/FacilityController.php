@@ -17,11 +17,10 @@ class FacilityController extends Controller
     public function create()
     {
         return view('pages.admin.add-facility', [
-            'user' => 'Admin',
+            'user'=> 'Admin',
             'municipalities'=>$this->getAllMunicipalities()
         ]);
     }
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
