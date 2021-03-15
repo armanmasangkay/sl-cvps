@@ -55,7 +55,6 @@
                 <form action="{{ route('admin.store') }}" method="post" class="mt-2">
                     @csrf
                     <div class="form-group">
-<<<<<<< HEAD
                         <label class="text-secondary">First name <small class="text-danger">(required)</small></label>
                         <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
                         @error('first_name')
@@ -67,21 +66,6 @@
                         @error('last_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
-=======
-                        <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
-                        @error('first_name')
-                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                        @enderror
-                        
-                        <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
-                        @error('last_name')
-                        <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                        @enderror
-
-                      
->>>>>>> 8f7fd0c7f048c9d606a0cf420d0233c5d226f5b7
 
                         <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="municipality" class="form-control" required>
