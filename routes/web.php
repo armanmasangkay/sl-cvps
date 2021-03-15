@@ -48,4 +48,4 @@ Route::get('/',[UserLogin::class,'view'])->name('user.login');
 
 Route::resource('vaccinator',VaccinatorController::class);
 
-Route::resource('adminstrator', SuperAdminController::class);
+Route::resource('administrator', SuperAdminController::class);

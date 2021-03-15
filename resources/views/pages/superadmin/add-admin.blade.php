@@ -60,16 +60,22 @@
                         @error('first_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
+                    </div>
 
+                    <div class="form-group">
                         <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
                         <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
                         @error('last_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
+                    </div>
 
+                    <div class="form-group">
                         <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                         <select name="municipality" class="form-control" required>
-                            <option value=""></option>
+                            @foreach($municipalities as $municipality)
+                            <option value="{{$municipality->id}}">{{$municipality->name}}</option>
+                            @endforeach
                         </select>
                         @error('municipality')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
@@ -83,19 +89,22 @@
                         @error('username')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
-
+                    </div>
+                    <div class="form-group pt-1">
                         <label class="text-secondary">Password <small class="text-danger">(required)</small></label>
                         <input type="password" class="form-control mb-1" name="password" value="{{ old('password') }}" required>
                         @error('password')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
-
+                    </div>
+                    <div class="form-group pt-1">
                         <label class="text-secondary">Confirm Password <small class="text-danger">(required)</small></label>
                         <input type="password" class="form-control mb-1" name="confirm_password" value="{{ old('confirm_password') }}" required>
                         @error('confirm_password')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
                     </div>
+
 
                     <center>
                         <button type="submit" name="submit" class="btn btn-primary pb-2">Register</button>
