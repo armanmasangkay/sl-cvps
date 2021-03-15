@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::middleware(['admin'])->group(function () {
-   
+
 // });
 
 
@@ -42,11 +42,9 @@ Route::post('/register', [RegistrationController::class, 'store']);
 Route::resource('vaccine', VaccineController::class);
 
 Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
-// Route::resource('admin', AdminController::class);
 
-Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
 
-Route::get('/login',[UserLogin::class,'view'])->name('user.login');
+Route::get('/',[UserLogin::class,'view'])->name('user.login');
 
 Route::resource('vaccinator',VaccinatorController::class);
 
