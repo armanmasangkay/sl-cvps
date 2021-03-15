@@ -11,6 +11,6 @@ class Facility extends Model
 
     protected $fillable = [
         'facility_name',
-        'municipality'
+        'municipality_id'
     ];
 }

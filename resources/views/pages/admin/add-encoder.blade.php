@@ -21,7 +21,7 @@
     })
 </script>
 @endif
-@if(Session::get('matched') === false)
+@if(Session::get('registered') === false)
 <script>
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -54,36 +54,38 @@
 
                 <form action="{{ route('encoder.store') }}" method="post" class="mt-2">
                     @csrf
+                    <input type="hidden" name="municipality_id" value="{{ Auth::user()->municipality_id }}">
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">First name <small class="text-danger">(required)</small></label>
-                            <input type="text" class="form-control mb-1" name="firstname" value="{{ old('firstname') }}" required>
+                            <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
                         </div>
-                        @error('firstname')
+                        @error('first_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
 
                         <div class="col-md-6 pl-md-1">
                             <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
-                            <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
-                            @error('lastname')
+                            <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
+                            @error('last_name')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                
                     <div class="row mb-2">
-                        <div class="col-md-12 pr-md-1">
+                        {{--<div class="col-md-12">
                             <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
                             <select name="municipality" class="form-control mb-1" required>
+                                <option value=""></option>
                                 @foreach($municipalities as $municipality)
                                 <option value="{{$municipality->id}}">{{$municipality->name}}</option>
                                 @endforeach
                             </select>
-                            @error('municipality')
+                            @error('municipality_id')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
-                        </div>
+                        </div> --}}
                         {{-- <div class="col-md-6 pl-md-1">
                             <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
                             <select name="facility" class="form-control" required>

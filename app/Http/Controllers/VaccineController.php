@@ -30,7 +30,7 @@ class VaccineController extends Controller
     public function create()
     {
         Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
-        return view('pages.vaccine.add-vaccine');
+        return view('pages.admin.add-vaccines');
     }
 
 
@@ -57,33 +57,41 @@ class VaccineController extends Controller
     {
         Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
+            'vaccine_name' => 'required',
             'batch_number'  =>   'required',
-            'lot_number'    =>   'required',
+            'lot_number'    =>   '',
             'vaccine_manufacturer'  =>  'required',
             'municipality_id'  =>    'required'
         ]);
 
 
         if ($validator->fails()) {
-            return redirect(route('vaccine.create'))->withErrors($validator);
+            return redirect(route('vaccine.create'))->withErrors($validator)->withInput();
         }
 
-        if (!Municipality::checkMunicipalityExist($request->municipality_id)) {
-            return redirect(route('vaccine.create'))->withErrors([
-                'municipality_id' => 'No municipality match'
-            ]);
-        }
+        // if (!Municipality::checkMunicipalityExist($request->municipality_id)) {
+        //     return redirect(route('vaccine.create'))->with([
+        //         'created' => false,
+        //         'title' => 'Sorry!',
+        //         'text' => 'No municipality match'
+        //     ])->withInput();
+        // }
 
-        $municipality_id = $this->getMunicipalityId($request->municipality_id);
+        // $municipality_id = $this->getMunicipalityId($request->municipality_id);
 
         Vaccine::create([
+            'vaccine_name'      =>      $request->vaccine_name,
             'batch_number'      =>      $request->batch_number,
-            'lot_number'        =>      $request->lot_number,
+            'lot_number'        =>      (empty($request->lot_number) ? 'N/A' : $request->lot_number),
             'vaccine_manufacturer'      =>  $request->vaccine_manufacturer,
-            'municipality_id'           =>      $municipality_id
+            'municipality_id'           =>  $request->municipality_id
         ]);
 
-        return redirect(route('vaccine.create'))->with('created', true)->with('message', 'New vaccine added');
+        return redirect(route('vaccine.create'))->with([
+                'created' => true,
+                'title' => 'Great!',
+                'text' => 'New vaccine added'
+            ]);
     }
 
     /**

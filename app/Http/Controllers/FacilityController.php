@@ -35,7 +35,7 @@ class FacilityController extends Controller
         Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
             'facility_name'         =>      'required',
-            'municipality'          =>      'required',
+            'municipality_id'          =>      'required',
         ]);
 
         if($validator->fails())
@@ -45,7 +45,7 @@ class FacilityController extends Controller
 
         Facility::create([
             'facility_name' =>      $request->facility_name,
-            'municipality'  =>      $request->municipality
+            'municipality_id'  =>      $request->municipality_id
         ]);
 
         return redirect(route('facility.create'))->with([
