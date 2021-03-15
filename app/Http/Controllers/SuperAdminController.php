@@ -13,7 +13,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.superadmin.admin-lists', ['user' => 'Super Admin']);
     }
 
     /**

@@ -29,6 +29,11 @@ class AdminController extends Controller
         return view('pages.admin.add-new');
     }
 
+    public function view()
+    {
+        return view('pages.admin.admin-lists');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
