@@ -96,7 +96,7 @@
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
                     </div>
-                    
+
                     <center>
                         <button type="submit" name="submit" class="btn btn-primary pb-2">Register</button>
                         <button class="btn btn-secondary pb-2">Cancel</button>
