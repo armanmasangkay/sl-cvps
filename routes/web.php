@@ -4,6 +4,7 @@ use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Http\Controllers\FacilityController;
@@ -33,6 +34,10 @@ Route::resource('encoder', EncoderController::class);
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
 Route::post('/register', [RegistrationController::class, 'store']);
 
+Route::resource('admin', AdminController::class);
+Route::resource('vaccine', VaccineController::class);
+
+Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
 // Route::resource('admin', AdminController::class);
 
 Route::get('/reports',[ReportsController::class,'index'])->name('superadmin.reports');
