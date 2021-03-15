@@ -39,21 +39,21 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
-                            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-                            <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
-                            @error('lastname')
-                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 pl-md-1">
                             <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
                             <input type="text" class="form-control mb-1" name="firstname" value="{{ old('firstname') }}" required>
                             @error('firstname')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
+                        <div class="col-md-6 pl-md-1">
+                            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+                            <input type="text" class="form-control mb-1" name="lastname" value="{{ old('lastname') }}" required>
+                            @error('lastname')
+                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Middlename <small class="text-gray">(optional)</small></label>
                             <input type="text" class="form-control mb-1" name="middlename" value="{{ old('middlename') }}">
@@ -63,7 +63,9 @@
                             <input type="text" class="form-control mb-1" name="suffix" value="{{ old('suffix') }}">
                         </div>
                     </div>
-                    <div class="row">
+
+                    <small class="text-secondary text-p-info pt-2">Additional Information</small>
+                    <div class="row mt-2">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Position <small class="text-danger">(required)</small></label>
                             <select name="position" class="form-control mb-1" required>

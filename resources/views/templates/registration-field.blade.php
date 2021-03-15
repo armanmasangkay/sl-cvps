@@ -1,55 +1,9 @@
 <div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register">
     <h5 class="text-secondary text-p-info">Personal Information</h5>
 
-    <!-- category -->
-    <div class="row mt-3">
-        <div class="col-md-4 pr-md-1 mt-1">
-            <label class="text-secondary">Category <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control position-relative" name="category" value="{{ old('category') }}" style="">
-            @error('category')
-            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-            @enderror
-        </div>
-        <div class="col-md-4 pl-md-1 pr-md-1 mt-1">
-            <label class="text-secondary">Category ID <small class="text-danger">(required)</small></label>
-            <select name="category_id" class="form-control" required>
-                <option value="" style="color: #c2c2c2 !important;"></option>
-            </select>
-            @error('category_id')
-            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-            @enderror
-        </div>
-        <div class="col-md-4 pl-md-1 mt-1">
-            <label class="text-secondary">Category ID No <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control" name="category_id_num" required value="{{ old('category_id_num') }}">
-            @error('category_id_num')
-            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-            @enderror
-        </div>
-    </div>
-
-    <!-- philhealth and pwd id -->
-    <div class="row">
-        <div class="col-md-6 pr-md-1 mt-2">
-            <label class="text-secondary">PhilHealth ID <small class="text-gray">(optional)</small></label>
-            <input type="text" class="form-control" name="philhealth" value="{{ old('philhealth') }}">
-        </div>
-        <div class="col-md-6 pl-md-1 mt-2">
-            <label class="text-secondary">PWD ID <small class="text-gray">(optional)</small></label>
-            <input type="text" class="form-control" name="pwd_id" value="{{ old('pwd_id') }}">
-        </div>
-    </div>
-
     <!-- name -->
     <div class="row">
         <div class="col-md-3 pr-md-1 mt-2">
-            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control" name="lastname" required value="{{ old('lastname') }}">
-            @error('lastname')
-            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-            @enderror
-        </div>
-        <div class="col-md-3 px-md-1 mt-2">
             <label class="text-secondary">Firstname<small class="text-danger">(required)</small></label>
             <input type="text" class="form-control" name="firstname" required value="{{ old('firstname') }}">
             @error('firstname')
@@ -59,6 +13,13 @@
         <div class="col-md-3 px-md-1 mt-2">
             <label class="text-secondary">Middlename <small class="text-gray">(optional)</small></label>
             <input type="text" class="form-control" name="middlename" value="{{ old('middlename') }}">
+        </div>
+        <div class="col-md-3 px-md-1 mt-2">
+            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+            <input type="text" class="form-control" name="lastname" required value="{{ old('lastname') }}">
+            @error('lastname')
+            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+            @enderror
         </div>
         <div class="col-md-3 pl-md-1 mt-2">
             <label class="text-secondary">Suffix <small class="text-gray">(option)</small></label>
@@ -125,6 +86,47 @@
             @error('contact_num')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
+        </div>
+    </div>
+
+    <h5 class="text-secondary pt-4 text-p-info">Additional Information</h5>
+
+    <!-- category -->
+    <div class="row mt-3">
+        <div class="col-md-4 pr-md-1 mt-1">
+            <label class="text-secondary">Category <small class="text-danger">(required)</small></label>
+            <input type="text" class="form-control position-relative" name="category" value="{{ old('category') }}" style="">
+            @error('category')
+            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div class="col-md-4 pl-md-1 pr-md-1 mt-1">
+            <label class="text-secondary">Category ID <small class="text-danger">(required)</small></label>
+            <select name="category_id" class="form-control" required>
+                <option value="" style="color: #c2c2c2 !important;"></option>
+            </select>
+            @error('category_id')
+            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+            @enderror
+        </div>
+        <div class="col-md-4 pl-md-1 mt-1">
+            <label class="text-secondary">Category ID No <small class="text-danger">(required)</small></label>
+            <input type="text" class="form-control" name="category_id_num" required value="{{ old('category_id_num') }}">
+            @error('category_id_num')
+            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+
+    <!-- philhealth and pwd id -->
+    <div class="row">
+        <div class="col-md-6 pr-md-1 mt-2">
+            <label class="text-secondary">PhilHealth ID <small class="text-gray">(optional)</small></label>
+            <input type="text" class="form-control" name="philhealth" value="{{ old('philhealth') }}">
+        </div>
+        <div class="col-md-6 pl-md-1 mt-2">
+            <label class="text-secondary">PWD ID <small class="text-gray">(optional)</small></label>
+            <input type="text" class="form-control" name="pwd_id" value="{{ old('pwd_id') }}">
         </div>
     </div>
 

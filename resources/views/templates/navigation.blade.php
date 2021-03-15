@@ -10,7 +10,7 @@
                 <!-- super admin nav menu -->
                 @if($user == 'Super Admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.create') }}">Add Amin</a>
+                    <a class="nav-link" href="{{ route('admin.create') }}">Add Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('superadmin.reports') }}">View Reports</a>
@@ -21,9 +21,9 @@
                 <!-- admin nav menu -->
                 @if($user == 'Admin')
                 <li class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add&nbsp;</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item text-secondary" href="{{ route('admin.create') }}">Admin</a>
+                        <!-- <a class="dropdown-item text-secondary" href="{{ route('admin.create') }}">Admin</a> -->
                         <a class="dropdown-item text-secondary" href="{{ route('vaccinator.create') }}">Vaccinator</a>
                         <a class="dropdown-item text-secondary" href="{{ route('facility.create') }}">Facility</a>
                         <a class="dropdown-item text-secondary" href="">Vaccine</a>

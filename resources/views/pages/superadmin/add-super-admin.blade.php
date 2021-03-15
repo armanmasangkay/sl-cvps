@@ -55,15 +55,15 @@
                 <form action="{{ route('admin.store') }}" method="post" class="mt-2">
                     @csrf
                     <div class="form-group">
-                        <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
-                        @error('last_name')
+                        <label class="text-secondary">First name <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
+                        @error('first_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
 
-                        <label class="text-secondary">Firstname <small class="text-danger">(required)</small></label>
-                        <input type="text" class="form-control mb-1" name="first_name" value="{{ old('first_name') }}" required>
-                        @error('first_name')
+                        <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
+                        <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
+                        @error('last_name')
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
 
