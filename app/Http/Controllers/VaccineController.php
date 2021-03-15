@@ -14,10 +14,10 @@ class VaccineController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function index()
-    // {
-    //     //
-    // }
+    public function index()
+    {
+        return view('pages.admin.lists.vaccines-lists');
+    }
 
     /**
      * Show the form for creating a new resource.
