@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Encoder;
 use App\Models\Municipality;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Str;
 class EncoderController extends Controller
 {
@@ -15,6 +16,13 @@ class EncoderController extends Controller
     {
         return Municipality::all();
     }
+
+    public function index()
+    {
+        $encoder = User::where('role', '3')->get();
+        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoder);
+    }
+
     public function create()
     {
         return view('pages.admin.add-encoder', [
@@ -70,5 +78,22 @@ class EncoderController extends Controller
                 'title'      => 'Great!',
                 'text'       => 'New encoder was added'
             ]);
+    }
+
+
+    public function destroy($id)
+    {
+        try
+        {
+            $user = User::findOrFail($id);
+
+            $user->delete();
+
+            return redirect(route('admin.index'))->with('message', 'User successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
     }
 }

@@ -26,7 +26,7 @@ class AddForeignKeyToMunicipalityIdInUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('admins_municipality_id_foreign');
+            $table->dropForeign('users_municipality_id_foreign');
         });
     }
 }

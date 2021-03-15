@@ -14,6 +14,11 @@ class FacilityController extends Controller
         return Municipality::all();
     }
 
+    public function index()
+    {
+        return view('pages.admin.lists.facilities-lists');
+    }
+
     public function create()
     {
         return view('pages.admin.add-facility', [

@@ -17,4 +17,9 @@ class Municipality extends Model
     {
         return Municipality::where('name', '=', $municipality)->exists();
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -15,6 +15,12 @@ class VaccinatorController extends Controller
     {  
        $this->vaccinatorRepository=$vaccinatorRepository; 
     }
+
+    public function index()
+    {
+        return view('pages.admin.lists.vaccinators-lists');
+    }
+
     public function create()
     {
         return view('pages.admin.vaccinator-registration', ['user' => 'Admin']);

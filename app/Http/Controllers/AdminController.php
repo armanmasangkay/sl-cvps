@@ -7,6 +7,7 @@ use App\Classes\Facades\User as FacadesUser;
 
 use App\Models\Municipality;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,8 +34,13 @@ class AdminController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
 
     
+=======
+        $user = User::where('role', '1')->get();
+        return view('pages.superadmin.admin-lists')->with('users', $user);
+>>>>>>> 2ef2c531bd617904d9ce9d8cce4ce37e650d6c4a
     }
 
     // /**
@@ -128,28 +134,28 @@ class AdminController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function edit($id)
-    // {
-    //     //
-    // }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-    // /**
-    //  * Update the specified resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function update(Request $request, $id)
-    // {
-    //     //
-    // }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -159,9 +165,20 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        try
+        {
+            $user = User::findOrFail($id);
 
-        return redirect('admin.index')->with('message', 'User successfully deleted');
+            $user->delete();
+
+            return redirect(route('admin.index'))->with('message', 'User successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
+
+
 
     }
 }
