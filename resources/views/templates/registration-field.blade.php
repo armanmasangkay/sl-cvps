@@ -95,7 +95,9 @@
     <div class="row mt-3">
         <div class="col-md-4 pr-md-1 mt-1">
             <label class="text-secondary">Category <small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control position-relative" name="category" value="{{ old('category') }}" style="">
+            <select name="category" class="form-control" required>
+                <option value="" style="color: #c2c2c2 !important;"></option>
+            </select>
             @error('category')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
