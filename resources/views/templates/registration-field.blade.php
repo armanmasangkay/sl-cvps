@@ -1,21 +1,21 @@
-<div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register">
+<div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register shadow-sm">
     <h5 class="text-secondary text-p-info">Personal Information</h5>
 
     <!-- name -->
     <div class="row">
         <div class="col-md-3 pr-md-1 mt-2">
-            <label class="text-secondary">Firstname<small class="text-danger">(required)</small></label>
+            <label class="text-secondary">First name<small class="text-danger">(required)</small></label>
             <input type="text" class="form-control" name="firstname" required value="{{ old('firstname') }}">
             @error('firstname')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
         </div>
         <div class="col-md-3 px-md-1 mt-2">
-            <label class="text-secondary">Middlename <small class="text-gray">(optional)</small></label>
+            <label class="text-secondary">Middle name <small class="text-gray">(optional)</small></label>
             <input type="text" class="form-control" name="middlename" value="{{ old('middlename') }}">
         </div>
         <div class="col-md-3 px-md-1 mt-2">
-            <label class="text-secondary">Lastname <small class="text-danger">(required)</small></label>
+            <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
             <input type="text" class="form-control" name="lastname" required value="{{ old('lastname') }}">
             @error('lastname')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>

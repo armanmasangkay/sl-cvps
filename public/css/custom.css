@@ -19,7 +19,7 @@ input::placeholder{
 }
 
 select ~ option:nth-child(1){
-    color: #c2c2c2 !important
+    color: #c2b3b3 !important
 }
 select{
     color: #575757 !important
@@ -38,13 +38,6 @@ a{
     text-decoration: none !important;
 }
 
-@media (min-width: 425px)
-{
-    .text-dev, .text-footer{
-        font-size: 15px !important;
-    }
-}
-
 .text-province, .text-content-heading, 
 .text-slsu, .text-p-info, .text-dev, 
 .text-footer, .text-ccsit{
@@ -52,7 +45,14 @@ a{
     font-weight: 400 !important;
 }
 
-@media (min-width: 375px)
+@media (max-width: 425px)
+{
+    .text-dev, .text-footer{
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 375px)
 {
     .text-province, .text-content-heading, 
     .text-slsu, .text-p-info{
@@ -68,7 +68,7 @@ a{
     }
 }
 
-@media (min-width: 320px) and (max-width: 374px)
+@media (max-width: 320px)
 {
     .text-province, .text-content-heading, 
     .text-slsu, .text-p-info{
@@ -98,4 +98,6 @@ a{
     .text-dev, .text-footer{
         font-size: 13px !important;
     }
+
+    
 }

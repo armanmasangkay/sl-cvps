@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light pb-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light pb-3 shadow-sm">
     <div class="container">
         <a class="navbar-brand text-primary" href="#">Southern Leyte - CVPS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
                         <!-- <a class="dropdown-item text-secondary" href="{{ route('admin.create') }}">Admin</a> -->
                         <a class="dropdown-item text-secondary" href="{{ route('vaccinator.create') }}">Vaccinator</a>
                         <a class="dropdown-item text-secondary" href="{{ route('facility.create') }}">Facility</a>
-                        <a class="dropdown-item text-secondary" href="">Vaccine</a>
+                        <a class="dropdown-item text-secondary" href="{{ route('vaccine.create') }}">Vaccine</a>
                         <a class="dropdown-item text-secondary mb-1" href="{{ route('encoder.create') }}">Encoder</a>
                     </div>
                 </li>
