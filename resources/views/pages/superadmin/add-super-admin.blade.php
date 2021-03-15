@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded">
-                <h4 class="text-primary mt-2 pt-1 text-content-heading">Admin User Registration</h4>
+                <h4 class="text-primary mt-2 pt-1 text-content-heading text-center">Admin User Registration</h4>
             </div>
         </div>
     </div>

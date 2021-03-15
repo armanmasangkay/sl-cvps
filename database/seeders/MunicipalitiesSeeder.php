@@ -37,7 +37,6 @@ class MunicipalitiesSeeder extends Seeder
 
     public function run()
     {
-
         foreach (self::MUNICIPALITIES_NAMES as $municipality) {
             Municipality::create([
                 'municipality_name' => $municipality
