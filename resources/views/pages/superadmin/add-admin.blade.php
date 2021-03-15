@@ -62,7 +62,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group"> 
+                    <div class="form-group">
                         <label class="text-secondary">Last name <small class="text-danger">(required)</small></label>
                         <input type="text" class="form-control mb-1" name="last_name" value="{{ old('last_name') }}" required>
                         @error('last_name')
@@ -104,8 +104,8 @@
                         <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                         @enderror
                     </div>
-                
-                    
+
+
                     <center>
                         <button type="submit" name="submit" class="btn btn-primary pb-2">Register</button>
                         <button class="btn btn-secondary pb-2">Cancel</button>

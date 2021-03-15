@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Facades\User as FacadesUser;
-use App\Models\Admin;
+
 use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,7 +34,7 @@ class AdminController extends Controller
     //  *
     //  * @return \Illuminate\Http\Response
     //  */
-    
+
     public function create()
     {
         return view('pages.superadmin.add-admin',[
@@ -88,7 +88,7 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
-        
+
         User::create([
             'first_name'    =>      Str::title($request->first_name),
             'last_name'     =>      Str::title($request->last_name),
@@ -146,6 +146,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
+        $user = User::findOrFail($id);
+
+        return redirect('admin.index')->with('message', 'User successfully deleted');
 
     }
 }
