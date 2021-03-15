@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -78,16 +79,6 @@ class AdminController extends Controller
             return redirect(route('admin.create'))->withErrors($validator)->withInput();
         }
 
-
-        // if(Admin::adminExist($request->username))
-        // {
-        //     return redirect(route('admin.create'))->with([
-        //             'found'    => true,
-        //             'title'    => 'Warning!',
-        //             'text'     => 'Username already taken, please choose another one'
-        //         ])->withInput();
-        // }
-
         if($this->passwordCheck($request->password, $request->confirm_password))
         {
             return redirect(route('admin.create'))->with([
@@ -97,16 +88,17 @@ class AdminController extends Controller
                 ])->withInput();
         }
 
+        
+
 
         User::create([
-            'first_name'    =>      $request->first_name,
-            'last_name'     =>      $request->last_name,
+            'first_name'    =>      Str::title($request->first_name),
+            'last_name'     =>      Str::title($request->last_name),
             'username'      =>      $request->username,
             'password'      =>      bcrypt($request->password),
             'municipality_id'  =>      $request->municipality,
             'role'          =>      FacadesUser::ADMIN
         ]);
-
         return redirect(route('admin.create'))->with([
                 'registered' => true,
                 'title'      => 'Great!',
