@@ -24,8 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['admin'])->group(function () {
+    Route::resource('admin', AdminController::class);
+});
 
-Route::resource('admin', AdminController::class);
+
 
 Route::resource('facility', FacilityController::class);
 
@@ -34,7 +37,7 @@ Route::resource('encoder', EncoderController::class);
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
 Route::post('/register', [RegistrationController::class, 'store']);
 
-Route::resource('admin', AdminController::class);
+
 Route::resource('vaccine', VaccineController::class);
 
 Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
