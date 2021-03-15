@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
 use App\Repositories\Contracts\PersonRepositoryInterface;
+use App\Classes\Facades\User as FacadesUser;
 
 class ReportsController extends Controller
 {
@@ -16,6 +18,7 @@ class ReportsController extends Controller
 
     public function index()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
         $vaccinateds=$this->personRepository->getAllVaccinated();
 
         return view('pages.superadmin.reports',[

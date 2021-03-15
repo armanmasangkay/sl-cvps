@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
+use App\Classes\Facades\User as FacadesUser;
 use App\Models\Municipality;
 use App\Models\Vaccine;
 use Illuminate\Http\Request;
@@ -16,6 +18,7 @@ class VaccineController extends Controller
     //  */
     public function index()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         return view('pages.admin.lists.vaccines-lists');
     }
 
@@ -26,6 +29,7 @@ class VaccineController extends Controller
      */
     public function create()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         return view('pages.vaccine.add-vaccine');
     }
 
@@ -51,6 +55,7 @@ class VaccineController extends Controller
      */
     public function store(Request $request)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
             'batch_number'  =>   'required',
             'lot_number'    =>   'required',
@@ -123,6 +128,7 @@ class VaccineController extends Controller
     //  */
     // public function destroy($id)
     // {
+    //     Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
     //     //
     // }
 }

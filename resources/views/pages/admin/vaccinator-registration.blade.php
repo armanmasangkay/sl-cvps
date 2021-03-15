@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    {{-- <input type="hidden" name="municipality_id" value="{{ Auth::user()->municipality_id }}"> --}}
+                    <input type="hidden" name="municipality_id" value="{{ Auth::user()->municipality_id }}">
 
                     <center class="mt-4">
                         <button type="submit" class="btn btn-primary pb-2">Register</button>

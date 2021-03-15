@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
 use App\Http\Requests\VaccinatorRequest;
+use App\Classes\Facades\User as FacadesUser;
 use App\Repositories\Contracts\VaccinatorRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,11 +20,13 @@ class VaccinatorController extends Controller
 
     public function index()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         return view('pages.admin.lists.vaccinators-lists');
     }
 
     public function create()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         return view('pages.admin.vaccinator-registration', ['user' => 'Admin']);
     }
 
@@ -41,6 +45,7 @@ class VaccinatorController extends Controller
 
     public function store(VaccinatorRequest $request)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $validator=$this->createVaccinatorValidator($request->validated());
 
         if($validator->fails()){

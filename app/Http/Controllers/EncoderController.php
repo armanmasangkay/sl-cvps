@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
 use App\Classes\Facades\User as FacadesUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,12 +20,14 @@ class EncoderController extends Controller
 
     public function index()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $encoder = User::where('role', '3')->get();
         return view('pages.admin.lists.encoder-lists')->with('encoders', $encoder);
     }
 
     public function create()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         return view('pages.admin.add-encoder', [
             'user' => 'Admin',
             'municipalities'=>$this->getMunicipalities()
@@ -41,6 +44,7 @@ class EncoderController extends Controller
 
     public function store(Request $request)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
             'firstname'            =>      'required',
             'lastname'             =>      'required',
@@ -83,6 +87,7 @@ class EncoderController extends Controller
 
     public function destroy($id)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
         try
         {
             $user = User::findOrFail($id);

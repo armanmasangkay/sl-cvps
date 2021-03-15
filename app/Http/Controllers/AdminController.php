@@ -78,7 +78,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
-        
+
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
@@ -160,6 +160,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
         try
         {
             $user = User::findOrFail($id);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\Security;
+use App\Classes\Facades\User as FacadesUser;
 use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
@@ -13,6 +15,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
         return view('pages.superadmin.admin-lists', ['user' => 'Super Admin']);
     }
 
@@ -23,6 +26,7 @@ class SuperAdminController extends Controller
      */
     public function create()
     {
+        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
         return view('pages.superadmin.add-super-admin', ['user' => 'Super Admin']);
     }
 
