@@ -96,7 +96,9 @@
         <div class="col-md-4 pr-md-1 mt-1">
             <label class="text-secondary">Category <small class="text-danger">(required)</small></label>
             <select name="category" class="form-control" required>
-                <option value="" style="color: #c2c2c2 !important;"></option>
+                @foreach($categories as $categoryKey=>$categoryValue)
+                <option value="{{$categoryKey}}" style="color: #c2c2c2 !important;">{{$categoryValue}}</option>
+                @endforeach
             </select>
             @error('category')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
@@ -105,7 +107,9 @@
         <div class="col-md-4 pl-md-1 pr-md-1 mt-1">
             <label class="text-secondary">Category ID <small class="text-danger">(required)</small></label>
             <select name="category_id" class="form-control" required>
-                <option value="" style="color: #c2c2c2 !important;"></option>
+                @foreach($categoryIds as $categoryIdsKey=>$categoryIdsValue)
+                <option value="{{$categoryIdsKey}}" style="color: #c2c2c2 !important;">{{$categoryIdsValue}}</option>
+                @endforeach
             </select>
             @error('category_id')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>

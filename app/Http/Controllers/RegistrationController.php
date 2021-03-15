@@ -8,13 +8,32 @@ use App\Models\Person;
 
 class RegistrationController extends Controller
 {
+    protected $categories=[
+        'health_care_worker'=>'Health Care Worker',
+        'senior_citizen'=>'Senior Citizen',
+        'indigent'=>'Indigent',
+        'uniformed_personnel'=>'Uniformed Personnel',
+        'essential_worker'=>'Essential Worker',
+        'other'=>'Other'
+    ];
+    
+    protected $categoryIds=[
+        'prc'=>'PRC Number',
+        'osca'=>'OSCA Number',
+        'facility_id'=>'Facility ID Number',
+        'other_id'=>'Other ID',
+    ];
+
+
     public function view()
     {
         return view('pages.register')
                 ->with([
                     'registered'=> '', 
                     'title'     => '', 
-                    'text'      => ''
+                    'text'      => '',
+                    'categories'=>$this->categories,
+                    'categoryIds'=>$this->categoryIds
                 ]);
     }
 
