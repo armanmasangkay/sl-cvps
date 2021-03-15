@@ -1,5 +1,6 @@
 <div class="container border border-gray pt-3 pb-4 pl-4 pr-4 mt-3 rounded register">
     <h5 class="text-secondary text-p-info">Personal Information</h5>
+    <hr>
 
     <!-- category -->
     <div class="row mt-3">
