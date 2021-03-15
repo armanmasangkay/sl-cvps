@@ -9,16 +9,19 @@
                         <center>
                             <h5 class="text-secondary text-p-info pt-2">System User Login</h5>
                         </center>
-                        
+
                         <form action="" method="post" class="mt-3">
                             <div class="form-group">
                                 <input type="text" class="form-control mb-2" placeholder="Username">
                                 <input type="password" class="form-control mb-2" placeholder="Password">
                                 <select name="" class="form-control">
-                                    
+                                    <option value="">Select role</option>
+                                    <option value="Super Admin">Super Admin</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Encode">Encoder</option>
                                 </select>
                             </div>
-                            
+
                             <center>
                                 <button class="btn btn-primary pb-2 mb-2 mt-1">Register</button>
                                 <button class="btn btn-secondary pb-2 mb-2 mt-1">Cancel</button>

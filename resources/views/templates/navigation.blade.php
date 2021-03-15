@@ -10,13 +10,14 @@
                 <!-- super admin nav menu -->
                 @if($user == 'Super Admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.create') }}">Add Admin</a>
+                    <a class="nav-link" href="{{ route('admin.create') }}">New Admin</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.create') }}">Admin Lists</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('superadmin.reports') }}">View Reports</a>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View&nbsp;</a>
+                    <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item text-secondary" href="">Admin Lists</a>
+                        <a class="dropdown-item text-secondary" href="">Reports</a>
+                    </div>
                 </li>
                 @endif
                 <!-- end super admin nav menu -->

@@ -45,6 +45,13 @@ a{
     font-weight: 400 !important;
 }
 
+.btn.btn-sm{
+    height: 25px !important;
+    padding-top: 0px !important;
+    padding-bottom: 5px !important;
+    color: #fff !important;
+}
+
 @media (max-width: 425px)
 {
     .text-dev, .text-footer{

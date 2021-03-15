@@ -17,8 +17,5 @@ class Admin extends User
         'municipality_id',
     ];
 
-    public static function adminExist($username)
-    {
-        return Admin::where('username', '=', $username)->exists();
-    }
+
 }
