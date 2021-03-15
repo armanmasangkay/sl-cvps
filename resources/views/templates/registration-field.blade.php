@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
             <label class="text-secondary">Province <small class="text-danger">(required)</small></label>
-            <input type="text" id="Province" class="form-control" name="loc_prov" required value="{{ old('loc_prov') }}">
+            <input type="text" id="Province" class="form-control" name="loc_prov" required value="Southern Leyte" disabled>
             @error('loc_prov')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
