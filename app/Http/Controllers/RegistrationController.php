@@ -8,13 +8,32 @@ use App\Models\Person;
 
 class RegistrationController extends Controller
 {
+    protected $categories=[
+        'health_care_worker'=>'Health Care Worker',
+        'senior_citizen'=>'Senior Citizen',
+        'indigent'=>'Indigent',
+        'uniformed_personnel'=>'Uniformed Personnel',
+        'essential_worker'=>'Essential Worker',
+        'other'=>'Other'
+    ];
+    
+    protected $categoryIds=[
+        'prc'=>'PRC Number',
+        'osca'=>'OSCA Number',
+        'facility_id'=>'Facility ID Number',
+        'other_id'=>'Other ID',
+    ];
+
+
     public function view()
     {
         return view('pages.register')
                 ->with([
                     'registered'=> '', 
                     'title'     => '', 
-                    'text'      => ''
+                    'text'      => '',
+                    'categories'=>$this->categories,
+                    'categoryIds'=>$this->categoryIds
                 ]);
     }
 
@@ -43,20 +62,6 @@ class RegistrationController extends Controller
         {
             return redirect(route('person.register'))
                     ->withErrors($validator)
-                    // ->withErrors([
-                    //     'category'       => 'Please select category',
-                    //     'category_id'    => 'Please enter category ID',
-                    //     'category_id_num'=> 'Please enter category ID number',
-                    //     'lastname'       => 'Please enter last name',
-                    //     'firstname'      => 'Please enter first name',
-                    //     'contact_num'    => 'Please provide working contact number',
-                    //     'loc_region'     => 'Please enter residence region',
-                    //     'loc_prov'       => 'Please enter residence province',
-                    //     'loc_muni'       => 'Please enter residence municipality',
-                    //     'loc_brgy'       => 'Please enter residence barangay',
-                    //     'sex'            => 'Please select gender',
-                    //     'birth_date'     => 'Please specify your birthdate',
-                    // ])
                     ->withInput();
         }
         

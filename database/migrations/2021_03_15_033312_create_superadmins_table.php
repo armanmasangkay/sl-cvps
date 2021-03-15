@@ -13,7 +13,7 @@ class CreateSuperadminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('superadmins', function (Blueprint $table) {
+        Schema::create('super_admins', function (Blueprint $table) {
             $table->id();
             $table->string('fullname');
             $table->string('username');
@@ -29,6 +29,6 @@ class CreateSuperadminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('superadmins');
+        Schema::dropIfExists('super_admins');
     }
 }
