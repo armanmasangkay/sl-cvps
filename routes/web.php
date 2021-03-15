@@ -27,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',function(){
+    return redirect(route('user.login'));
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('admin', AdminController::class);
     Route::resource('facility', FacilityController::class);
