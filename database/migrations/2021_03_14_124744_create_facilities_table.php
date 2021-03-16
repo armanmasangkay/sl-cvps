@@ -16,11 +16,7 @@ class CreateFacilitiesTable extends Migration
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
             $table->string('facility_name');
-<<<<<<< HEAD
-            $table->string('municipality_id');
-=======
             $table->unsignedBigInteger('municipality_id');
->>>>>>> 950573d5b6cee609e3fd4b71571c2ea7e51cbe4b
             $table->timestamps();
         });
     }

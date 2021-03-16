@@ -71,16 +71,6 @@ class VaccineController extends Controller
             return redirect(route('vaccine.create'))->withErrors($validator)->withInput();
         }
 
-        // if (!Municipality::checkMunicipalityExist($request->municipality_id)) {
-        //     return redirect(route('vaccine.create'))->with([
-        //         'created' => false,
-        //         'title' => 'Sorry!',
-        //         'text' => 'No municipality match'
-        //     ])->withInput();
-        // }
-
-        // $municipality_id = $this->getMunicipalityId($request->municipality_id);
-
         Vaccine::create([
             'vaccine_name'      =>      $request->vaccine_name,
             'batch_number'      =>      $request->batch_number,
