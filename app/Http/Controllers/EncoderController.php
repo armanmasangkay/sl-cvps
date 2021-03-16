@@ -22,7 +22,7 @@ class EncoderController extends Controller
     public function index()
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
-        $encoders = User::where('role', '3')->get();
+        $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->get();
         return view('pages.admin.lists.encoder-lists')->with('encoders', $encoders);
     }
 
@@ -95,7 +95,7 @@ class EncoderController extends Controller
 
             $user->delete();
 
-            return redirect(route('admin.index'))->with('message', 'User successfully deleted');
+            return redirect(route('encoder.index'))->with('message', 'User successfully deleted');
         }
         catch(ModelNotFoundException $e)
         {

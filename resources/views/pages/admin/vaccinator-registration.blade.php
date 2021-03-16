@@ -85,10 +85,14 @@
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
+<<<<<<< HEAD
                             <select name="facility" class="form-control mb-1" required>
                                 <option value=""></option>
+=======
+                            <select name="facility_id" class="form-control mb-1" required>
+>>>>>>> 068b094d0bca5b6cd616ef9306cfac6a8823f698
                                 @forelse ($facilities as $facility)
-                                    <option value="{{ $facility->facility_name }}">{{ $facility->facility_name }}</option>
+                                    <option value="{{ $facility->id }}">{{ $facility->facility_name }}</option>
                                 @empty
                                     <option value=""></option>
                                 @endforelse
