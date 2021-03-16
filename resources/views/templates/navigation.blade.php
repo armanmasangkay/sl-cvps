@@ -60,7 +60,7 @@
                 <!-- end encoder nav menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Signout</a>
+                    <a class="nav-link" href="{{route('user.logout')}}">Signout</a>
                 </li>
             </ul>
         </div>

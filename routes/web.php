@@ -10,6 +10,7 @@ use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\EncoderController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostVaxController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\UserLogin;
@@ -41,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
     Route::get('/admin/reports',[AdminReportsController::class,'index'])->name('admin.reports');
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
+    Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
 });
 
 
