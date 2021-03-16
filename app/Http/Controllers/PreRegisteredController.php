@@ -18,8 +18,7 @@ class PreRegisteredController extends Controller
 
         return view('pages.encoder.pre-registered-lists',
             [
-                'persons' => Person::where('municipality_id', Auth::user()->municipality_id)
-                                   ->where('facility_id', Auth::user()->facility_id)->get()
+                'persons' => Person::all()
             ]);
     }
 
