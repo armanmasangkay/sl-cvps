@@ -15,6 +15,7 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
+            $table->string('qr_code')->nullable();
             $table->string('category');
             $table->string('category_id');
             $table->string('category_id_num');
