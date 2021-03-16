@@ -28,8 +28,7 @@
                             <td class="pt-2 pb-0"></td>
                             <td class="pt-2 pb-2" colspan="2">
                                 <div class="d-flex justify-content-start">
-                                    <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                    <button type="button" class="btn btn-primary ml-1 pt-0 pb-1 btn-scan px-md-3"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
+                                    <button type="button" class="btn btn-primary ml-1 pt-0 pb-1 btn-scan px-md-3" data-id="1"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
                                 </div>
                             </td>
                         </tr>
@@ -40,8 +39,7 @@
                             <td class="pt-2 pb-0"></td>
                             <td class="pt-2 pb-2" colspan="2">
                                 <div class="d-flex justify-content-start">
-                                    <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                    <button type="button" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
+                                    <button type="button" data-id="1" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
                                 </div>
                             </td>
                         </tr>
