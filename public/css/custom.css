@@ -56,9 +56,14 @@ a{
     padding-bottom: 2px !important;
 }
 
-.qr_image{
+.qr_image, .canvas-wrapper{
     position: relative !important;
     top: -1rem !important;
+}
+
+#text-stop-scan{
+    position: relative !important;
+    top: -0.6rem !important;
 }
 
 .text-click-img{
