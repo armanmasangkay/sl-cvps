@@ -22,8 +22,8 @@ class EncoderController extends Controller
     public function index()
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
-        $encoder = User::where('role', '3')->get();
-        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoder);
+        $encoders = User::where('role', '3')->get();
+        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoders);
     }
 
     public function create()

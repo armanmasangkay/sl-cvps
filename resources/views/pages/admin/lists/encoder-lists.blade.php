@@ -25,10 +25,10 @@
                         @forelse ($encoders as $encoder)
                             <tr class="border-bottom-1">
                                 <td class="pt-2 pb-0">{{ $encoder->id }}</td>
-                                <td class="pt-2 pb-0">{{ $user->first_name }}</td>
-                                <td class="pt-2 pb-0">{{ $user->last_name }}</td>
-                                <td class="pt-2 pb-0">{{ $user->username }}</td>
-                                <td class="pt-2 pb-0">{{ $user->municipality->name }}</td>
+                                <td class="pt-2 pb-0">{{ $encoder->first_name }}</td>
+                                <td class="pt-2 pb-0">{{ $encoder->last_name }}</td>
+                                <td class="pt-2 pb-0">{{ $encoder->username }}</td>
+                                <td class="pt-2 pb-0">{{ $encoder->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
                                         <a href="" class="btn btn-sm btn-warning">Edit</a>

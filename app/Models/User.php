@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function allowIf($allowedRole)
     {
-        return $this->role!=$allowedRole?abort(403):null;
+        return $this->role!=$allowedRole?abort(403,"You do not have permission to access this page."):null;
     }
 
      public function municipality()
