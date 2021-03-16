@@ -47,12 +47,12 @@ class EncoderController extends Controller
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
-            'firstname'            =>      'required',
-            'lastname'             =>      'required',
+            'first_name'            =>      'required',
+            'last_name'             =>      'required',
             'username'              =>      'required|unique:users,username',
             'password'              =>      'required|min:4',
             'confirm'               =>      'required',
-            'municipality'          =>      'required'
+            'municipality_id'          =>      'required'
         ]);
 
         if($validator->fails())
@@ -63,18 +63,18 @@ class EncoderController extends Controller
         if($this->passwordCheck($request->password, $request->confirm))
         {
             return redirect(route('encoder.create'))->with([
-                    'matched'  => false,
+                    'registered'  => false,
                     'title'    => 'Warning!',
                     'text' => 'Password does not match'
                 ])->withInput();
         }
 
         User::create([
-            'first_name'    =>      Str::title($request->firstname),
-            'last_name'     =>      Str::title($request->lastname),
+            'first_name'    =>      Str::title($request->first_name),
+            'last_name'     =>      Str::title($request->last_name),
             'username'      =>     $request->username,
             'password'      =>     bcrypt($request->password),
-            'municipality_id'  =>     $request->municipality,
+            'municipality_id'  =>     $request->municipality_id,
             'role'     =>      FacadesUser::ENCODER,
         ]);
 
