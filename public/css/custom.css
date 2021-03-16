@@ -52,6 +52,20 @@ a{
     color: #fff !important;
 }
 
+.btn-scan{
+    padding-bottom: 2px !important;
+}
+
+.qr_image{
+    position: relative !important;
+    top: -1rem !important;
+}
+
+.text-click-img{
+    position: relative !important;
+    top: -1rem !important;
+}
+
 @media (max-width: 425px)
 {
     .text-dev, .text-footer{
