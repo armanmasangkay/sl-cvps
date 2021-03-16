@@ -15,7 +15,7 @@
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View&nbsp;</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item text-secondary" href="">Admin Lists</a>
+                        <a class="dropdown-item text-secondary" href="{{route('admin.index')}}">Admin Lists</a>
                         <a class="dropdown-item text-secondary" href="">Reports</a>
                     </div>
                 </li>

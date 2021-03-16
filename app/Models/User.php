@@ -52,6 +52,16 @@ class User extends Authenticatable
         return Admin::where('username', '=', $username)->exists();
     }
 
+    public function fullname()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    public function fullnameFormal()
+    {
+        return "{$this->last_name}, {$this->first_name}";
+    }
+
     public function allowIf($allowedRole)
     {
         return $this->role!=$allowedRole?abort(403,"You do not have permission to access this page."):null;
