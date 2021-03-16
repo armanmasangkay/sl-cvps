@@ -14,7 +14,7 @@ class Facility extends Model
         'municipality_id'
     ];
 
-    public function vaccinator()
+    public function vaccinators()
     {
         return $this->hasMany(Vaccinator::class);
     }
