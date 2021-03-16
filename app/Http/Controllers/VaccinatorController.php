@@ -49,13 +49,12 @@ class VaccinatorController extends Controller
         ]);
     }
 
-    public function store(VaccinatorRequest $request)
+    public function store(Request $request)
     {
         Auth::user()->allowIf(User::ADMIN);
-        $validator=$this->createVaccinatorValidator($request->validated());
+        $validator=$this->createVaccinatorValidator($request->all());
 
         if($validator->fails()){
-            dd($validator->errors());
             return redirect(route('vaccinator.create'))->withErrors($validator)->withInput();
 
         }
@@ -81,7 +80,7 @@ class VaccinatorController extends Controller
 
             $user->delete();
 
-            return redirect(route('vaccinator.index'))->with('message', 'Vaccintor successfully deleted');
+            return redirect(route('vaccinator.index'))->with('message', 'Vaccinator successfully deleted');
         }
         catch(ModelNotFoundException $e)
         {

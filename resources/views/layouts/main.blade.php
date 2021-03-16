@@ -14,6 +14,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="{{asset('js/helpers.js')}}"></script>
 </head>
 <body style="background-color: #f0f2f8 !important;">
 

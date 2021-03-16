@@ -28,11 +28,11 @@
                                 <td class="pt-2 pb-0">{{ $user->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                        {{-- <a href="" class="btn btn-sm btn-warning">Edit</a> --}}
                                         <form action="{{ route('admin.destroy', $user->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this will delete all transactions associated with this account.')" class="btn btn-sm btn-danger ml-1">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -49,5 +49,26 @@
         </div>
     </div>
 </div>
+
+{{-- <script>
+    $(document).ready(function(){
+        const deleteBtn=$(".delete-admin");
+
+        deleteBtn.click(function(e){
+            e.preventDefault()
+            let userId=$(this).data('userid');
+            showDeleteConfirmation('Deleting this admin cannot be reverted back and will delete all transactions associated with this account').then((result) => {
+                if (result.isConfirmed) {
+                    
+                }
+            })
+        })
+
+    });
+
+
+
+</script> --}}
+
 
 @endsection

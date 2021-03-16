@@ -7,7 +7,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-12 mt-4">
-            <h5 class="text-muted text-center mb-4 text-heading">Lists of Pre-Registered Individuals</h5>
+            <h5 class="text-muted text-center mb-4 text-heading">List of Pre-Registered Individuals</h5>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
                 <table class="table table-hover mb-0 pb-0">
@@ -64,7 +64,7 @@
                         <canvas hidden="" id="qr-canvas" style="width: inherit !important;"></canvas>
                     </div>
                 </div>
-                
+
                 <center>
                     <h6 class="text-secondary text-p-info text-click-img" id="text-click-img">Click QR Image to Scan</h6>
                     <h6 class="text-secondary text-p-info mt-2" id="text-stop-scan" style="display: none;">Click here to Stop Scanning</h6>
