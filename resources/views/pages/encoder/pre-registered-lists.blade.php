@@ -26,10 +26,10 @@
                                 <td class="pt-2 pb-0"></td>
                                 <td class="pt-2 pb-0"></td>
                                 <td class="pt-2 pb-0"></td>
-                                <td class="pt-2 pb-3" colspan="2">
+                                <td class="pt-2 pb-2" colspan="2">
                                     <div class="d-flex justify-content-start">
                                         <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                        <button type="button" class="btn btn-sm btn-primary ml-1"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
+                                        <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
                                     </div>
                                 </td>
                             </tr>
@@ -50,11 +50,31 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <center>
+                            <img src="{{ asset('images/qr_code.png') }}" alt="" class="qr_image">
+                        </center>
+                    </div>
+                </div>
+                
+                <center>
+                    <h6 class="text-secondary text-p-info text-click-img">Click QR Image to Scan</h6>
+                </center>
+                <div class="row mt-3">
+                    <div class="col-sm-6 offset-sm-3 col-xs-6 offset-xs-3 pl-4 pr-4">
+                        <input type="text" class="form-control" placeholder="Enter QR Code">
+                    </div>
+                </div>
+
+                <center>
+                    <button type="button" class="btn btn-primary mt-2">Add QR</button>
+                </center>
+
             </div>
             <div class="modal-footer border-top-0">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Verify QR</button>
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <button type="button" class="btn btn-primary">Verify QR</button> -->
             </div>
         </div>
     </div>

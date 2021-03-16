@@ -54,7 +54,7 @@
                     <a class="nav-link" href="#">New Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pre-registrations</a>
+                    <a class="nav-link" href="{{ route('pre.index') }}">Pre-registrations</a>
                 </li>
                 @endif
                 <!-- end encoder nav menu -->
