@@ -74,7 +74,7 @@
             @enderror
         </div>
         <div class="col-md-4 px-md-1 mt-2">
-            <label class="text-secondary">BirthDate <small class="text-danger">(required)</small></label>
+            <label class="text-secondary">Birth Date <small class="text-danger">(required)</small></label>
             <input type="date" name="birth_date" class="form-control" placeholder="dd/mm/yyyy  (required)" required value="{{ old('birth_date') }}">
             @error('birth_date')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
