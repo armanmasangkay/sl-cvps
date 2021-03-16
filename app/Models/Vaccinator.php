@@ -15,7 +15,7 @@ class Vaccinator extends Model
         'lastname',
         'position',
         'role',
-        'facility_id',
+        'facility',
         'prc',
         'municipality_id'
     ];

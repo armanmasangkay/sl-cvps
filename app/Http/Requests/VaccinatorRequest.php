@@ -13,7 +13,7 @@ class VaccinatorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +29,8 @@ class VaccinatorRequest extends FormRequest
             'position'=>'required',
             'role'=>'required',
             'facility'=>'required',
-            'prc'=>'required'  
+            'prc'=>'required',
+            'municipality_id' => 'required'
         ];
     }
 }
