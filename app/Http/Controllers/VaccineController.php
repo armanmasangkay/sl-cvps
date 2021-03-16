@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\Facades\User;
 use App\Models\Municipality;
 use App\Models\Vaccine;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -118,15 +119,27 @@ class VaccineController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy($id)
-    // {
-    //     Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
-    //     //
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Auth::user()->allowIf(User::ADMIN);
+
+        try
+        {
+            $user = Vaccine::findOrFail($id);
+
+            $user->delete();
+
+            return redirect(route('vaccine.index'))->with('message', 'Vaccine successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
+    }
 }

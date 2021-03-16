@@ -28,7 +28,8 @@
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
                                         {{-- <a href="" class="btn btn-sm btn-warning">Edit</a> --}}
-                                        <form action="" method="post">
+                                        <form action="{{ route('vaccine.destroy', $vaccine->id) }}" method="post">
+                                            @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
                                         </form>

@@ -7,13 +7,12 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-12 mt-4">
-            <h5 class="text-muted text-center mb-4 text-heading">List of Pre-Registered Individuals</h5>
+            <h5 class="text-muted text-center mb-4 text-heading">List of Individuals for Vaccination</h5>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
-                <table class="table table-hover mb-0 pb-0">
+                <table class="table table-hover mb-0 pb-0" style="min-width: 1000px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">SL NO</td>
                             <td class="border-bottom-0 border-top-0">FULL NAME</td>
                             <td class="border-bottom-0 border-top-0">ADDRESS</td>
                             <td class="border-bottom-0 border-top-0">BIRTH DATE</td>
@@ -21,18 +20,27 @@
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
+                        @forelse ($persons as $person)
                             <tr class="border-bottom-1">
-                                <td class="pt-2 pb-0">1</td>
-                                <td class="pt-2 pb-0"></td>
-                                <td class="pt-2 pb-0"></td>
-                                <td class="pt-2 pb-0"></td>
+                                <td class="pt-2 pb-0">{{ $person->fullnameFormal() }}</td>
+                                <td class="pt-2 pb-0">{{ $person->address() }}</td>
+                                <td class="pt-2 pb-0">{{ $person->birth_date }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
-                                    <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                        <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
-                                    </div>
+                                    @if ($person->hasQrCode())
+                                        <div class="d-flex justify-content-start">
+                                            <button type="button" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
+                                        </div>
+                                    @else
+                                        <div class="d-flex justify-content-start">
+                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
+                                        </div>
+                                    @endif
                                 </td>
                             </tr>
+                        @empty
+
+                        @endforelse
+
 
                     </tbody>
                 </table>
@@ -55,10 +63,10 @@
                         <center>
                             <div class="p-1 shadow-sm border rounded qr_image">
                                 <img src="{{ asset('images/qr_code.png') }}" alt="QR CODE IMAGE" id="btn-scan-qr" width="200">
-                            </div> 
+                            </div>
                         </center>
-                        
-                        
+
+
                     </div>
                     <div class="col-md-10 offset-md-1 p-2 rounded canvas-wrapper" id="canvas-wrapper">
                         <canvas hidden="" id="qr-canvas" style="width: inherit !important;"></canvas>
@@ -182,7 +190,7 @@
             stopScanning()
         }, 1500);
 
-        
+
     }
 
     function stopScanning(){
@@ -193,7 +201,7 @@
         $('#canvas-wrapper').removeClass('border')
         document.getElementById('text-click-img').innerHTML = 'Click QR Image to Scan'
         document.getElementById('text-click-img').style.display = 'block'
-        
+
         scanning = false;
         video.srcObject.getTracks().forEach(track => {
             track.stop();
