@@ -13,6 +13,7 @@ class Person extends Model
 
     protected $fillable=[
         'category',
+        'qr_code',
         'category_id',
         'category_id_num',
         'philhealth_id',
@@ -43,4 +44,18 @@ class Person extends Model
         return $this->hasMany(Vaccination::class);
     }
 
+    public function fullnameFormal()
+    {
+        return "{$this->lastname}, {$this->firstname}";
+    }
+
+    public function address()
+    {
+        return "{ $this->loc_brgy }, { $this->loc_muni }, { $this->loc_prov }";
+    }
+
+    public function hasQrCode()
+    {
+        return $this->qr_code ? true : false;
+    }
 }
