@@ -24,7 +24,7 @@ class Municipality extends Model
     }
 
 
-    public function facility()
+    public function facilities()
     {
         return $this->hasMany(Facility::class);
     }
