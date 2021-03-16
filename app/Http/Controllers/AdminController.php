@@ -160,7 +160,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         try
         {
             $user = User::findOrFail($id);

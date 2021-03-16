@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User;
 use App\Models\ActsPerson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ActsPersonController extends Controller
 {
     public function index()
     {
+        Auth::user()->allowIf(User::ENCODER);
         $actsperson = ActsPerson::all();
         return $actsperson;
     }
@@ -28,6 +31,8 @@ class ActsPersonController extends Controller
 
     public function checkQrCode(Request $request)
     {
+        Auth::user()->allowIf(User::ENCODER);
+        
         $validator = $this->checkRequest($request->all());
 
         if($validator->fails())
