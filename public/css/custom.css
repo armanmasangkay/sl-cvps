@@ -40,7 +40,7 @@ a{
 
 .text-province, .text-content-heading, 
 .text-slsu, .text-p-info, .text-dev, 
-.text-footer, .text-ccsit{
+.text-footer, .text-ccsit, .text-heading{
     transition: all 0.1s ease !important;
     font-weight: 400 !important;
 }
