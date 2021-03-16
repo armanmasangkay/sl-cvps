@@ -80,6 +80,7 @@
 
                 <form action="" method="post" id="qrForm">
                     @csrf
+                    <input type="hidden" name="person_id" id="person_id">
                     <div class="row mt-3">
                         <div class="col-sm-6 offset-sm-3 col-xs-6 offset-xs-3 pl-4 pr-4">
                             <input type="text" class="form-control pt-4 pb-4" placeholder="Enter QR Code" id="qrcode">
@@ -209,5 +210,10 @@
 
         stopScan.style.display = 'none'
     }
+
+    $(document).on('click', '.btn-scan', function(){
+        const data_id = $(this).attr('data-id')
+        $('#person_id').val(data_id)
+    })
 </script>
 @endsection
