@@ -55,7 +55,7 @@ class VaccinatorController extends Controller
         $validator=$this->createVaccinatorValidator($request->all());
 
         if($validator->fails()){
-            return redirect(route('vaccinator.create'))->withErrors($validator->errors())->withInput();
+            return redirect(route('vaccinator.create'))->withErrors($validator)->withInput();
 
         }
 
