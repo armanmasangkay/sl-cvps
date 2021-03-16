@@ -55,9 +55,14 @@
                         @endforelse
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>
+    <div class="mt-2">
+    {{$vaccinators->links()}}
+    </div>
 </div>
+
 
 @endsection

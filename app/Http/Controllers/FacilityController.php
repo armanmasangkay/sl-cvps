@@ -21,7 +21,9 @@ class FacilityController extends Controller
     {
         Auth::user()->allowIf(User::ADMIN);
 
-        return view('pages.admin.lists.facilities-lists',['facilities' => Facility::where('municipality_id', Auth::user()->municipality_id)->get()]);
+        return view('pages.admin.lists.facilities-lists',[
+            'facilities' => Facility::where('municipality_id', Auth::user()->municipality_id)->paginate(5)
+        ]);
     }
 
     public function create()

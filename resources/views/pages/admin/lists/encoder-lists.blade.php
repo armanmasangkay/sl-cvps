@@ -51,6 +51,9 @@
             </div>
         </div>
     </div>
+    <div class="mt-2">
+        {{$encoders->links()}}
+    </div>
 </div>
 
 @endsection

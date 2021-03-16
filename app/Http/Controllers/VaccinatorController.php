@@ -26,7 +26,8 @@ class VaccinatorController extends Controller
     {
         Auth::user()->allowIf(User::ADMIN);
 
-        return view('pages.admin.lists.vaccinators-lists',['vaccinators' => Vaccinator::where('municipality_id', Auth()->user()->municipality_id)->get()]);
+        return view('pages.admin.lists.vaccinators-lists',[
+            'vaccinators' => Vaccinator::where('municipality_id', Auth()->user()->municipality_id)->paginate(5)]);
     }
 
     public function create()
