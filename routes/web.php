@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
 
-    Route::get('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
+    Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
 });
 
 
