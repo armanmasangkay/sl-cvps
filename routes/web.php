@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
     Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
-    Route::get('/admin/reports',[AdminReportsController::class,'index'])->name('admin.reports');
+    Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
 });

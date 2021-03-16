@@ -17,7 +17,7 @@ class UserLogin extends Controller
     private function redirectUserWith($role)
     {
        if($role==User::ADMIN){
-            return redirect(route('admin.reports'));
+            return redirect(route('reports.admin'));
        }
 
        if($role==User::SUPER_ADMIN){
