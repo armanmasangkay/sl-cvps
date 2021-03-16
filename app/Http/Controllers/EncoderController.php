@@ -10,6 +10,7 @@ use App\Models\Encoder;
 use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 class EncoderController extends Controller
 {
@@ -20,14 +21,14 @@ class EncoderController extends Controller
 
     public function index()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
-        $encoder = User::where('role', '3')->get();
-        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoder);
+        Auth::user()->allowIf(FacadesUser::ADMIN);
+        $encoders = User::where('role', '3')->get();
+        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoders);
     }
 
     public function create()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         return view('pages.admin.add-encoder', [
             'user' => 'Admin',
             'municipalities'=>$this->getMunicipalities()
@@ -44,7 +45,7 @@ class EncoderController extends Controller
 
     public function store(Request $request)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         $validator = Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',
@@ -87,7 +88,7 @@ class EncoderController extends Controller
 
     public function destroy($id)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         try
         {
             $user = User::findOrFail($id);

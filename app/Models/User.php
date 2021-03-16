@@ -52,6 +52,11 @@ class User extends Authenticatable
         return Admin::where('username', '=', $username)->exists();
     }
 
+    public function allowIf($allowedRole)
+    {
+        return $this->role!=$allowedRole?abort(403,"You do not have permission to access this page."):null;
+    }
+
      public function municipality()
      {
          return $this->hasOne(Municipality::class,'id', 'municipality_id');

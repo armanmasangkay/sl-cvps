@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\Facades\Security;
-use App\Classes\Facades\User as FacadesUser;
+use App\Classes\Facades\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Facility;
 use App\Models\Municipality;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -18,13 +18,14 @@ class FacilityController extends Controller
 
     public function index()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
-        return view('pages.admin.lists.facilities-lists');
+        Auth::user()->allowIf(User::ADMIN);
+       
+        return view('pages.admin.lists.facilities-lists',['facilities' => Facility::all()]);
     }
 
     public function create()
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.add-facility', [
             'user'=> 'Admin',
             'municipalities'=>$this->getAllMunicipalities()
@@ -32,7 +33,7 @@ class FacilityController extends Controller
     }
     public function store(Request $request)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::ADMIN);
+        Auth::user()->allowIf(User::ADMIN);
         $validator = Validator::make($request->all(), [
             'facility_name'         =>      'required',
             'municipality_id'          =>      'required',

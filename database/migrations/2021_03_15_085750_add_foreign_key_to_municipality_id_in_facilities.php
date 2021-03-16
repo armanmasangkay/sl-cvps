@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyToMunicipalityIdInVaccinators extends Migration
+class AddForeignKeyToMunicipalityIdInFacilities extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddForeignKeyToMunicipalityIdInVaccinators extends Migration
      */
     public function up()
     {
-        Schema::table('vaccinators', function (Blueprint $table) {
+        Schema::table('facilities', function (Blueprint $table) {
             $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade');
         });
     }
@@ -25,8 +25,8 @@ class AddForeignKeyToMunicipalityIdInVaccinators extends Migration
      */
     public function down()
     {
-        Schema::table('vaccinators', function (Blueprint $table) {
-            $table->dropForeign('vaccinators_municipality_id_foreign');
+        Schema::table('facilities', function (Blueprint $table) {
+            $table->dropForeign('facilities_municipality_id_foreign');
         });
     }
 }

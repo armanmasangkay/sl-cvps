@@ -40,18 +40,15 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
+    
         $validator = Validator::make($request->all(), [
             'category'       => 'required',
             'category_id'    => 'required',
             'category_id_num'=> 'required',
-            'philhealth_id'  =>'',
-            'pwd_id'         =>'',
             'lastname'      => 'required',
             'firstname'     => 'required',
-            'middlename'    => '',
-            'suffix'         => '',
             'contact_num'    => 'required|min:11|numeric',
-            'loc_region'     => '',
+            'loc_region'     => 'required',
             'loc_prov'       => 'required',
             'loc_muni'       => 'required',
             'loc_brgy'       => 'required',
@@ -61,6 +58,7 @@ class RegistrationController extends Controller
 
         if($validator->fails())
         {
+            dd($validator->errors());
             return redirect(route('person.register'))
                     ->withErrors($validator)
                     ->withInput();
@@ -87,7 +85,7 @@ class RegistrationController extends Controller
             'middlename'     => Str::title($request->middlename),
             'suffix'         => Str::title($request->suffix),
             'contact_num'    => $request->contact_num,
-            'loc_region'     => (empty($request->loc_region) ? 'N/A' : $request->loc_region),
+            'loc_region'     => $request->loc_region,
             'loc_prov'       => $request->loc_prov,
             'loc_muni'       => $request->loc_muni,
             'loc_brgy'       => $request->loc_brgy,

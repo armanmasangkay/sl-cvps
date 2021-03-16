@@ -10,6 +10,7 @@ use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\EncoderController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostVaxController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\UserLogin;
@@ -27,6 +28,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',function(){
+    return redirect(route('user.login'));
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('admin', AdminController::class);
     Route::resource('facility', FacilityController::class);
@@ -34,9 +39,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccine', VaccineController::class);
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
-    Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
-    Route::get('/admin/reports',[AdminReportsController::class,'index'])->name('admin.reports');
+    Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
+    Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
+    Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
 });
 
 
