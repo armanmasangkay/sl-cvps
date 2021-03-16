@@ -28,7 +28,7 @@ class VaccinatorRequest extends FormRequest
             'lastname'=>'required',
             'position'=>'required',
             'role'=>'required',
-            'facility'=>'required',
+            'facility_id'=>'required',
             'prc'=>'required',
             'municipality_id' => 'required'
         ];

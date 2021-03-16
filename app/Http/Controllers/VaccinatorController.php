@@ -25,7 +25,7 @@ class VaccinatorController extends Controller
     {
         Auth::user()->allowIf(User::ADMIN);
 
-        return view('pages.admin.lists.vaccinators-lists',['vaccinators' => Vaccinator::all()]);
+        return view('pages.admin.lists.vaccinators-lists',['vaccinators' => Vaccinator::where('municipality_id', Auth()->user()->municipality_id)->get()]);
     }
 
     public function create()
@@ -42,7 +42,7 @@ class VaccinatorController extends Controller
             'lastname'=>'required',
             'position'=>'required',
             'role'=>'required',
-            'facility'=>'required',
+            'facility_id'=>'required',
             'prc'=>'required',
             'municipality_id' => 'required'
         ]);
