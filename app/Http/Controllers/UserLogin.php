@@ -21,7 +21,7 @@ class UserLogin extends Controller
        }
 
        if($role==User::SUPER_ADMIN){
-        return redirect(route('superadmin.reports'));
+        return redirect(route('reports.superadmin'));
         }
 
         if($role==User::ENCODER){

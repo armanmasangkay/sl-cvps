@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccine', VaccineController::class);
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
-    Route::get('/reports', [ReportsController::class, 'index'])->name('superadmin.reports');
+    Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
