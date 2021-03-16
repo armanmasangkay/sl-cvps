@@ -22,5 +22,6 @@
     @include('templates.collaboration')
     @include('templates.footer')
 
+    @yield('custom_js')
 </body>
 </html>
