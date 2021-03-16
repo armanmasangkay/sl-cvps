@@ -73,30 +73,7 @@
                         </div>
                     </div>
                
-                    <div class="row mb-2">
-                        {{--<div class="col-md-12">
-                            <label class="text-secondary">Municipality <small class="text-danger">(required)</small></label>
-                            <select name="municipality" class="form-control mb-1" required>
-                                <option value=""></option>
-                                @foreach($municipalities as $municipality)
-                                <option value="{{$municipality->id}}">{{$municipality->name}}</option>
-                                @endforeach
-                            </select>
-                            @error('municipality_id')
-                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                            @enderror
-                        </div> --}}
-                        {{-- <div class="col-md-6 pl-md-1">
-                            <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
-                            <select name="facility" class="form-control" required>
-                                <option value="1"></option>
-                            </select>
-                            @error('facility')
-                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                            @enderror
-                        </div> --}}
-                    </div>
-
+                
                     <h5 class="text-secondary text-p-info mt-3">User Account</h5>
                     <div class="row">
                         <div class="col-md-4 pr-md-1">
