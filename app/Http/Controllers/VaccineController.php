@@ -32,9 +32,8 @@ class VaccineController extends Controller
     public function create()
     {
         Auth::user()->allowIf(User::ADMIN);
-        return view('pages.vaccine.add-vaccine');
+        return view('pages.admin.add-vaccines');
     }
-
 
     private function getMunicipalityId($municipality)
     {
