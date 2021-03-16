@@ -22,7 +22,7 @@
             @enderror
         </div>
         <div class="col-md-3 pl-md-1 mt-2">
-            <label class="text-secondary">Suffix <small class="text-gray">(option)</small></label>
+            <label class="text-secondary">Suffix <small class="text-gray">(optional)</small></label>
             <input type="text" class="form-control" name="suffix" value="{{ old('suffix') }}">
         </div>
     </div>
@@ -30,11 +30,11 @@
     <!-- address -->
     <div class="row">
         <div class="col-md-6 pr-md-1 mt-2">
-            <label class="text-secondary">Region <small class="text-gray">(optional)</small></label>
+            <label class="text-secondary">Region</label>
             <input type="text" class="form-control" name="loc_region" value="8" readonly>
         </div>
         <div class="col-md-6 pl-md-1 mt-2">
-            <label class="text-secondary">Province <small class="text-danger">(required)</small></label>
+            <label class="text-secondary">Province</label>
             <input type="text" id="Province" class="form-control" name="loc_prov" value="Southern Leyte" readonly required>
             @error('loc_prov')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
