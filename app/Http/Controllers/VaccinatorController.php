@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\Facades\User;
 use App\Http\Requests\VaccinatorRequest;
 use App\Classes\Facades\User as FacadesUser;
+use App\Models\Facility;
 use App\Models\Vaccinator;
 use App\Repositories\Contracts\VaccinatorRepositoryInterface;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class VaccinatorController extends Controller
     public function create()
     {
         Auth::user()->allowIf(User::ADMIN);
-        return view('pages.admin.vaccinator-registration', ['user' => 'Admin']);
+        $facilities = Facility::where('municipality_id', Auth::user()->municipality_id)->get();
+        return view('pages.admin.vaccinator-registration', ['facilities' => $facilities]);
     }
 
     private function createVaccinatorValidator($data)
