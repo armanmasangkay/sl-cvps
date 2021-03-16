@@ -8,6 +8,7 @@ use App\Classes\Facades\User as FacadesUser;
 use App\Models\Facility;
 use App\Models\Vaccinator;
 use App\Repositories\Contracts\VaccinatorRepositoryInterface;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -68,5 +69,23 @@ class VaccinatorController extends Controller
             'title'  => 'Great!',
             'text'   =>'Vaccinator successfully registered.'
         ]);
+    }
+
+    public function destroy($id)
+    {
+        Auth::user()->allowIf(User::ADMIN);
+
+        try
+        {
+            $user = Vaccinator::findOrFail($id);
+
+            $user->delete();
+
+            return redirect(route('vaccinator.index'))->with('message', 'Vaccintor successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
     }
 }
