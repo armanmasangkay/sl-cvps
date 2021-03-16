@@ -3,7 +3,7 @@
 @include('templates.navigation')
 
 @section('content')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="container mt-3">
     <div class="row">
         <div class="col-12 mt-4">
@@ -79,7 +79,7 @@
                 </center>
 
                 <form action="" method="post" id="qrForm">
-                    @csrf
+                    {{-- @csrf --}}
                     <input type="hidden" name="person_id" id="person_id">
                     <div class="row mt-3">
                         <div class="col-sm-6 offset-sm-3 col-xs-6 offset-xs-3 pl-4 pr-4">
@@ -88,7 +88,7 @@
                     </div>
 
                     <center>
-                        <button type="button" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton">Add QR</button>
+                        <button type="submit" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton">Add QR</button>
                     </center>
                 </form>
             </div>
@@ -215,5 +215,30 @@
         const data_id = $(this).attr('data-id')
         $('#person_id').val(data_id)
     })
+
+    document.getElementById('qrForm').addEventListener('submit', async function(e){
+        e.preventDefault()
+
+        let data = {
+            qrcode_number : document.getElementById('qrcode').value
+        }
+
+        let response =  await fetch('/checkqr', {
+            method: 'post',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            body: JSON.stringify(data)
+        })
+
+        console.log(response)
+        response = await response.json()
+
+        console.log(response)
+    })
+
+
 </script>
 @endsection

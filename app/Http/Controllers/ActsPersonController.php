@@ -28,6 +28,7 @@ class ActsPersonController extends Controller
 
     public function checkQrCode(Request $request)
     {
+
         $validator = $this->checkRequest($request->all());
 
         if($validator->fails())
@@ -40,7 +41,7 @@ class ActsPersonController extends Controller
             return response()->json(['status' => 'error', 'errors' => "No QR Code Matched"]);
         }
 
-        return redirect(route('qr.sample'))->json(['status' => 'success', 'data' => ActsPerson::where('qr_code', $request->qrcode_number)->get()]);
+        return response()->json(['status' => 'success', 'data' => ActsPerson::where('qr_code', $request->qrcode_number)->get()]);
 
     }
 }

@@ -51,7 +51,7 @@ class Person extends Model
 
     public function address()
     {
-        return "{ $this->loc_brgy }, { $this->loc_muni }, { $this->loc_prov }";
+        return "{$this->loc_brgy}, {$this->loc_muni}, {$this->loc_prov}";
     }
 
     public function hasQrCode()
