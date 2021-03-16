@@ -18,7 +18,6 @@
                             <td class="border-bottom-0 border-top-0">LAST NAME</td>
                             <td class="border-bottom-0 border-top-0">USERNAME</td>
                             <td class="border-bottom-0 border-top-0">MUNICIPALITY</td>
-                            <td class="border-bottom-0 border-top-0">ROLE</td>
                             <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
                         </tr>
                     </thead>
@@ -33,7 +32,7 @@
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
                                         <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                        <form action="{{ route('admin.destroy', $encoder->id) }}" method="post">
+                                        <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>

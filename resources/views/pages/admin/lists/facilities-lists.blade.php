@@ -22,13 +22,14 @@
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
                         @forelse ($facilities as $facility)
                             <tr class="border-bottom-1">
-                                <td class="pt-2 pb-0">1</td>
-                                <td class="pt-2 pb-0">Kalibunan</td>
-                                <td class="pt-2 pb-0">Kasaginagan</td>
+                                <td class="pt-2 pb-0">{{ $facility->id }}</td>
+                                <td class="pt-2 pb-0">{{ $facility->facility_name }}</td>
+                                <td class="pt-2 pb-0">{{ $facility->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
                                         <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                        <form action="" method="post">
+                                        <form action="{{ route('facility.destroy', $facility->id) }}" method="post">
+                                            @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
                                         </form>
@@ -44,7 +45,7 @@
                 </table>
             </div>
         </div>
-    </div>      
+    </div>
 </div>
 
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Facility;
 use App\Models\Municipality;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
@@ -19,8 +20,8 @@ class FacilityController extends Controller
     public function index()
     {
         Auth::user()->allowIf(User::ADMIN);
-       
-        return view('pages.admin.lists.facilities-lists',['facilities' => Facility::all()]);
+
+        return view('pages.admin.lists.facilities-lists',['facilities' => Facility::where('municipality_id', Auth::user()->municipality_id)->get()]);
     }
 
     public function create()
@@ -35,7 +36,7 @@ class FacilityController extends Controller
     {
         Auth::user()->allowIf(User::ADMIN);
         $validator = Validator::make($request->all(), [
-            'facility_name'         =>      'required',
+            'facility_name'         =>      'required|unique:facilities,facility_name',
             'municipality_id'          =>      'required',
         ]);
 
@@ -54,5 +55,23 @@ class FacilityController extends Controller
                 'title'      => 'Great!',
                 'text'       => 'New facility area was added'
             ]);
+    }
+
+    public function destroy($id)
+    {
+        Auth::user()->allowIf(User::ADMIN);
+
+        try
+        {
+            $user = Facility::findOrFail($id);
+
+            $user->delete();
+
+            return redirect(route('facility.index'))->with('message', 'Facility successfully deleted');
+        }
+        catch(ModelNotFoundException $e)
+        {
+            abort(400);
+        }
     }
 }
