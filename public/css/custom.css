@@ -61,6 +61,10 @@ a{
     top: -1rem !important;
 }
 
+.qr_image{
+    cursor: pointer !important;
+}
+
 #text-stop-scan{
     position: relative !important;
     top: -0.6rem !important;
