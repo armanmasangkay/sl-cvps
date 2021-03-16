@@ -19,6 +19,9 @@
                         <a class="dropdown-item text-secondary" href="">Reports</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('user.logout')}}">Signout</a>
+                </li>
                 @endif
                 <!-- end super admin nav menu -->
 
@@ -45,23 +48,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">View Reports</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('user.logout')}}">Signout</a>
+                </li>
                 @endif
                 <!-- end admin nav menu -->
 
                 <!-- encoder nav menu -->
                 @if(Auth::user()->role==App\Classes\Facades\User::ENCODER)
+                <form class="form-inline pt-0 pb-0"style="position: relative; top: 5px;">
+                    <input class="form-control mr-sm-1 mb-1 mt-1" type="search" placeholder="First name" aria-label="First name">
+                    <input class="form-control mr-sm-1 " type="search" placeholder="Last name" aria-label="Last name">
+                    <button class="btn btn-primary my-2 my-sm-0 mr-2" type="submit" style="position: retlative; top: -2px;">Search</button>
+                </form>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">New Data</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pre.index') }}">Pre-registrations</a>
+                    <a class="btn btn-secondary text-white mt-2" href="{{route('user.logout')}}" style="position: relative; top: 1px;">Signout</a>
                 </li>
                 @endif
                 <!-- end encoder nav menu -->
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.logout')}}">Signout</a>
-                </li>
             </ul>
         </div>
     </div>

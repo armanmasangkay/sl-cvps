@@ -7,10 +7,10 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-12 mt-4">
-            <h5 class="text-muted text-center mb-4 text-heading">List of Pre-Registered Individuals</h5>
+            <h5 class="text-muted text-center mb-4 text-heading">List of Individuals for Vaccination</h5>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
-                <table class="table table-hover mb-0 pb-0">
+                <table class="table table-hover mb-0 pb-0" style="min-width: 1000px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
                             <td class="border-bottom-0 border-top-0">FULL NAME</td>
@@ -27,11 +27,12 @@
                                 <td class="pt-2 pb-0">{{ $person->birth_date }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
-
+                                        <div class="d-flex justify-content-start">
+                                            <button type="button" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
+                                        </div>
                                     @else
                                         <div class="d-flex justify-content-start">
-                                            <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="id1"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
+                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
                                         </div>
                                     @endif
                                 </td>
