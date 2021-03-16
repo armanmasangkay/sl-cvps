@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActsPersonController;
 use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminReportsController;
@@ -43,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
+
+    Route::get('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
 });
 
 
@@ -51,4 +54,5 @@ Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 Route::post('/login',[UserLogin::class,'authenticate']);
 
+Route::get('/allqr', [ActsPersonController::class, 'index']);
 
