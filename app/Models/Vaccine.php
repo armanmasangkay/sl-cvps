@@ -10,6 +10,7 @@ class Vaccine extends Model
     use HasFactory;
 
     protected $fillable = [
+        'vaccine_name',
         'batch_number',
         'lot_number',
         'vaccine_manufacturer',

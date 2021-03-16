@@ -15,6 +15,7 @@ class CreateVaccinesTable extends Migration
     {
         Schema::create('vaccines', function (Blueprint $table) {
             $table->id();
+            $table->string('vaccine_name');
             $table->string('batch_number');
             $table->string('lot_number');
             $table->string('vaccine_manufacturer');

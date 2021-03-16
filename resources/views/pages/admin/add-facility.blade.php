@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 rounded text-center shadow-sm bg-white">
-                <h4 class="text-primary mt-2 pt-1 text-content-heading">Vaccination Facilities Registration</h4>
+                <h4 class="text-primary mt-2 pt-1 text-content-heading">Add Vaccination Facility</h4>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <center>
-                        <button type="submit" class="btn btn-primary pb-2">Create</button>
+                        <button type="submit" class="btn btn-primary pb-2">Add</button>
                     </center>
                 </form>
             </div>
