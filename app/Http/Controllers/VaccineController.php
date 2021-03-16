@@ -19,9 +19,8 @@ class VaccineController extends Controller
     public function index()
     {
         Auth::user()->allowIf(User::ADMIN);
-    
-        $vaccines = Vaccine::all();
-        return view('pages.admin.lists.vaccines-lists',['vaccines' => $vaccines]);
+
+        return view('pages.admin.lists.vaccines-lists', ['vaccines' => Vaccine::where('municipality_id', Auth::user()->municipality_id)->get()]);
     }
 
     /**

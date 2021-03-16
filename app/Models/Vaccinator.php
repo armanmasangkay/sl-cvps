@@ -19,4 +19,9 @@ class Vaccinator extends Model
         'prc',
         'municipality_id'
     ];
+
+    public function facility()
+    {
+        return $this->hasOne(Facility::class,'id', 'facility_id');
+    }
 }

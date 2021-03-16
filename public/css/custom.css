@@ -40,7 +40,7 @@ a{
 
 .text-province, .text-content-heading, 
 .text-slsu, .text-p-info, .text-dev, 
-.text-footer, .text-ccsit{
+.text-footer, .text-ccsit, .text-heading{
     transition: all 0.1s ease !important;
     font-weight: 400 !important;
 }
@@ -50,6 +50,20 @@ a{
     padding-top: 0px !important;
     padding-bottom: 5px !important;
     color: #fff !important;
+}
+
+.btn-scan{
+    padding-bottom: 2px !important;
+}
+
+.qr_image{
+    position: relative !important;
+    top: -1rem !important;
+}
+
+.text-click-img{
+    position: relative !important;
+    top: -1rem !important;
 }
 
 @media (max-width: 425px)

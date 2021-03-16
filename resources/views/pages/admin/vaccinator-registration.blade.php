@@ -69,9 +69,7 @@
                     <div class="row mt-2">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Position <small class="text-danger">(required)</small></label>
-                            <select name="position" class="form-control mb-1" required>
-                                <option value="1"></option>
-                            </select>
+                            <input type="text" name="position" class="form-control mb-1" required>
                             @error('position')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
@@ -87,8 +85,13 @@
                     <div class="row">
                         <div class="col-md-6 pr-md-1">
                             <label class="text-secondary">Facility <small class="text-danger">(required)</small></label>
-                            <select name="facility" class="form-control mb-1" required>
-                                <option value="11"></option>
+                            <select name="facility_id" class="form-control mb-1" required>
+                                <option value=""></option>
+                                @forelse ($facilities as $facility)
+                                    <option value="{{ $facility->id }}">{{ $facility->facility_name }}</option>
+                                @empty
+
+                                @endforelse
                             </select>
                             @error('facility')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
