@@ -37,7 +37,7 @@ class ActsPersonController extends Controller
 
         if(!$this->findMatchQrCode($request->qrcode_number))
         {
-            return response()->json(['status' => 'error', 'errors' => 'No Qr Code match']);
+            return response()->json(['status' => 'error', 'errors' => "No QR Code Matched"]);
         }
 
         return redirect(route('qr.sample'))->json(['status' => 'success', 'data' => ActsPerson::where('qr_code', $request->qrcode_number)->get()]);
