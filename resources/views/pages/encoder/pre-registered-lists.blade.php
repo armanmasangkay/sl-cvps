@@ -5,8 +5,10 @@
 @section('content')
 
 <div class="container mt-3">
+  
     <div class="row">
         <div class="col-12 mt-4">
+            @if($persons->count()>0)
             <h5 class="text-muted text-center mb-4 text-heading">List of Individuals for Vaccination</h5>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
@@ -38,14 +40,24 @@
                                 </td>
                             </tr>
                         @empty
-
+                        
                         @endforelse
 
 
                     </tbody>
                 </table>
             </div>
+            <div class="mt-2">
+                {{$persons->links()}}
+            </div>
+
+            @else
+            <h6 class="text-center mt-4 text-muted ">No data to show</h6>
+       
+            @endif
         </div>
+       
+
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

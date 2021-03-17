@@ -17,7 +17,7 @@ class PreRegisteredController extends Controller
         Auth::user()->allowIf(User::ENCODER);
 
         return view('pages.encoder.pre-registered-lists',[
-                'persons' => Person::paginate(5)
+                'persons' => Person::paginate(10)
             ]);
     }
 

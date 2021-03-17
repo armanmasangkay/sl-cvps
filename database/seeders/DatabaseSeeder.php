@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             MunicipalitiesSeeder::class,
             SuperAdminSeeder::class,
             AdminSeeder::class,
-            PeopleSeeder::class,
+            // PeopleSeeder::class,
         ]);
     }
 }
