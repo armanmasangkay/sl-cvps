@@ -16,8 +16,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
     <script src="{{asset('js/helpers.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+
 </head>
-<body style="background-color: #f0f2f8 !important;">
+<body style="background-color: #E9EBEE !important;">
 
     @yield('content')
 
@@ -25,5 +27,9 @@
     @include('templates.footer')
 
     @yield('custom_js')
+
+    <script>
+      feather.replace()
+    </script>
 </body>
 </html>

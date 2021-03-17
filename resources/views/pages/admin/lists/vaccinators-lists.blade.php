@@ -10,7 +10,7 @@
             <h5 class="text-muted text-center mb-4 text-heading">List of Vaccinators</h5>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
-                <table class="table table-hover mb-0 pb-0">
+                <table class="table table-hover mb-0 pb-0" style="min-width: 1300px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
                             <td class="border-bottom-0 border-top-0">ID</td>
