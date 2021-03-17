@@ -44,7 +44,10 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 text-center rounded shadow-sm bg-white">
-                <h4 class="text-primary mt-2 pt-1 text-content-heading">New Vaccine</h4>
+                <div class="d-flex justify-content-center mt-2">
+                    <i data-feather="edit-3" class="mt-2 text-primary"></i>
+                    <h4 class="text-primary text-content-heading ml-2 mt-1"> New Vaccine</h4>
+                </div>
             </div>
         </div>
     </div>
@@ -82,7 +85,7 @@
                     </div>
                     
                     <center>
-                        <button type="submit" class="btn btn-primary pb-2">Add</button>
+                        <button type="submit" class="btn btn-primary pb-2"><i data-feather="upload" class="pb-1 pt-1"></i> Save</button>
                     </center>
                 </form>
             </div>

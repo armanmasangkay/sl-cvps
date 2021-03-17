@@ -43,14 +43,20 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 text-center rounded bg-white shadow-sm">
-                <h4 class="text-primary mt-2 pt-1 text-content-heading">Encoder Registration</h4>
+                <div class="d-flex justify-content-center mt-2">
+                    <i data-feather="edit-3" class="mt-2 text-primary"></i>
+                    <h4 class="text-primary text-content-heading ml-2 mt-1"> Encoder Registration</h4>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="border border-gray pt-3 pb-4 pl-5 pr-5 mt-2 rounded bg-white shadow-sm">
-                <h5 class="text-secondary text-p-info pt-2">Basic Information</h5>
+                <div class="d-flex justify-content-start mt-5">
+                    <i data-feather="user" class="mt-1 text-secondary pt-1"></i>
+                    <h5 class="text-secondary text-p-info ml-2 mt-1"> Basic Information</h5>
+                </div>
 
                 <form action="{{ route('encoder.store') }}" method="post" class="mt-2">
                     @csrf
@@ -73,8 +79,10 @@
                         </div>
                     </div>
                
-                
-                    <h5 class="text-secondary text-p-info mt-3">User Account</h5>
+                    <div class="d-flex justify-content-start mt-5">
+                        <i data-feather="lock" class="mt-1 text-secondary pt-1"></i>
+                        <h5 class="text-secondary text-p-info ml-2 mt-1"> User Account</h5>
+                    </div>
                     <div class="row">
                         <div class="col-md-4 pr-md-1">
                             <label class="text-secondary">Username <small class="text-danger">(required)</small></label>
@@ -100,7 +108,7 @@
                     </div>
                     
                     <center class="mt-4">
-                        <button type="submit" class="btn btn-primary pb-2">Register</button>
+                        <button type="submit" class="btn btn-primary pb-2"><i data-feather="upload" class="pb-1 pt-1"></i> Register</button>
                     </center>
                 </form>
             </div>

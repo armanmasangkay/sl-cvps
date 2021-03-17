@@ -13,10 +13,22 @@
                 <table class="table table-hover mb-0 pb-0">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">FULL NAME</td>
-                            <td class="border-bottom-0 border-top-0">USERNAME</td>
-                            <td class="border-bottom-0 border-top-0">MUNICIPALITY</td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
+                                FULL NAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="key" class="pb-1 mr-1 text-primary"></i>
+                                USERNAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="navigation" class="pb-1 mr-1 text-primary"></i>
+                                MUNICIPALITY
+                            </td>
+                            <td class="border-bottom-0 border-top-0" colspan="2">
+                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
+                                ACTIONS
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
