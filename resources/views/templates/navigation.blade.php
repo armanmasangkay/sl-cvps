@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light pb-3 shadow-sm">
     <div class="container{{ (Auth::user()->role==App\Classes\Facades\User::SUPER_ADMIN) ? '-fluid' : ''}}{{ (Request::is('reports/admin') ? '-fluid' : '') }}">
+
         <a class="navbar-brand text-primary" href="#">Southern Leyte - CVPS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,6 +48,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('reports.admin') }}"><i data-feather="file" class="pt-1 pb-1 mb-1"></i> View Reports</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}"> <i data-feather="log-out" class="pt-1 pb-1"></i> Signout</a>

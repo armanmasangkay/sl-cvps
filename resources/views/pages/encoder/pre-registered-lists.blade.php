@@ -78,6 +78,7 @@
                                             <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">
                                                 <i data-feather="smartphone" class="pb-1 pt-1"></i>
                                                 Scan QR &nbsp;
+
                                             </button>
                                         </div>
                                     @endif

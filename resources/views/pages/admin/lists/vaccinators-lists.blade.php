@@ -49,7 +49,7 @@
                                 <td class="pt-2 pb-0">{{ $vaccinator->prc }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
+                                        <a href="{{route('vaccinator.edit',$vaccinator)}}" class="btn btn-sm btn-info">Edit</a>
                                         <form action="{{ route('vaccinator.destroy', $vaccinator->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')

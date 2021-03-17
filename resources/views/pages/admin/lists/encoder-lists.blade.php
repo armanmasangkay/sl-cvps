@@ -39,7 +39,7 @@
                                 <td class="pt-2 pb-0">{{ $encoder->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
+                                        <a href="{{route('encoder.edit',$encoder)}}" class="btn btn-sm btn-info">Edit</a>
                                         <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
