@@ -6,170 +6,215 @@
 
 @section('content')
 
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-12 mt-4">
-            <h5 class="text-muted text-center mb-4 text-heading">List of Vaccinators</h5>
-            <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
-
-                <table class="table table-hover mb-0 pb-0" style="min-width: 1300px !important;">
+<div class="container-fluid mt-5 reports">
+    <div class="row mt-4">
+        <div class="col-md-12 mt-1 pl-md-5 pr-md-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 class="text-muted text-heading pt-2"><i data-feather="clipboard" class="mb-1"></i> Vaccination Reports</h4>
+                </div>
+                <div class="col-lg-2 col-md-0"></div>
+                <div class="col-lg-6 col-md-8">
+                    <div class="form-inline">
+                        <input type="search" class="form-control mr-1 ml-auto mb-1">
+                        <input type="search" class="form-control mr-1 mb-1">
+                        <input type="search" class="form-control mr-1 mb-1">
+                        <button type="submit" class="btn btn-primary d-flex justify-content-start mb-1"><i data-feather="search" class="pt-1 pb-1"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray mt-1">
+                <table class="table table-hover table-bordered mb-0 pb-0" style="min-width: 5500px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="align-left" class="pb-1 mr-1 text-primary"></i>
                                 CATEGORY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="credit_card" class="pb-1 mr-1 text-primary"></i>
                                 CATEGORY ID
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user-check" class="pb-1 mr-1 text-primary"></i>
                                 CATEGORY ID NO
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="credit-card" class="pb-1 mr-1 text-primary"></i>
                                 PHILHEALTH ID
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="credit-card" class="pb-1 mr-1 text-primary"></i>
                                 PWD ID
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
                                 LAST NAME
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
                                 FIRST NAME
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
                                 MIDDLE NAME
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
                                 SUFFIX
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="phone-incoming" class="pb-1 mr-1 text-primary"></i>
                                 CONTACT NO
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="map" class="pb-1 mr-1 text-primary"></i>
                                 REGION
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="navigation" class="pb-1 mr-1 text-primary"></i>
                                 PROVINCE
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="home" class="pb-1 mr-1 text-primary"></i>
                                 MUNICIPALITY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="map-pin" class="pb-1 mr-1 text-primary"></i>
                                 BARANGAY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="git-commit" class="pb-1 mr-1 text-primary"></i>
                                 SEX
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="calendar" class="pb-1 mr-1 text-primary"></i>
                                 BIRTHDATE
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user-check" class="pb-1 mr-1 text-primary"></i>
                                 CONSENT
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="user-x" class="pb-1 mr-1 text-primary"></i>
                                 REASON FOR REFUSAL
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="check-circle" class="pb-1 mr-1 text-primary"></i>
-                                AGE MORE THAN 16 YRS OLD
+                                AGE MORE THAN 16 YRS OLD?
+                            </td>
+                            <td class="border-bottom-0 border-top-0"  rowspan="2">
+                                HAS NO ALLERGIES TO <br>PEG OR POLYSORBATE?
+                            </td>
+                            <td class="border-bottom-0 border-top-0" rowspan="2">
+                                HAS NO SEVERE ALLERGIC <br>REACTION AFTER THE FIRST <br>DOSE OF THE VACCINE?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NO ALLERGIES TO PEG OR POLYSORBATE
+                                HAS NO ALLERGY TO <br>FOOD, EGG, MEDICINES, <br>AND NO ASTHMA?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NO SEVERE ALLERGIC REACTION AFTER THE FIRST DOSE OF THE VACCINE
+                                IF WITH ALLERGY OR ASTHMA, <br>WILL THE VACCINATOR ABLE <br>TO MONITOR THE PATIENT <br>FOR 30MINUTES?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NO ALLERGY TO FOOD, EGG, MEDICINES, AND NO ASTHMA
+                                HAS NO HISTORY OF <br>BLEEDING DISORDERS OR <br>CURRENTLY TAKING <br>ANTI-COAGULANTS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="check-circle" class="pb-1 mr-1 text-primary"></i>
-                                IF WITH ALLERGY OR ASTHMA, WILL THE VACCINATOR ABLE TO MONITOR THE PATIENT FOR 30MINUTES
+                                IF WITH BLEEDING HISTORY, <br>IS GAUGE 23-25 SYRINGE <br>AVAILABLE FOR INJECTION?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NO HISTORY OF BLEEDING DISORDERS OR CURRENTLY TAKING ANTI-COAGULANTS
+                                DOES NOT MANIFEST ANY OF THE <br>FOLLOWING SYPMPTOMS: <br>FEVER/CHILLS, HEADACHE, <br>COUGH, COLDS,
+                                <br>SORE THROAT, MYALGA, <br>FATIGUE, WEAKNESS, <br>LOSS OF SMELL/TASTE, <br>DIARRHEA, SHORTNESS <br>IN BREATHING
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="check-circle" class="pb-1 mr-1 text-primary"></i>
-                                IF WITH BLEEDING HISTORY, IS GAUGE 23-25 SYRINGE AVAILABLE FOR INJECTION
+                                IF MANIFESTING ANY <br>OF THE MENTIONED SYMPTOM/S, <br>SPECIFY ALL THAT APPLY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                DOES NOT MANIFEST ANY OF THE FOLLOWING SYPMPTOMS: FEVER/CHILLS, HEADACHE, COUGH, COLDS,
-                                SORE THROAT, MYALGA, FATIGUE, WEAKNESS, LOSS OF SMELL/TASTE, DIARRHEA, SHORTNESS IN BREATHING
+                                HAS NO HISTORY OF EXPOSURE <br>TO A CONFIRMED OR SUSPECTED <br>COVID-19 CASE IN <br>THE PAST 2 WEEKS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="check-circle" class="pb-1 mr-1 text-primary"></i>
-                                IF MANIFESTING ANY OF THE MENTIONED SYMPTOM/S, SPECIFY ALL THAT APPLY
+                                HAS NOT BEEN PREVIOUSLY <br>TREATED FOR COVID-19 <br>IN THE PAST 90 DAYS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NO HISTORY OF EXPOSURE TO A CONFIRMED OR SUSPECTED COVID-19 CASE IN THE PAST 2 WEEKS
+                                HAS NOT RECEIVE ANY <br>VACCINE IN THE <br>PAST 2 WEEKS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NOT BEEN PREVIOUSLY TREATED FOR COVID-19 IN THE PAST 90 DAYS
+                                HAS NOT RECEIVE CONVALESCENT <br>PLASMA OR MONOCLONAL <br>ANTIBODIES FOR COVID-19 <br>IN THE PAST 90 DAYS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NOT RECEIVE ANY VACCINE IN THE PAST 2 WEEKS
+                                NOT PREGNANT?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                <i data-feather="alert-circle" class="pb-1 mr-1 text-primary"></i>
-                                HAS NOT RECEIVE CONVALESCENT
+                                IF PREGNANT, <br>2ND OR 3RD TRIMESTER?
                             </td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">
-                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
-                                ACTIONS
+                            <td class="border-bottom-0 border-top-0">
+                                DOES NOT HAVE ANY OF <br>THE FOLLOWING: HIV, <br>CANCER/MALIGNANCY, <br>UNDERWENT TRANSPLANT, 
+                                <br>UNDER STEROID MEDICATION/
+                                <br>TREATMENT, BED RIDDEN, <br>TERMINAL ILLNESS, LESS<br> THAN 6 MONTHS PROGNOSIS
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                IF WITH MENTIONED <br>CONDITION/S, SPECIFY
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                IF WITH MENTIONED <br>CONDITION, HAS PRESENTED <br>MEDICAL CLEARANCE <br>PRIOR TO VACCINATION DAY?
+                            </td>
+                            <td>
+                                DEFERRAL
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                DATE OF VACCINATION
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                VACCINE MANUFACTURER
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                BATCH NO
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                LOT NO
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                VACCINATOR NAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                PROFESSION OF VACCINATOR
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                1ST DOSE
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                2ND DOSE
                             </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
-                        @forelse ($vaccinators as $vaccinator)
-                            <tr class="border-bottom-1">
-                                <td class="pt-2 pb-0">{{ $vaccinator->fullname() }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->position }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->role }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->facility->facility_name }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->prc }}</td>
-                                <td class="pt-2 pb-0" colspan="2">
-                                    <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
-                                        <form action="{{ route('vaccinator.destroy', $vaccinator->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this vaccinator will remove all transaction associated to this information.')" class="btn btn-sm btn-danger ml-1">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr class="border-bottom-1">
-                                <td colspan="11" class="text-center text-gray">No record found</td>
-                            </tr>
-                        @endforelse
+                        <tr class="border-bottom-1">
+                            <td class="pt-1 pb-1">1</td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                            <td class="pt-1 pb-1"></td>
+                        </tr>
                     </tbody>
                 </table>
                 

@@ -205,6 +205,12 @@
             </div>
             
         </div>
+
+        <div class="d-flex justify-content-start ml-3">
+            <input type="checkbox" class="mt-2 mr-2" id="toggle" name="not_pregnant">
+            <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance 
+                prior to vaccination day?</p>
+        </div>
     </div>
 
     <!-- does not manifest any symptoms -->
