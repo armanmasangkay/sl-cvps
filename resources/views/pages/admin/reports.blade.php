@@ -138,7 +138,7 @@
                             <td class="border-bottom-0 border-top-0">
                                 IF WITH MENTIONED <br>CONDITION, HAS PRESENTED <br>MEDICAL CLEARANCE <br>PRIOR TO VACCINATION DAY?
                             </td>
-                            <td>
+                            <td class="border-bottom-0 border-top-0">
                                 DEFERRAL
                             </td>
                             <td class="border-bottom-0 border-top-0">
