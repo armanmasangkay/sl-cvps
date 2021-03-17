@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 class Vaccinator extends Model
 {
     use HasFactory;
@@ -21,6 +21,11 @@ class Vaccinator extends Model
         'municipality_id'
     ];
 
+    public function middleInitial()
+    {
+        return Str::substr($this->middlename,0,1).'.';
+    }
+
     public function facility()
     {
         return $this->hasOne(Facility::class,'id', 'facility_id');
@@ -28,6 +33,6 @@ class Vaccinator extends Model
 
     public function fullname()
     {
-        return "{$this->firstname} {$this->middlename} {$this->lastname} {$this->suffix}";
+        return "{$this->firstname} {$this->middleInitial()} {$this->lastname} {$this->suffix}";
     }
 }
