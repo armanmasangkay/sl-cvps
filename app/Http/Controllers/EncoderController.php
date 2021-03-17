@@ -85,6 +85,34 @@ class EncoderController extends Controller
             ]);
     }
 
+    public function edit(User $encoder)
+    {
+     
+        return view('pages.admin.edit-forms.encoder',[
+            'encoder'=>$encoder
+        ]);
+    }
+
+    public function update(User $encoder, Request $request)
+    {
+        Validator::make($request->all(), [
+            'first_name'            =>      'required',
+            'last_name'             =>      'required',
+            'municipality_id'       =>      'required'
+        ])->validate();
+        
+        $encoder->first_name=$request->first_name;
+        $encoder->last_name=$request->last_name;
+        $encoder->municipality_id=$request->municipality_id;
+        $encoder->save();
+
+        return redirect(route('encoder.edit',$encoder))->with([
+            'registered' => true,
+            'title'      => 'Great!',
+            'text'       => 'Update encoder information successfully!'
+        ]);
+    }
+
 
     public function destroy($id)
     {
