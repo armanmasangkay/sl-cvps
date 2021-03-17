@@ -13,8 +13,8 @@ class ActsPersonController extends Controller
 {
     public function index()
     {
-        Auth::user()->allowIf(User::ENCODER);
-        $actsperson = ActsPerson::all();
+        // Auth::user()->allowIf(User::ENCODER);
+        $actsperson = ActsPerson::paginate(2);
         return $actsperson;
     }
 
