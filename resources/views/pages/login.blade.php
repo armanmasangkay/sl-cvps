@@ -15,17 +15,17 @@
 
                     <form action="{{route('user.login')}}" method="post" class="mt-3">
                         @csrf
-                        <div>
+                        <div class="mb-2">
                             <span class="text-secondary"><i data-feather="user" class="pt-1 pb-1 mb-1"></i> Username</span>
-                            <input type="text" class="form-control mb-2" name="username" placeholder="Username" value="{{old('username')}}">
+                            <input type="text" class="form-control" name="username" placeholder="Username" value="{{old('username')}}">
                             @error('username')
                             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
                             @enderror
                         </div>
 
-                        <div>
+                        <div class="mb-2">
                             <span class="text-secondary"><i data-feather="key" class="pt-1 pb-1 mb-1"></i> Password</span>
-                            <input type="password" class="form-control mb-2" name="password" placeholder="Password">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
 
                         <div>

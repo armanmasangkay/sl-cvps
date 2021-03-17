@@ -19,6 +19,8 @@ use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\SearchPreRegistrationController;
 use App\Http\Controllers\UserLogin;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\RouteRedirectAfterChangePasswordController;
 use App\Models\ActsPerson;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +48,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
     Route::resource('pre', PreRegisteredController::class);
+    Route::resource('change-password', ChangePasswordController::class);
+    Route::resource('check-route', RouteRedirectAfterChangePasswordController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');

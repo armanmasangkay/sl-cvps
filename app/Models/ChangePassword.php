@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ActsPerson extends Model
+class ChangePassword extends Model
 {
     use HasFactory;
-    
-    protected $table = 'person';
-    protected $connection = 'actsmysql';
+
+    protected $fillable = [
+        'password'
+    ]
 }

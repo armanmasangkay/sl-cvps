@@ -39,11 +39,15 @@
                                 <td class="pt-2 pb-0">{{ $encoder->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
+                                        <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-secondary mr-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Reset &nbsp;</button>
+                                        </form>
+                                        <a href="{{route('encoder.edit',$encoder)}}" class="btn btn-sm btn-warning"><i data-feather="edit" class="pt-1 pb-2"></i>Edit &nbsp;</a>
                                         <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-danger ml-1 pl-1"><i data-feather="x" class="pt-1 pb-2"></i>Delete &nbsp;</button>
                                         </form>
                                     </div>
                                 </td>
