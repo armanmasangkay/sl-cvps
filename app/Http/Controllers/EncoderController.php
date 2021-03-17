@@ -22,7 +22,7 @@ class EncoderController extends Controller
     public function index()
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
-        $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->get();
+        $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->paginate(5);
         return view('pages.admin.lists.encoder-lists')->with('encoders', $encoders);
     }
 

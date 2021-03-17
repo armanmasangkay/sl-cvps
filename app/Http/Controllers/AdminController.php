@@ -34,7 +34,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $user = User::where('role', '1')->get();
+        $user = User::where('role', '1')->paginate(5);
         return view('pages.superadmin.admin-lists')->with('users', $user);
     }
 
@@ -160,7 +160,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        Security::checkIfAuthorized(auth()->user(),FacadesUser::SUPER_ADMIN);
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         try
         {
             $user = User::findOrFail($id);

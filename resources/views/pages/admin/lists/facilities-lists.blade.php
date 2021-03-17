@@ -53,6 +53,9 @@
             </div>
         </div>
     </div>
+    <div class="mt-2">
+        {{$facilities->links()}}
+    </div>
 </div>
 
 @endsection
