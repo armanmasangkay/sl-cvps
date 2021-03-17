@@ -233,7 +233,6 @@
             body: JSON.stringify(data)
         })
 
-        console.log(response)
         response = await response.json()
 
         console.log(response)

@@ -13,6 +13,7 @@ class Vaccinator extends Model
         'firstname',
         'middlename',
         'lastname',
+        'suffix',
         'position',
         'role',
         'facility_id',
@@ -23,5 +24,10 @@ class Vaccinator extends Model
     public function facility()
     {
         return $this->hasOne(Facility::class,'id', 'facility_id');
+    }
+
+    public function fullname()
+    {
+        return "{$this->firstname} {$this->middlename} {$this->lastname} {$this->suffix}";
     }
 }
