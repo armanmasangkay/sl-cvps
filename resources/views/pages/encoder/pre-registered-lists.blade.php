@@ -73,7 +73,7 @@
 
                                             <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">
                                              <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data
-                      
+                                            </a>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">
