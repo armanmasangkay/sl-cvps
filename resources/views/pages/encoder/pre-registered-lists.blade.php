@@ -3,9 +3,26 @@
 @include('templates.navigation')
 
 @section('content')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@if(Session::get('registered') === true)
+<script>
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+        icon: 'success',
+        title: '{{ Session::get("title") }}',
+        text: '{{ Session::get("text") }}',
+        footer: ' '
+    })
+</script>
+@endif
 <div class="container mt-3">
-  
+
     <div class="row">
         <div class="col-12 mt-4">
 
@@ -18,9 +35,9 @@
             </div>
             @endif
 
-            
+
             @if($persons->count()>0)
-    
+
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
                 <table class="table table-hover mb-0 pb-0" style="min-width: 1000px !important;">
@@ -69,7 +86,7 @@
                                 </td>
                             </tr>
                         @empty
-                        
+
                         @endforelse
 
 
@@ -84,7 +101,7 @@
             <h6 class="text-center mt-4 text-muted ">No data to show</h6>
             @endif
         </div>
-       
+
 
     </div>
 </div>
@@ -119,16 +136,18 @@
                 </center>
 
                 <form action="" method="post" id="qrForm">
-                    @csrf
-                    <input type="hidden" name="person_id" id="person_id">
+                    {{-- @csrf --}}
+
                     <div class="row mt-3">
                         <div class="col-sm-6 offset-sm-3 col-xs-6 offset-xs-3 pl-4 pr-4">
+                            <small class="text-danger" id="errormessage"></small>
+                            <input type="hidden" name="person_id" id="person_id">
                             <input type="text" class="form-control pt-4 pb-4" placeholder="Enter QR Code" id="qrcode">
                         </div>
                     </div>
 
                     <center>
-                        <button type="button" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton">Add QR</button>
+                        <button type="submit" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton">Add QR</button>
                     </center>
                 </form>
             </div>
@@ -254,5 +273,62 @@
         const data_id = $(this).attr('data-id')
         $('#person_id').val(data_id)
     })
+
+    document.getElementById('qrForm').addEventListener('submit', async function(e){
+        e.preventDefault()
+
+        let errormessage = document.getElementById('errormessage');
+        let data = {
+            person_id : document.getElementById('person_id').value,
+            qrcode_number : document.getElementById('qrcode').value
+        }
+
+        let response =  await fetch('/checkqr', {
+            method: 'post',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            body: JSON.stringify(data)
+        })
+
+        response = await response.json()
+
+        // console.log(response)
+
+        if(response.status === "success")
+        {
+            errormessage.innerHTML = ""
+            // console.log(response.data);
+            sendData(response.data);
+
+        }
+        else
+        {
+            errormessage.innerHTML = response.errors
+        }
+    })
+
+    async function sendData(data)
+    {
+        let response = await fetch('/senddata',
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            body: JSON.stringify(data)
+        });
+
+        // response =  await response.json();
+
+        // console.log(response);
+
+        window.location.href = '/detail';
+    }
+
 </script>
 @endsection

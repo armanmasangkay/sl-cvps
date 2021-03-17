@@ -16,8 +16,10 @@ use App\Http\Controllers\PostVaxController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\PreRegisteredController;
 use App\Http\Controllers\NewDataController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\SearchPreRegistrationController;
 use App\Http\Controllers\UserLogin;
+use App\Models\ActsPerson;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +51,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
+    Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
+    Route::post('/senddata', [ActsPersonController::class, 'apidata']);
+    Route::post('/addqr', [PersonController::class, 'addqr'])->name('qr.add');
     Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');
 });
 

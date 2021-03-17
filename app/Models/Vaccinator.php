@@ -13,6 +13,7 @@ class Vaccinator extends Model
         'firstname',
         'middlename',
         'lastname',
+        'suffix',
         'position',
         'role',
         'facility_id',
@@ -27,6 +28,6 @@ class Vaccinator extends Model
 
     public function fullname()
     {
-        return "{$this->lastname}, {$this->firstname}";
+        return "{$this->firstname} {$this->middlename} {$this->lastname} {$this->suffix}";
     }
 }
