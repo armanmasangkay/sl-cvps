@@ -34,13 +34,18 @@ class FacilityController extends Controller
             'municipalities'=>$this->getAllMunicipalities()
         ]);
     }
-    public function store(Request $request)
+
+    private function makeValidator($data)
     {
-        Auth::user()->allowIf(User::ADMIN);
-        $validator = Validator::make($request->all(), [
+        return Validator::make($data, [
             'facility_name'         =>      'required|unique:facilities,facility_name',
             'municipality_id'          =>      'required',
         ]);
+    }
+    public function store(Request $request)
+    {
+        Auth::user()->allowIf(User::ADMIN);
+        $validator = $this->makeValidator($request->all());
 
         if($validator->fails())
         {
@@ -57,6 +62,25 @@ class FacilityController extends Controller
                 'title'      => 'Great!',
                 'text'       => 'New facility area was added'
             ]);
+    }
+
+    public function edit(Facility $facility)
+    {
+        return view('pages.admin.edit-forms.facility',[
+            'facility'=>$facility
+        ]);
+    }
+
+    public function update(Facility $facility,Request $request)
+    {
+       $this->makeValidator($request->all())->validate();
+
+       $facility->facility_name=$request->facility_name;
+       $facility->save();
+       return redirect(route('facility.edit',$facility))->with([
+           'success'=>true,
+           'message'=>'Facility updated successfully!'
+       ]);
     }
 
     public function destroy($id)
