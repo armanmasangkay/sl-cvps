@@ -24,7 +24,7 @@
                             <tr class="border-bottom-1">
                                 <td class="pt-2 pb-0">{{ $person->fullnameFormal() }}</td>
                                 <td class="pt-2 pb-0">{{ $person->address() }}</td>
-                                <td class="pt-2 pb-0">{{ $person->birth_date }}</td>
+                                <td class="pt-2 pb-0">{{ $person->birthday() }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">

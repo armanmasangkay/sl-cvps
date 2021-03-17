@@ -34,7 +34,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $user = User::where('role', '1')->get();
+        $user = User::where('role', '1')->paginate(5);
         return view('pages.superadmin.admin-lists')->with('users', $user);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,6 +45,17 @@ class Person extends Model
         return $this->hasMany(Vaccination::class);
     }
 
+    private function convertDateToCarbon($stringDate)
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->birth_date);
+    }
+
+    public function birthday()
+    {
+       return $this->convertDateToCarbon($this->birth_date)->format('M-d-Y');
+       
+    }
+
     public function fullnameFormal()
     {
         return "{$this->lastname}, {$this->firstname}";
@@ -51,7 +63,7 @@ class Person extends Model
 
     public function address()
     {
-        return "{ $this->loc_brgy }, { $this->loc_muni }, { $this->loc_prov }";
+        return "{$this->loc_brgy}, {$this->loc_muni}, {$this->loc_prov}";
     }
 
     public function hasQrCode()
