@@ -202,9 +202,17 @@
                     <input type="checkbox" class="mt-2 mr-2" id="toggle" name="illnesses[]" value="Less 6 months prognosis">
                     <p class="ml-3 mt-1 pt-1 text-secondary">Less 6 months prognosis</p>
                 </div>
+
+                <div class="d-flex justify-content-start ml-3 mt-4">
+                    <input type="checkbox" class="mt-2 mr-2" id="toggle" name="presented_med_clearance">
+                    <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance 
+                        prior to vaccination day?</p>
+                </div>
+
             </div>
-            
+             
         </div>
+
 
         <div class="d-flex justify-content-start ml-3">
             <input type="checkbox" class="mt-2 mr-2" id="toggle" name="not_pregnant">
@@ -219,14 +227,12 @@
             <input type="checkbox" class="mt-2 mr-2" id="toggle" name="deferral">
             <p class="ml-3 mt-1 pt-1 text-secondary">Deferral?</p>
         </div>
-        {{-- <div class="ml-2 pl-2">
-            
+        <div class="ml-2">
             <div class="col-md-6">
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If deferral, specify</p>
                 @error('specify_deferral_text')<span class="text-danger ml-3">{{ $message }}</span>@enderror
                 <input type="text" class="form-control ml-3" name="specify_deferral_text">
             </div>
-            
-        </div> --}}
+        </div>
     </div>
 </div>
