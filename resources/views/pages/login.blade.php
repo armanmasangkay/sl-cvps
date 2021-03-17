@@ -13,24 +13,29 @@
 
                         <form action="{{route('user.login')}}" method="post" class="mt-3">
                             @csrf
-                            <span class="text-secondary"><i data-feather="user" class="pt-1 pb-1 mb-1"></i> Username</span>
-                            <input type="text" class="form-control mb-2" name="username" placeholder="Username" value="{{old('username')}}">
-                            @error('username')
-                            <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
-                            @enderror
+                            <div>
+                                <span class="text-secondary"><i data-feather="user" class="pt-1 pb-1 mb-1"></i> Username</span>
+                                <input type="text" class="form-control mb-2" name="username" placeholder="Username" value="{{old('username')}}">
+                                @error('username')
+                                <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
+                                @enderror
+                            </div>
 
-                            <span class="text-secondary"><i data-feather="key" class="pt-1 pb-1 mb-1"></i> Password</span>
-                            <input type="password" class="form-control mb-2" name="password" placeholder="Password">
+                            <div>
+                                <span class="text-secondary"><i data-feather="key" class="pt-1 pb-1 mb-1"></i> Password</span>
+                                <input type="password" class="form-control mb-2" name="password" placeholder="Password">
+                            </div>
 
-                            <span class="text-secondary"><i data-feather="user-plus" class="pt-1 pb-1 mb-1"></i> User Role</span>
-                            <select name="role" class="form-control" required>
-                                <option value="">Select role</option>
-                                <option value="{{App\Classes\Facades\User::SUPER_ADMIN}}">Super Admin</option>
-                                <option value="{{App\Classes\Facades\User::ADMIN}}">Admin</option>
-                                <option value="{{App\Classes\Facades\User::ENCODER}}">Encoder</option>
-                            </select>
-                       
-
+                            <div>
+                                <span class="text-secondary"><i data-feather="user-plus" class="pt-1 pb-1 mb-1"></i> User Role</span>
+                                <select name="role" class="form-control" required>
+                                    <option value="">Select role</option>
+                                    <option value="{{App\Classes\Facades\User::SUPER_ADMIN}}">Super Admin</option>
+                                    <option value="{{App\Classes\Facades\User::ADMIN}}">Admin</option>
+                                    <option value="{{App\Classes\Facades\User::ENCODER}}">Encoder</option>
+                                </select>
+                            </div>
+                    
                             <center>
                                 <button class="btn btn-primary pb-2 mb-2 mt-4"><i data-feather="unlock" class="pb-1 pt-1"></i> Log in</button>
                             </center>
