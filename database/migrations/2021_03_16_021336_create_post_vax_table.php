@@ -29,7 +29,7 @@ class CreatePostVaxTable extends Migration
             $table->boolean("has_no_history_of_exposure");
             $table->boolean("has_not_been_previously_treated_for_covid_19");
             $table->boolean("has_not_received_any_vaccine_in_the_past_2_weeks");
-            $table->boolean("hast_not_received_convalescent");
+            $table->boolean("has_not_received_convalescent");
             $table->boolean("not_pregnant");
             $table->string("if_pregnant_2nd_or_3rd_trimester")->nullable();
             $table->boolean("does_not_have_any_of_the_following");

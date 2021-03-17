@@ -37,4 +37,9 @@ class PostVaxController extends Controller
             'vaccines'=>$vaccines
         ]);
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }
