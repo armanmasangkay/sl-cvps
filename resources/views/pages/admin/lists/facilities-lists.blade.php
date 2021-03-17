@@ -34,7 +34,7 @@
                                 <td class="pt-2 pb-0">{{ $facility->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <!-- <a href="" class="btn btn-sm btn-warning">Edit</a> -->
+                                        <a href="{{route('facility.edit',$facility)}}" class="btn btn-sm btn-info">Edit</a>
                                         <form action="{{ route('facility.destroy', $facility->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
