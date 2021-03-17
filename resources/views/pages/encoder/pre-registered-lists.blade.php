@@ -80,9 +80,11 @@
 
                 <form action="" method="post" id="qrForm">
                     {{-- @csrf --}}
-                    <input type="hidden" name="person_id" id="person_id">
+
                     <div class="row mt-3">
                         <div class="col-sm-6 offset-sm-3 col-xs-6 offset-xs-3 pl-4 pr-4">
+                            <small class="text-danger" id="errormessage"></small>
+                            <input type="hidden" name="person_id" id="person_id">
                             <input type="text" class="form-control pt-4 pb-4" placeholder="Enter QR Code" id="qrcode">
                         </div>
                     </div>
@@ -218,7 +220,9 @@
     document.getElementById('qrForm').addEventListener('submit', async function(e){
         e.preventDefault()
 
+        let errormessage = document.getElementById('errormessage');
         let data = {
+            person_id : document.getElementById('person_id').value,
             qrcode_number : document.getElementById('qrcode').value
         }
 
@@ -234,9 +238,40 @@
 
         response = await response.json()
 
-        console.log(response)
+        // console.log(response)
+
+        if(response.status === "success")
+        {
+            errormessage.innerHTML = ""
+            // console.log(response.data);
+            sendData(response.data);
+
+        }
+        else
+        {
+            errormessage.innerHTML = response.errors
+        }
     })
 
+    async function sendData(data)
+    {
+        let response = await fetch('/senddata',
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            body: JSON.stringify(data)
+        });
+
+        // response =  await response.json();
+
+        // console.log(response);
+
+        window.location.href = '/detail';
+    }
 
 </script>
 @endsection

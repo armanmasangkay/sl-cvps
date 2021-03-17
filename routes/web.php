@@ -17,6 +17,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\PreRegisteredController;
 use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\UserLogin;
+use App\Models\ActsPerson;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
 
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
+    Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
+    Route::post('/senddata', [ActsPersonController::class, 'apidata']);
 });
 
 
