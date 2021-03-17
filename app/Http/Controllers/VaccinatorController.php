@@ -30,11 +30,15 @@ class VaccinatorController extends Controller
             'vaccinators' => Vaccinator::where('municipality_id', Auth()->user()->municipality_id)->paginate(5)]);
     }
 
+    private function getFacilities()
+    {
+        return Facility::where('municipality_id', Auth::user()->municipality_id)->get();
+    }
+
     public function create()
     {
         Auth::user()->allowIf(User::ADMIN);
-        $facilities = Facility::where('municipality_id', Auth::user()->municipality_id)->get();
-        return view('pages.admin.vaccinator-registration', ['facilities' => $facilities]);
+        return view('pages.admin.vaccinator-registration', ['facilities' => $this->getFacilities()]);
     }
 
     private function createVaccinatorValidator($data)
@@ -68,6 +72,35 @@ class VaccinatorController extends Controller
             'created'=>true,
             'title'  => 'Great!',
             'text'   =>'Vaccinator successfully registered.'
+        ]);
+    }
+
+    public function edit(Vaccinator $vaccinator)
+    {
+        return view('pages.admin.edit-forms.vaccinator',[
+            'vaccinator'=>$vaccinator,
+            'facilities'=>$this->getFacilities()
+        ]);
+    }
+
+    public function update(Vaccinator $vaccinator,Request $request)
+    {
+        $this->createVaccinatorValidator($request->all());
+
+        $vaccinator->firstname=$request->firstname;
+        $vaccinator->middlename=$request->middlename;
+        $vaccinator->lastname=$request->lastname;
+        $vaccinator->suffix=$request->suffix;
+        $vaccinator->position=$request->position;
+        $vaccinator->role=$request->role;
+        $vaccinator->facility_id=$request->facility_id;
+        $vaccinator->prc=$request->prc;
+        $vaccinator->municipality_id=$request->municipality_id;
+        $vaccinator->save();
+        return redirect(route('vaccinator.edit',$vaccinator))->with([
+            'created'=>true,
+            'title'  => 'Great!',
+            'text'   =>'Vaccinator successfully updated.'
         ]);
     }
 
