@@ -11,5 +11,5 @@ class ActsPerson extends Model
 
 
     protected $table = 'person';
-    protected $connection = 'mysql2';
+    protected $connection = 'actsmysql';
 }
