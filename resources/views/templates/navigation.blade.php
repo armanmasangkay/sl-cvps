@@ -56,9 +56,10 @@
 
                 <!-- encoder nav menu -->
                 @if(Auth::user()->role==App\Classes\Facades\User::ENCODER)
-                <form class="form-inline pt-0 pb-0"style="position: relative; top: 5px;">
-                    <input class="form-control mr-sm-1 mb-1 mt-1" type="search" placeholder="First name" aria-label="First name">
-                    <input class="form-control mr-sm-1 " type="search" placeholder="Last name" aria-label="Last name">
+                <form class="form-inline pt-0 pb-0"style="position: relative; top: 5px;" method="get" action="{{route('search.pre-registered')}}">
+        
+                    <input class="form-control mr-sm-1 mb-1 mt-1" name="firstname" type="search" placeholder="First name" aria-label="First name">
+                    <input class="form-control mr-sm-1 " type="search" name="lastname" placeholder="Last name" aria-label="Last name">
                     <button class="btn btn-primary my-2 my-sm-0 mr-2" type="submit" style="position: retlative; top: -2px;">Search</button>
                 </form>
                 <li class="nav-item">
