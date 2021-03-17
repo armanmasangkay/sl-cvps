@@ -14,7 +14,7 @@ class ActsPersonController extends Controller
     public function index()
     {
         // Auth::user()->allowIf(User::ENCODER);
-        $actsperson = ActsPerson::paginate(2);
+        $actsperson = ActsPerson::take(5)->get();
         return $actsperson;
     }
 
