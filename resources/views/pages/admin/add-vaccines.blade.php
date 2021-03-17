@@ -46,7 +46,7 @@
             <div class="border border-gray pt-2 pb-3 pl-5 pr-5 mt-3 text-center rounded shadow-sm bg-white">
                 <div class="d-flex justify-content-center mt-2">
                     <i data-feather="edit-3" class="mt-2 text-primary"></i>
-                    <h4 class="text-primary text-content-heading ml-2 mt-1"> Add New Vaccine</h4>
+                    <h4 class="text-primary text-content-heading ml-2 mt-1"> New Vaccine</h4>
                 </div>
             </div>
         </div>
