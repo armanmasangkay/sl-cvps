@@ -63,15 +63,15 @@ return [
             ]) : [],
         ],
 
-        'mysql2' => [
+        'actsmysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE2', 'southern_covidtracing'),
-            'username' => env('DB_USERNAME2', 'namra370h55v'),
-            'password' => env('DB_PASSWORD2', ''),
-            'unix_socket' => env('DB_SOCKET2', ''),
+            'host' => env('ACTS_DB_HOST', '127.0.0.1'),
+            'port' => env('ACTS_DB_PORT', '3306'),
+            'database' => env('ACTS_DB_DATABASE', 'southern_covidtracing'),
+            'username' => env('ACTS_DB_USERNAME', 'southern_covid_tracing'),
+            'password' => env('ACTS_DB_PASSWORD', 'namra370h55v!'),
+            'unix_socket' => env('ACTS_DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
