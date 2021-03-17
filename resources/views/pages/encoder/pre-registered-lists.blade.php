@@ -5,9 +5,22 @@
 @section('content')
 
 <div class="container mt-3">
+  
     <div class="row">
         <div class="col-12 mt-4">
+
+            @if(Illuminate\Support\Facades\Route::currentRouteName()=='pre.index')
             <h5 class="text-muted text-center mb-4 text-heading">List of Individuals for Vaccination</h5>
+            @else
+            <div class="text-center" class="mb-4">
+                <h5 class="text-muted mb-4 text-heading">Search Results for "{{$queryFirstname}} {{$queryLastname}}"</h5>
+                <a href="{{route('pre.index')}}">Back to Individuals list</a>
+            </div>
+            @endif
+
+            
+            @if($persons->count()>0)
+    
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
 
                 <table class="table table-hover mb-0 pb-0" style="min-width: 1000px !important;">
@@ -24,7 +37,7 @@
                             <tr class="border-bottom-1">
                                 <td class="pt-2 pb-0">{{ $person->fullnameFormal() }}</td>
                                 <td class="pt-2 pb-0">{{ $person->address() }}</td>
-                                <td class="pt-2 pb-0">{{ $person->birth_date }}</td>
+                                <td class="pt-2 pb-0">{{ $person->birthday() }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
@@ -38,14 +51,23 @@
                                 </td>
                             </tr>
                         @empty
-
+                        
                         @endforelse
 
 
                     </tbody>
                 </table>
             </div>
+            <div class="mt-2">
+                {{$persons->links()}}
+            </div>
+
+            @else
+            <h6 class="text-center mt-4 text-muted ">No data to show</h6>
+            @endif
         </div>
+       
+
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

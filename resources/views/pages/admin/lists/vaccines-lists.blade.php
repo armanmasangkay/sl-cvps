@@ -46,6 +46,9 @@
             </div>
         </div>
     </div>
+    <div class="mt-2">
+        {{$vaccines->links()}}
+    </div>
 </div>
 
 @endsection
