@@ -76,21 +76,17 @@
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
-
                                             <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">
-<<<<<<< HEAD
+
                                              <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data&nbsp;</a>
 
-=======
-                                             <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data
-                                            </a>
->>>>>>> dd51f2c6cef53dd26a481e7a7a57d4c37561a369
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">
                                             <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">
                                                 <i data-feather="smartphone" class="pb-1 pt-1"></i>
-                                                Scan QR
+                                                Scan QR &nbsp;
+
                                             </button>
                                         </div>
                                     @endif
@@ -158,7 +154,7 @@
                     </div>
 
                     <center>
-                        <button type="submit" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton">Add QR</button>
+                        <button type="submit" class="btn btn-primary mt-2 pt-2 pb-2" id="verifyButton"><i data-feather="plus" class="pt-1 mb-2"></i> Add QR &nbsp;</button>
                     </center>
                 </form>
             </div>
@@ -317,7 +313,13 @@
         }
         else
         {
-            errormessage.innerHTML = response.errors
+            if(!response.errors)
+            {
+                errormessage.innerHTML = "No record found"
+            }
+
+            // errormessage.innerHTML = response.errors
+            
         }
     })
 
