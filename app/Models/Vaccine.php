@@ -16,4 +16,9 @@ class Vaccine extends Model
         'vaccine_manufacturer',
         'municipality_id'
     ];
+
+    public function details()
+    {
+        return "{$this->batch_number} | {$this->vaccine_name} ({$this->vaccine_manufacturer})";
+    }
 }

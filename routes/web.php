@@ -16,6 +16,7 @@ use App\Http\Controllers\PostVaxController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\PreRegisteredController;
 use App\Http\Controllers\NewDataController;
+use App\Http\Controllers\SearchPreRegistrationController;
 use App\Http\Controllers\UserLogin;
 use App\Models\ActsPerson;
 use App\Models\Vaccination;
@@ -44,15 +45,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
     Route::resource('pre', PreRegisteredController::class);
-    Route::resource('new', NewDataController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
-    Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
+    Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
-
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
     Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
     Route::post('/senddata', [ActsPersonController::class, 'apidata']);
+    Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');
 });
 
 

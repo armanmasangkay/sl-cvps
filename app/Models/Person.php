@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,6 +43,17 @@ class Person extends Model
     public function vaccinations()
     {
         return $this->hasMany(Vaccination::class);
+    }
+
+    private function convertDateToCarbon($stringDate)
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->birth_date);
+    }
+
+    public function birthday()
+    {
+       return $this->convertDateToCarbon($this->birth_date)->format('M-d-Y');
+       
     }
 
     public function fullnameFormal()
