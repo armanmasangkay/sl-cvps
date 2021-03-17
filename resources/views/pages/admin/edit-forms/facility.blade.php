@@ -51,7 +51,7 @@
                     </div>
 
                     <center>
-                        <button type="submit" class="btn btn-primary pb-2"><i data-feather="upload" class="pb-1 pt-1"></i> Save</button>
+                        <button type="submit" class="btn btn-primary pb-2"><i data-feather="upload" class="pb-1 pt-1"></i> Update</button>
                     </center>
                 </form>
             </div>

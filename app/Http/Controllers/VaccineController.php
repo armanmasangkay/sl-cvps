@@ -50,6 +50,17 @@ class VaccineController extends Controller
         return $data_mun;
     }
 
+    private function makeValidator($data)
+    {
+        return Validator::make($data, [
+            'vaccine_name' => 'required',
+            'batch_number'  =>   'required',
+            'lot_number'    =>   '',
+            'vaccine_manufacturer'  =>  'required',
+            'municipality_id'  =>    'required'
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,14 +70,7 @@ class VaccineController extends Controller
     public function store(Request $request)
     {
         Auth::user()->allowIf(User::ADMIN);
-        $validator = Validator::make($request->all(), [
-            'vaccine_name' => 'required',
-            'batch_number'  =>   'required',
-            'lot_number'    =>   '',
-            'vaccine_manufacturer'  =>  'required',
-            'municipality_id'  =>    'required'
-        ]);
-
+        $validator = $this->makeValidator($request->all());
 
         if ($validator->fails()) {
             return redirect(route('vaccine.create'))->withErrors($validator)->withInput();
@@ -104,10 +108,12 @@ class VaccineController extends Controller
     //  * @param  int  $id
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function edit($id)
-    // {
-    //     //
-    // }
+    public function edit(Vaccine $vaccine)
+    {
+        return view('pages.admin.edit-forms.vaccine',[
+            'vaccine'=>$vaccine
+        ]);
+    }
 
     // /**
     //  * Update the specified resource in storage.
@@ -116,10 +122,22 @@ class VaccineController extends Controller
     //  * @param  int  $id
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function update(Request $request, $id)
-    // {
-    //     //
-    // }
+    public function update(Request $request, Vaccine $vaccine)
+    {
+        $this->makeValidator($request->all())->validate();
+        $vaccine->vaccine_name=$request->vaccine_name;
+        $vaccine->batch_number=$request->batch_number;
+        $vaccine->lot_number=$request->lot_number;
+        $vaccine->vaccine_manufacturer=$request->vaccine_manufacturer;
+        $vaccine->municipality_id=$request->municipality_id;
+        $vaccine->save();
+        return redirect(route('vaccine.edit',$vaccine))->with([
+            'created'=>true,
+            'title'=>'Great!',
+            'text'=>'Vaccine updated successfully!'
+        ]);
+
+    }
 
     /**
      * Remove the specified resource from storage.
