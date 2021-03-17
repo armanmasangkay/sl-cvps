@@ -203,3 +203,7 @@ a{
 .reports table tr td{
     font-size: 11px !important;
 }
+
+.dropdown-menu a:active{
+    color: #fff !important;
+}
