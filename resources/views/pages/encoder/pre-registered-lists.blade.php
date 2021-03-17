@@ -115,8 +115,7 @@
                 </form>
             </div>
             <div class="modal-footer border-top-0">
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                <!-- <button type="button" class="btn btn-primary">Verify QR</button> -->
+
             </div>
         </div>
     </div>

@@ -140,8 +140,8 @@
     <div class="row mt-3">
         <div class="col-md-12 pr-md-1 mt-1">
             <div class="d-flex justify-content-start">
-                <input type="checkbox" class="mt-1 checkbox" name="confirm">
-                <p class="text-secondary pl-2 text-confirm">I confirmed that the above information are
+                <input type="checkbox" class="mt-2 mr-2" id="toggle" name="confirm">
+                <p class="text-secondary pl-2 mt-2 pl-3 text-confirm">I confirmed that the above information are
                     true and correct base on my knowledge.</p>
             </div>
         </div>
