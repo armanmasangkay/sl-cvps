@@ -1,23 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-@if(Session::get('registered') === true)
-<script>
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-    })
-    swalWithBootstrapButtons.fire({
-        icon: 'success',
-        title: '{{ Session::get("title") }}',
-        text: '{{ Session::get("text") }}',
-        footer: ' '
-    })
-</script>
-@endif
+
 @if(Session::get('registered') === false)
 <script>
     const swalWithBootstrapButtons = Swal.mixin({

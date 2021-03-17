@@ -59,7 +59,7 @@
 
             <div>
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If manifesting any of the mentioned symptom/s, specify all that apply</p>
-                @error('symptoms')<span class="text-danger ml-3">{{ $message }}</span>@enderror
+
                 <div class="d-flex justify-content-start ml-3">
                     <input type="checkbox" class="mt-2 mr-2" id="toggle" name="if_manifesting_any_of_the_mentioned_symptoms[]" value="Fever/chills" >
                     <p class="ml-3 mt-1 pt-1 text-secondary">Fever/Chills</p>
@@ -151,7 +151,7 @@
 
             <div class="col-md-6">
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If pregnant, select a trimester?</p>
-                @error('trimester')<span class="text-danger ml-3">{{ $message }}</span>@enderror
+
                 <select type="text" class="form-control ml-3" name="if_pregnant_2nd_or_3rd_trimester">
                     <option value="">-- Please select --</option>
                     <option value="2nd Trimester">2nd Trimester</option>
@@ -173,7 +173,7 @@
 
             <div>
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If with mentioned condition/s, specify</p>
-                @error('illnesses')<span class="text-danger ml-3">{{ $message }}</span>@enderror
+
                 <div class="d-flex justify-content-start ml-3">
                     <input type="checkbox" class="mt-2 mr-2" id="toggle" name="if_with_mentioned_conditions_specify[]" value="HIV">
                     <p class="ml-3 mt-1 pt-1 text-secondary">HIV</p>
@@ -207,8 +207,8 @@
         </div>
 
         <div class="d-flex justify-content-start ml-3">
-            <input type="checkbox" class="mt-2 mr-2" id="toggle" name="not_pregnant">
-            <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance 
+            <input type="checkbox" class="mt-2 mr-2" id="toggle" name="if_with_mentioned_condition_has_presented_medical_clearance">
+            <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance
                 prior to vaccination day?</p>
         </div>
     </div>
