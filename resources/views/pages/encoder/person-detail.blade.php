@@ -7,7 +7,7 @@
             <h3 class="text-center">Data Evaluation</h3>
             <div class="row">
                 <div class="col">
-                    <h6>Acts Data</h6>
+                    <h6>ACTS Data</h6>
                     <div class="card">
                         <p>{{ $actspersondatas[0]['first_name'] }}</p>
                         <p>{{ $actspersondatas[0]['middle_name'] }}</p>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <h6>Vaccination Data</h6>
+                    <h6>Pre-Registered Data</h6>
                     <div class="card">
                         <p>{{ $persondatas['firstname'] }}</p>
                         <p>{{ $persondatas['middlename'] }}</p>
