@@ -13,26 +13,36 @@
                 <table class="table table-hover mb-0 pb-0" style="min-width: 1300px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">ID</td>
-                            <td class="border-bottom-0 border-top-0">FIRST NAME</td>
-                            <td class="border-bottom-0 border-top-0">MIDDLE NAME</td>
-                            <td class="border-bottom-0 border-top-0">LAST NAME</td>
-                            <td class="border-bottom-0 border-top-0">SUFFIX</td>
-                            <td class="border-bottom-0 border-top-0">POSITION</td>
-                            <td class="border-bottom-0 border-top-0">ROLE</td>
-                            <td class="border-bottom-0 border-top-0">FACILITY</td>
-                            <td class="border-bottom-0 border-top-0">PRC</td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
+                                FULL NAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="users" class="pb-1 mr-1 text-primary"></i>
+                                POSITION
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="user-check" class="pb-1 mr-1 text-primary"></i>
+                                ROLE
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="home" class="pb-1 mr-1 text-primary"></i>
+                                FACILITY
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="credit-card" class="pb-1 mr-1 text-primary"></i>
+                                PRC
+                            </td>
+                            <td class="border-bottom-0 border-top-0" colspan="2">
+                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
+                                ACTIONS
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
                         @forelse ($vaccinators as $vaccinator)
                             <tr class="border-bottom-1">
-                                <td class="pt-2 pb-0">{{ $vaccinator->id }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->firstname }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->middlename }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->lastname }}</td>
-                                <td class="pt-2 pb-0">{{ $vaccinator->suffix }}</td>
+                                <td class="pt-2 pb-0">{{ $vaccinator->fullname() }}</td>
                                 <td class="pt-2 pb-0">{{ $vaccinator->position }}</td>
                                 <td class="pt-2 pb-0">{{ $vaccinator->role }}</td>
                                 <td class="pt-2 pb-0">{{ $vaccinator->facility->facility_name }}</td>

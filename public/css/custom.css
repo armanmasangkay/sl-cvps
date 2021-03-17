@@ -5,7 +5,8 @@
 
 select, input[type="date"],
 input::placeholder, p, .form-control, 
-button, small, .register label, .basic-info{
+button, small, .register label, 
+.basic-info, a.btn{
     font-weight: 100 !important;
 }
 

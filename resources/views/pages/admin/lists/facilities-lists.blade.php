@@ -13,16 +13,23 @@
                 <table class="table table-hover mb-0 pb-0">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">ID</td>
-                            <td class="border-bottom-0 border-top-0">FACILITY NAME</td>
-                            <td class="border-bottom-0 border-top-0">MUNICIPALITY</td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="home" class="pb-1 mr-1 text-primary"></i>
+                                FACILITY NAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="navigation" class="pb-1 mr-1 text-primary"></i>
+                                MUNICIPALITY
+                            </td>
+                            <td class="border-bottom-0 border-top-0" colspan="2">
+                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
+                                ACTIONS
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
                         @forelse ($facilities as $facility)
                             <tr class="border-bottom-1">
-                                <td class="pt-2 pb-0">{{ $facility->id }}</td>
                                 <td class="pt-2 pb-0">{{ $facility->facility_name }}</td>
                                 <td class="pt-2 pb-0">{{ $facility->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">

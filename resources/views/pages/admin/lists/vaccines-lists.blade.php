@@ -13,10 +13,22 @@
                 <table class="table table-hover mb-0 pb-0">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">BATCH NO</td>
-                            <td class="border-bottom-0 border-top-0">LOT NO</td>
-                            <td class="border-bottom-0 border-top-0">MANUFACTURER</td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="hash" class="pb-1 mr-1 text-primary"></i>
+                                BATCH NO
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="hash" class="pb-1 mr-1 text-primary"></i>
+                                LOT NO
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="home" class="pb-1 mr-1 text-primary"></i>
+                                MANUFACTURER
+                            </td>
+                            <td class="border-bottom-0 border-top-0" colspan="2">
+                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
+                                ACTIONS
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
