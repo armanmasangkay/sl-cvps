@@ -219,7 +219,7 @@
             <input type="checkbox" class="mt-2 mr-2" id="toggle" name="deferral">
             <p class="ml-3 mt-1 pt-1 text-secondary">Deferral?</p>
         </div>
-        <div class="ml-2 pl-2">
+        {{-- <div class="ml-2 pl-2">
             
             <div class="col-md-6">
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If deferral, specify</p>
@@ -227,6 +227,6 @@
                 <input type="text" class="form-control ml-3" name="specify_deferral_text">
             </div>
             
-        </div>
+        </div> --}}
     </div>
 </div>

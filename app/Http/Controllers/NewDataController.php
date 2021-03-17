@@ -12,5 +12,7 @@ class NewDataController extends Controller
     }
 
     public function show()
-    {}
+    {
+        
+    }
 }
