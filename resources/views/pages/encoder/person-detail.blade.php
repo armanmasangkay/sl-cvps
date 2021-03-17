@@ -25,7 +25,8 @@
             </div>
         </div>
 
-        <form action="" method="post">
+        <form action="{{ route('qr.add') }}" method="post">
+            @csrf
             <input type="hidden" name="person_id" value="{{ $persondatas['id'] }}">
             <input type="hidden" name="qrcode_number" value="{{ $actspersondatas[0]['qr_code'] }}">
             <button type="submit">Accept</button>

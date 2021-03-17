@@ -43,7 +43,7 @@
                                         <form action="{{ route('vaccinator.destroy', $vaccinator->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this vaccinator will remove all transaction assiocated to this information.')" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this vaccinator will remove all transaction associated to this information.')" class="btn btn-sm btn-danger ml-1">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -55,9 +55,14 @@
                         @endforelse
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>
+    <div class="mt-2">
+    {{$vaccinators->links()}}
+    </div>
 </div>
+
 
 @endsection
