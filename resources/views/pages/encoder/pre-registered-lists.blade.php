@@ -43,10 +43,22 @@
                 <table class="table table-hover mb-0 pb-0" style="min-width: 1000px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
-                            <td class="border-bottom-0 border-top-0">FULL NAME</td>
-                            <td class="border-bottom-0 border-top-0">ADDRESS</td>
-                            <td class="border-bottom-0 border-top-0">BIRTH DATE</td>
-                            <td class="border-bottom-0 border-top-0" colspan="2">ACTIONS</td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="user" class="pb-1 mr-1 text-primary"></i>
+                                FULL NAME
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="map-pin" class="pb-1 mr-1 text-primary"></i>
+                                ADDRESS
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
+                                <i data-feather="calendar" class="pb-1 mr-1 text-primary"></i>
+                                BIRTH DATE
+                            </td>
+                            <td class="border-bottom-0 border-top-0" colspan="2">
+                                <i data-feather="edit-3" class="pb-1 mr-1 text-primary"></i>
+                                ACTIONS
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
@@ -58,11 +70,17 @@
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
-                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
+
+                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">
+                                             <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data
+                      
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">
-                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">Scan QR</button>
+                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">
+                                                <i data-feather="smartphone" class="pb-1 pt-1"></i>
+                                                Scan QR
+                                            </button>
                                         </div>
                                     @endif
                                 </td>

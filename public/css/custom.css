@@ -5,7 +5,8 @@
 
 select, input[type="date"],
 input::placeholder, p, .form-control, 
-button, small, .register label, .basic-info{
+button, small, .register label, 
+.basic-info, a.btn{
     font-weight: 100 !important;
 }
 
@@ -197,4 +198,8 @@ a{
 #toggle:checked:after{
     background: -webkit-linear-gradient(#d8eec4, #5fa718);
     box-shadow: inset -1px -1px 4px #417f0b, inset 1px 1px 2px #5b9f1a;
+}
+
+.reports table tr td{
+    font-size: 11px !important;
 }

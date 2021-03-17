@@ -7,6 +7,14 @@
         </div>
     </div>
 
+    <!-- no allergies to PEG -->
+    <div class="col-md-12 mt-2 pl-md-5 pl-sm-3">
+        <div class="d-flex justify-content-start">
+            <input type="checkbox" class="mt-2 mr-2" id="toggle" name="alergic_to_polysorbate" style="padding-right: 35px;">
+            <p class="ml-3 mt-1 pt-1 text-secondary">Has no allergies to PEG or polysorbate?</p>
+        </div>
+    </div>
+
     <!-- allergic reaction -->
     <div class="col-md-12 mt-2 pl-md-5 pl-sm-3">
         <div class="d-flex justify-content-start">
@@ -196,6 +204,12 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="d-flex justify-content-start ml-3">
+            <input type="checkbox" class="mt-2 mr-2" id="toggle" name="not_pregnant">
+            <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance 
+                prior to vaccination day?</p>
         </div>
     </div>
 
