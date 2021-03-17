@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
 
 @if(Session::get('registered') === true)
@@ -75,8 +74,8 @@
                     @include('pages.encoder.new-data.vaccination-details')
 
                     <div class="mt-5 mb-2">
-                        <button type="submit" class="btn btn-primary pb-2"> <i data-feather="upload" class="pb-1 pt-1"></i> Save New Data</button>
-                        <a href="" class="btn btn-secondary pb-2"><i data-feather="chevron-left" class="pb-1 pt-1"></i> Back &nbsp;</a>
+                        <button type="submit" class="btn btn-primary pb-2"> <i data-feather="upload" class="pb-1 pt-1"></i> Save</button>
+                        <a href="{{route('pre.index')}}" class="btn btn-secondary pb-2"><i data-feather="chevron-left" class="pb-1 pt-1"></i> Back to Lists &nbsp;</a>
                     </div>
 
                 </form>

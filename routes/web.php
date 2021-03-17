@@ -44,10 +44,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
     Route::resource('pre', PreRegisteredController::class);
-    Route::resource('new', NewDataController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
-    Route::get('/post-vax',[PostVaxController::class,'index'])->name('encoder.post-vax');
+    Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
     Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');

@@ -41,7 +41,7 @@
                                 <td class="pt-2 pb-2" colspan="2">
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
-                                            <button type="button" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
+                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">New Data</button>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">

@@ -25,7 +25,7 @@ class UserLogin extends Controller
         }
 
         if($role==User::ENCODER){
-            return redirect(route('encoder.post-vax'));
+            return redirect(route('pre.index'));
         }
     }
 

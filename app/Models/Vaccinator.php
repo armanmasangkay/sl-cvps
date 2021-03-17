@@ -24,4 +24,9 @@ class Vaccinator extends Model
     {
         return $this->hasOne(Facility::class,'id', 'facility_id');
     }
+
+    public function fullname()
+    {
+        return "{$this->lastname}, {$this->firstname}";
+    }
 }
