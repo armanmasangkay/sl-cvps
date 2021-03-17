@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
+    Route::post('/post-vax',[PostVaxController::class, 'store'])->name('postvax.store');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
     Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
@@ -63,5 +64,4 @@ Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 Route::post('/login',[UserLogin::class,'authenticate']);
 
-Route::get('/allqr', [ActsPersonController::class, 'index']);
 
