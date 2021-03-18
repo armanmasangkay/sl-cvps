@@ -128,7 +128,7 @@ class AdminController extends Controller
                 'registered' => true,
                 'title'      => 'Great!',
                 'text'       => 'New admin account added'
-            ]);
+        ]);
     }
 
     // /**
