@@ -70,6 +70,6 @@ Route::get('/register', [RegistrationController::class, 'view'])->name('person.r
 Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 Route::post('/login',[UserLogin::class,'authenticate']);
-Route::get('/developer', [DeveloperController::class, 'index'])->name('developer');
+Route::get('/developer', [DeveloperController::class, 'index'])->name('developer.info');
 
 
