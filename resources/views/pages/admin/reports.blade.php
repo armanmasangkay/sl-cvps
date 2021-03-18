@@ -10,10 +10,10 @@
         <div class="col-md-12 pl-md-5 pr-md-5">
             <div class="row">
                 <div class="col-lg-6 col-md-8">
-                    <form action="" method="post" class="form-inline">
+                    <form action="{{route('reports.admin.filter')}}" method="get" class="form-inline">
                         <div class="d-flex justify-content-between">
-                            <input type="date" class="form-control mr-1 ml-auto mb-1">
-                            <input type="date" class="form-control mr-1 mb-1">
+                            <input type="date" class="form-control mr-1 ml-auto mb-1" name="from" value="{{$from??''}}" required>
+                            <input type="date" class="form-control mr-1 mb-1" name="to" value="{{$to??''}}" required>
                         </div>
                         <!-- <select name="municipality" class="form-control mb-1 mr-1">
                             <option value="">Select Municipality</option>
@@ -187,8 +187,13 @@
                             {
                                 return $string ?? "N/A" ;
                             }
-                        @endphp
 
+                            function transformEmpty($string)
+                            {
+                                return $string==""?'N/A':$string;
+                            }
+                        @endphp
+    
                         @forelse ($vaccinateds as $vaccinated)
                         <tr class="border-bottom-1">
                             <td class="pt-1 pb-1">{{ $vaccinated->person->category }}</td>
@@ -199,7 +204,7 @@
                             <td class="pt-1 pb-1">{{ $vaccinated->person->lastname }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->firstname }}</td>
                             <td class="pt-1 pb-1">{{ transformNull($vaccinated->person->middlename )}}</td>
-                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->person->suffix) }}</td>
+                            <td class="pt-1 pb-1">{{ transformEmpty($vaccinated->person->suffix) }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->contact_num }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->loc_region}}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->loc_prov }}</td>
@@ -228,7 +233,7 @@
                             <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_with_mentioned_conditions_specify) }}</td>
                             <td class="pt-1 pb-1">{{ transformInteger($vaccinated->if_with_mentioned_condition_has_presented_medical_clearance) }}</td>
                             <td class="pt-1 pb-1">{{ transformInteger($vaccinated->deferral) }}</td>
-                            <td class="pt-1 pb-1">{{ $vaccinated->if_deferral_specify }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->if_deferral_specify ??'N/A' }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->date_of_vaccination}}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->vaccine->vaccine_manufacturer }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->vaccine->batch_number }}</td>
@@ -240,7 +245,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="46" class="text-secondary text-center">No records found</td>
+                            <td colspan="46" class="text-secondary text-left"><strong>No records found</strong></td>
                         </tr>
                         @endforelse
                     </tbody>

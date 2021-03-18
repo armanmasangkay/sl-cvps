@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('check-route', RouteRedirectAfterChangePasswordController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
+    Route::get('/reports/admin/filter',[AdminReportsController::class,'filter'])->name('reports.admin.filter');
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::post('/post-vax',[PostVaxController::class, 'store'])->name('postvax.store');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
