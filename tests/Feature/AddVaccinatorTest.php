@@ -2,6 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Classes\Facades\User as UserRole;
+use App\Models\Municipality;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -9,39 +12,48 @@ class AddVaccinatorTest extends TestCase
 {
   use RefreshDatabase;
 
-  public function test_add_vaccinator_form_can_be_rendered()
-  {
-      $view=$this->view('pages.admin.vaccinator-registration');
-       $view->assertSee('Register a New Vaccinator');
-  }
-
+ 
   public function test_add_vaccinator_can_be_accessed()
   {
-      $response=$this->get(route('vaccinator.create'));
+    Municipality::factory()->create();
+    $admin=User::factory()->create([
+        'role'=>UserRole::ADMIN
+    ]);
+
+      $response=$this->actingAs($admin)->get(route('vaccinator.create'));
       $response->assertOk();
       $response->assertViewIs('pages.admin.vaccinator-registration');
   }
 
+
   public function test_fail_if_required_data_is_not_available()
   {
-    $response=$this->post(route('vaccinator.store'),[
+    Municipality::factory()->create();
+    $admin=User::factory()->create([
+        'role'=>UserRole::ADMIN
+    ]);
+
+    $response=$this->actingAs($admin)->post(route('vaccinator.store'),[
       'firstname'=>'',
       'middlename'=>'',
       'lastname'=>'',
       'position'=>'',
       'role'=>'',
-      'facility'=>'',
-      'prc'=>''
+      'facility_id'=>'',
+      'prc'=>'',
+      'municipality_id'=>''
     ]);
     
     $response->assertRedirect(route('vaccinator.create'));
+
     $response->assertSessionHasErrors([
       'firstname',
       'lastname',
       'position',
       'role',
-      'facility',
-      'prc'
+      'facility_id',
+      'prc',
+      'municipality_id'
     ]);
     $this->assertDatabaseCount('vaccinators',0);
   
@@ -49,20 +61,27 @@ class AddVaccinatorTest extends TestCase
 
   public function test_vaccinator_can_be_saved_to_db()
   {
-    $response=$this->post(route('vaccinator.store'),[
+    Municipality::factory()->create();
+    $admin=User::factory()->create([
+        'role'=>UserRole::ADMIN
+    ]);
+
+    $response=$this->actingAs($admin)->post(route('vaccinator.store'),[
       'firstname'=>'Arman',
       'middlename'=>'Macasuhot',
       'lastname'=>'Masangkay',
-      'position'=>'nurse',
-      'role'=>'encoder',
-      'facility'=>'RHU Malitbog',
-      'prc'=>'123456'
+      'position'=>'Nurse',
+      'role'=>'SampleRole',
+      'facility_id'=>1,
+      'prc'=>'2322',
+      'municipality_id'=>1
     ]);
 
     $response->assertRedirect(route('vaccinator.create'));
     $response->assertSessionHasAll([
-        'created'=>true,
-        'message'=>'Vaccinator successfully registered.'
+      'created'=>true,
+      'title'  => 'Great!',
+      'text'   =>'Vaccinator successfully registered.'
     ]);
 
     $this->assertDatabaseCount('vaccinators',1);
@@ -70,10 +89,11 @@ class AddVaccinatorTest extends TestCase
       'firstname'=>'Arman',
       'middlename'=>'Macasuhot',
       'lastname'=>'Masangkay',
-      'position'=>'nurse',
-      'role'=>'encoder',
-      'facility'=>'RHU Malitbog',
-      'prc'=>'123456'
+      'position'=>'Nurse',
+      'role'=>'SampleRole',
+      'facility_id'=>1,
+      'prc'=>'2322',
+      'municipality_id'=>1
     ]);
 
   }
