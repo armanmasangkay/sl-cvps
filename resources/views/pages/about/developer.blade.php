@@ -8,14 +8,14 @@
             <div class="card shadow-sm mb-3 pt-5 pb-5">
                 <center>
                     <div class="img-wrapper border">
-
+                        <img src="{{ asset('images/developer/armanmasangkay.jpg') }}" alt="Arman Masangkay">
                     </div>
 
                     <h5 class="text-secondary mt-4">Arman Masangkay</h5>
                 </center>
 
-                <label class="text-center mt-3">Project Leader</label>
-                <label class="text-center">Programmer</label>
+                <label class="text-center mt-3">Programmer</label>
+                <label class="text-center" style="visibility: hidden !important;">Project Leader</label>
 
                 <center>
                     <div class="mt-5">
@@ -36,7 +36,7 @@
             <div class="card shadow-sm mb-3 pt-5 pb-5">
                 <center>
                     <div class="img-wrapper border">
-
+                        <img src="{{ asset('images/developer/nobeginmasob.jpg') }}" alt="Benigno Ambus">
                     </div>
 
                     <h5 class="text-secondary mt-4">Benigno E. Ambus</h5>
@@ -70,8 +70,8 @@
                     <h5 class="text-secondary mt-4">June Vic W. Cadayona</h5>
                 </center>
 
-                <label class="text-center mt-3">Webhost Trustee</label>
-                <label class="text-center">Programmer</label>
+                <label class="text-center mt-3">Programmer</label>
+                <label class="text-center" style="visibility: hidden !important;">Webhost Trustee</label>
 
                 <center>
                     <div class="mt-5">

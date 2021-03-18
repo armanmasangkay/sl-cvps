@@ -228,6 +228,12 @@ a{
     border-radius: calc(8rem/2) !important;
 }
 
+.img-wrapper img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+}
+
 .form-control[readonly]{
     background-color: #fff !important;
 }
@@ -242,11 +248,4 @@ a{
 
 .register .pre-reg .form-control:focus{
     box-shadow: none !important;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    background-color: white !important;
 }
