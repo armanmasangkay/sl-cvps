@@ -128,7 +128,7 @@
                                 IF PREGNANT, <br>2ND OR 3RD TRIMESTER?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                DOES NOT HAVE ANY OF <br>THE FOLLOWING: HIV, <br>CANCER/MALIGNANCY, <br>UNDERWENT TRANSPLANT, 
+                                DOES NOT HAVE ANY OF <br>THE FOLLOWING: HIV, <br>CANCER/MALIGNANCY, <br>UNDERWENT TRANSPLANT,
                                 <br>UNDER STEROID MEDICATION/
                                 <br>TREATMENT, BED RIDDEN, <br>TERMINAL ILLNESS, LESS<br> THAN 6 MONTHS PROGNOSIS
                             </td>
@@ -168,56 +168,79 @@
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
-                        <tr class="border-bottom-1">
-                            <td class="pt-1 pb-1">1</td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
-                            <td class="pt-1 pb-1"></td>
+
+@php
+    function transformInteger($int)
+    {
+        return $int === 1 ? "YES" : "NO";
+    }
+
+    function transformDose($dose)
+    {
+        return $dose === 1 || $dose === 2 ? "YES" : "";
+
+    }
+
+    function transformNull($string)
+    {
+        return $string ?? "N/A" ;
+    }
+@endphp
+                            @forelse ($vaccinateds as $vaccinated)
+                            <tr class="border-bottom-1">
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->category }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->category_id }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->category_id_num }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->philhealth_id }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->pwd_id }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->lastname }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->firstname }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->person->middlename )}}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->person->suffix) }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->contact_num }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->loc_region}}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->loc_prov }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->loc_muni }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->loc_brgy }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->sex }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->person->birth_date }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->consent) }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->reason_for_consent) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->age_more_than_16_years_old) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_no_allergies) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_no_severe_allergic_reaction) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_no_allergy_to_food) }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_with_allergy_or_asthma) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_no_history) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->if_with_bleeding_history) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->does_not_manifest_any_of_the_following_symptoms) }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_manifesting_any_of_the_mentioned_symptoms) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_no_history_of_exposure) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_not_been_previously_treated_for_covid_19) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_not_received_any_vaccine_in_the_past_2_weeks) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->has_not_received_convalescent) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->not_pregnant) }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_pregnant_2nd_or_3rd_trimester) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->does_not_have_any_of_the_following) }}</td>
+                            <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_with_mentioned_conditions_specify) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->if_with_mentioned_condition_has_presented_medical_clearance) }}</td>
+                            <td class="pt-1 pb-1">{{ transformInteger($vaccinated->deferral) }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->date_of_vaccination}}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->vaccine->vaccine_manufacturer }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->vaccine->batch_number }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->vaccine->lot_number }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->vaccinator->fullname() }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->vaccinator->position }}</td>
+                            <td class="pt-1 pb-1">{{ ($vaccinated->dose ===1 ? "YES" : "") }}</td>
+                            <td class="pt-1 pb-1">{{ ($vaccinated->dose ===2 ? "YES" : "") }}</td>
+
                         </tr>
+                            @empty
+
+                            @endforelse
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>

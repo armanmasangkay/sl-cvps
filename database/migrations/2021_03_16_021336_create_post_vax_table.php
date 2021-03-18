@@ -37,6 +37,7 @@ class CreatePostVaxTable extends Migration
             $table->string('if_with_mentioned_conditions_specify')->nullable();
             $table->boolean("if_with_mentioned_condition_has_presented_medical_clearance")->nullable();
             $table->boolean("deferral")->default(false);
+            $table->string('if_deferral_specify')->nullable();
             $table->date('date_of_vaccination');
             $table->unsignedBigInteger('vaccine_id');
             $table->unsignedBigInteger('vaccinator_id');
@@ -55,6 +56,6 @@ class CreatePostVaxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_vax');
+        Schema::dropIfExists('post_vaxes');
     }
 }
