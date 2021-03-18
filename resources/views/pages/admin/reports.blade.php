@@ -262,7 +262,7 @@
     $(document).ready(function () {
         $('#export').click(function(){
             $("#vaccinationTable").table2excel({
-                filename: "Employees.xls"
+                filename: "SL-VIMS VAS Export.xls"
             });
         })
     });
