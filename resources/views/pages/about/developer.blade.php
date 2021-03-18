@@ -64,7 +64,7 @@
             <div class="card shadow-sm mb-3 pt-5 pb-5">
                 <center>
                     <div class="img-wrapper border">
-
+                        <img src="{{ asset('images/developer/juneviccadayona.jpg') }}" alt="June Vic Cadayona">
                     </div>
 
                     <h5 class="text-secondary mt-4">June Vic W. Cadayona</h5>

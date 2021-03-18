@@ -222,15 +222,15 @@ a{
 }
 
 .img-wrapper{
-    height: 8rem !important;
-    width: 8rem !important;
+    height: 7.5rem !important;
+    width: 7.5rem !important;
     overflow: hidden !important;
-    border-radius: calc(8rem/2) !important;
+    border-radius: calc(7.5rem/2) !important;
 }
 
 .img-wrapper img{
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    /* margin-right: auto; */
     width: 100% !important;
 }
 
