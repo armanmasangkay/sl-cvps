@@ -50,15 +50,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
                     <a class="nav-link" href="{{ route('reports.admin') }}"><i data-feather="file" class="pt-1 pb-1 mb-1"></i> Reports</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('change-password.index')}}"><i data-feather="edit-3" class="pt-1 pb-1"></i> Change Password</a>
-=======
-                    <a class="nav-link" href="{{ route('reports.admin') }}"><i data-feather="file" class="pt-1 pb-1 mb-1"></i> View Reports</a>
-
->>>>>>> 82096b3e3970bfc1c6fa3531625b79dc40f2e1d2
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}"> <i data-feather="log-out" class="pt-1 pb-1"></i> Signout</a>
