@@ -52,12 +52,19 @@ class PostVax extends Model
 
     public function getVaccinatorMunicipality()
     {
-
         return $this->vaccinator->municipality;
-        // return $this->hasOneThrough(Municipality::class, Vaccinator::class,'municipality_id', 'vaccinator_id','id', 'id');
     }
     public function vaccine()
     {
         return $this->hasOne(Vaccine::class,'id','vaccine_id');
+    }
+
+    public function wasVaccinatedIn($municipalityId)
+    {
+        if($this->vaccinator->municipality->id!==$municipalityId){
+            return false;
+        }
+
+        return false;
     }
 }
