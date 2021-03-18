@@ -10,10 +10,16 @@
         <div class="col-md-12 pl-md-5 pr-md-5">
             <div class="row">
                 <div class="col-lg-6 col-md-8">
-                    <form action="" method="post" class="form-inline">
+                    <form action="" method="post" class="form-inline mt-3">
                         <div class="d-flex justify-content-between">
-                            <input type="date" class="form-control mr-1 ml-auto mb-1">
-                            <input type="date" class="form-control mr-1 mb-1">
+                            <div style="position: relative;">
+                                <label style="position: absolute; top: -1.5rem; left: 0rem !important;">Date from:</label>
+                                <input type="date" class="form-control mr-1 ml-auto mb-1">
+                            </div>
+                            <div style="position: relative;">
+                                <label style="position: absolute; top: -1.5rem; left: 0rem !important;">Date to:</label>
+                                <input type="date" class="form-control mr-1 mb-1">
+                            </div>
                         </div>
                         <!-- <select name="municipality" class="form-control mb-1 mr-1">
                             <option value="">Select Municipality</option>
@@ -240,7 +246,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="46" class="text-secondary text-center">No records found</td>
+                            <td colspan="46" class="text-secondary text-left"><strong>No records found</strong></td>
                         </tr>
                         @endforelse
                     </tbody>
