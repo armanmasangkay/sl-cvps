@@ -34,6 +34,7 @@ class AdminController extends Controller
 
     public function index()
     {
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         $user = User::where('role', '1')->paginate(5);
         return view('pages.superadmin.admin-lists')->with('users', $user);
     }
@@ -138,6 +139,7 @@ class AdminController extends Controller
      */
     public function edit(User $admin)
     {
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         return view('pages.admin.edit-forms.admin',[
             'municipalities'=>$this->getMunicipalities(),
             'admin'=>$admin
@@ -153,6 +155,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, User $admin)
     {
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
         Validator::make($request->all(), [
         'first_name'            =>      'required',
         'last_name'             =>      'required',

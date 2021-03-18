@@ -52,17 +52,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::post('/post-vax',[PostVaxController::class, 'store'])->name('postvax.store');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
+
+
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
     Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
     Route::post('/senddata', [ActsPersonController::class, 'apidata']);
     Route::post('/addqr', [PersonController::class, 'addqr'])->name('qr.add');
+    
     Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');
 });
 
 
 Route::get('/init',[SetupControlller::class,'init'])->name('init');
-
-
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
 Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');

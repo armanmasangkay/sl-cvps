@@ -27,7 +27,7 @@
             @csrf
             <input type="hidden" name="person_id" value="{{ $persondatas['id'] }}">
             <input type="hidden" name="qrcode_number" value="{{ $actspersondatas[0]['qr_code'] }}">
-            <button type="submit" class="btn btn-primary"> <i data-feather="check" class="pt-1 pb-1"></i> Accept &nbsp;</button>
+            <button type="submit" class="btn btn-primary"> <i data-feather="check" class="pt-1 pb-1"></i> Confirm &nbsp;</button>
             <a href="" class="btn btn-secondary"><i data-feather="x" class="pt-1 pb-1"></i> Cancel &nbsp;</a>
         </form>
     </div>
