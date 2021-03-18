@@ -28,5 +28,7 @@ class RouteRedirectAfterChangePasswordController extends Controller
         {
             return redirect(route('reports.superadmin'));
         }
+
+        return redirect(route('person.register'));
     }
 }

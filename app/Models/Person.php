@@ -72,4 +72,9 @@ class Person extends Model
     {
         return $this->qr_code ? true : false;
     }
+
+    public function postvaxes()
+    {
+        return $this->hasMany(PostVax::class);
+    }
 }

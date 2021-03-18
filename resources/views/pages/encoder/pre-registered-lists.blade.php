@@ -74,26 +74,29 @@
                                 <td class="pt-2 pb-0">{{ $person->address() }}</td>
                                 <td class="pt-2 pb-0">{{ $person->birthday() }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
+                                @if(count($person->postvaxes) > 2)
+                                    <button class="btn btn-secodary pl-1 btn-complete"><i data-feather="check" class="pt-1 pb-2"></i>Completed!&nbsp;</button>
+                                @else
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
-                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">
-
-                                             <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data&nbsp;</a>
-
+                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0 pl-1" style="padding-bottom: 2px !important;">
+                                             <i data-feather="file-plus" class="pb-1 pt-1"></i>New Data&nbsp;</a>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">
-                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">
+                                            <button type="button" class="btn btn-primary ml-1 pt-0 pb-0 btn-scan pl-1" data-id="{{ $person->id }}"  data-toggle="modal" data-target="#exampleModal">
                                                 <i data-feather="smartphone" class="pb-1 pt-1"></i>
-                                                Scan QR &nbsp;
-
+                                                Scan QR&nbsp;
                                             </button>
                                         </div>
                                     @endif
+                                @endif
                                 </td>
                             </tr>
                         @empty
-
+                            <tr>
+                                <td class="pt-1 pb-1 text-secondary" colspan="4">No records found</td>
+                            </tr>
                         @endforelse
 
 
@@ -319,7 +322,7 @@
             }
 
             // errormessage.innerHTML = response.errors
-            
+
         }
     })
 
