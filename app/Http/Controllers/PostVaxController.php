@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Facades\User;
 use App\Models\Person;
 use App\Models\PostVax;
 use App\Models\Vaccinator;
@@ -56,6 +57,7 @@ class PostVaxController extends Controller
 
     public function index(Person $person)
     {
+        Auth::user()->allowIf(User::ENCODER);
         $this->abortIfPersonHasNoQr($person);
 
         $vaccinators=$this->getVaccinators();
@@ -92,6 +94,7 @@ class PostVaxController extends Controller
 
     public function store(Request $request)
     {
+        Auth::user()->allowIf(User::ENCODER);
         $validator = $this->validateRequest($request);
 
         if($validator->fails())

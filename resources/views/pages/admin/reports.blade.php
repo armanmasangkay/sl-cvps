@@ -1,7 +1,5 @@
 @extends('layouts.main')
 
-@section('title', 'Reports')
-
 @include('templates.navigation')
 
 @section('content')
@@ -9,7 +7,7 @@
 <div class="container-fluid mt-4 reports">
     <h4 class="text-primary text-left text-heading pt-2 pl-4 ml-1"><i data-feather="clipboard" class="mb-1"></i> Vaccination Reports</h4>
     <div class="row mt-4">
-        <div class="col-md-12 mt-1 pl-md-5 pr-md-5">
+        <div class="col-md-12 pl-md-5 pr-md-5">
             <div class="row">
                 <div class="col-lg-6 col-md-8">
                     <form action="" method="post" class="form-inline">
@@ -17,16 +15,15 @@
                             <input type="date" class="form-control mr-1 ml-auto mb-1">
                             <input type="date" class="form-control mr-1 mb-1">
                         </div>
-                        <select name="municipality" class="form-control mb-1 mr-1">
+                        <!-- <select name="municipality" class="form-control mb-1 mr-1">
                             <option value="">Select Municipality</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary d-flex justify-content-start mb-1"><i data-feather="search" class="pt-1 pb-1"></i> Search</button>
+                        </select> -->
+                        <button type="submit" class="btn btn-primary d-flex justify-content-start mb-1 mr-1"><i data-feather="search" class="pt-1 pb-1"></i> Search</button>
+                        <button type="button" class="btn btn-success d-flex justify-content-start mb-1"><i data-feather="download" class="pt-1 pb-1"></i> Export</button>
                     </form>
                 </div>
-            
-             
             </div>
-            <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray mt-1">
+            <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
                 <table class="table table-hover table-bordered mb-0 pb-0" style="min-width: 5500px !important;">
                     <thead class="text-secondary bg-light">
                         <tr>
@@ -141,7 +138,7 @@
                             <td class="border-bottom-0 border-top-0">
                                 IF WITH MENTIONED <br>CONDITION, HAS PRESENTED <br>MEDICAL CLEARANCE <br>PRIOR TO VACCINATION DAY?
                             </td>
-                            <td>
+                            <td class="border-bottom-0 border-top-0">
                                 DEFERRAL
                             </td>
                             <td class="border-bottom-0 border-top-0">

@@ -77,6 +77,7 @@ class VaccinatorController extends Controller
 
     public function edit(Vaccinator $vaccinator)
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.edit-forms.vaccinator',[
             'vaccinator'=>$vaccinator,
             'facilities'=>$this->getFacilities()
@@ -85,6 +86,7 @@ class VaccinatorController extends Controller
 
     public function update(Vaccinator $vaccinator,Request $request)
     {
+        Auth::user()->allowIf(User::ADMIN);
         $this->createVaccinatorValidator($request->all());
 
         $vaccinator->firstname=$request->firstname;

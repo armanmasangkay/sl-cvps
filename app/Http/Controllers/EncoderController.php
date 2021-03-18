@@ -23,7 +23,9 @@ class EncoderController extends Controller
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
         $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->paginate(5);
-        return view('pages.admin.lists.encoder-lists')->with('encoders', $encoders);
+        return view('pages.admin.lists.encoder-lists',[
+            'encoders'=>$encoders
+        ]);
     }
 
     public function create()
@@ -87,7 +89,7 @@ class EncoderController extends Controller
 
     public function edit(User $encoder)
     {
-     
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         return view('pages.admin.edit-forms.encoder',[
             'encoder'=>$encoder
         ]);
@@ -95,6 +97,7 @@ class EncoderController extends Controller
 
     public function update(User $encoder, Request $request)
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',

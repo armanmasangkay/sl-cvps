@@ -18,7 +18,11 @@ use App\Http\Controllers\PreRegisteredController;
 use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\SearchPreRegistrationController;
+use App\Http\Controllers\SetupControlller;
 use App\Http\Controllers\UserLogin;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\RouteRedirectAfterChangePasswordController;
+use App\Http\Controllers\DeveloperController;
 use App\Models\ActsPerson;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
@@ -46,19 +50,26 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
     Route::resource('pre', PreRegisteredController::class);
+    Route::resource('change-password', ChangePasswordController::class);
+    Route::resource('check-route', RouteRedirectAfterChangePasswordController::class);
+    Route::resource('developer', DeveloperController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
     Route::post('/post-vax',[PostVaxController::class, 'store'])->name('postvax.store');
     Route::get('/logout',[LogoutController::class,'logout'])->name('user.logout');
+
+
     Route::post('/checkqr', [ActsPersonController::class, 'checkQrCode'])->name('qr.check');
     Route::get('/detail', [ActsPersonController::class, 'details'])->name('qr.detail');
     Route::post('/senddata', [ActsPersonController::class, 'apidata']);
     Route::post('/addqr', [PersonController::class, 'addqr'])->name('qr.add');
+    
     Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');
 });
 
 
+Route::get('/init',[SetupControlller::class,'init'])->name('init');
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
 Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
