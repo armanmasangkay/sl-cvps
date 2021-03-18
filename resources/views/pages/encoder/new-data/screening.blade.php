@@ -224,7 +224,7 @@
             <div class="col-md-6">
                 <p class="ml-3 mt-2 pt-1 text-secondary">* If deferral, specify</p>
                 @error('specify_deferral_text')<span class="text-danger ml-3">{{ $message }}</span>@enderror
-                <input type="text" class="form-control ml-3" name="specify_deferral_text">
+                <input type="text" class="form-control ml-3" name="if_deferral_specify">
             </div>
         </div>
 

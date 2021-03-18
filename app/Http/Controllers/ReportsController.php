@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Facades\User;
+use App\Models\PostVax;
 use App\Repositories\Contracts\PersonRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,7 @@ class ReportsController extends Controller
     {
         Auth::user()->allowIf(User::SUPER_ADMIN);
         $vaccinateds=$this->personRepository->getAllVaccinated();
+
 
         return view('pages.superadmin.reports',[
             'vaccinateds'=>$vaccinateds,

@@ -28,4 +28,9 @@ class Municipality extends Model
     {
         return $this->hasMany(Facility::class);
     }
+
+    public function vaccinators()
+    {
+        return $this->hasMany(Vaccinator::class);
+    }
 }
