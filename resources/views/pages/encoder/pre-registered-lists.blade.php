@@ -94,7 +94,9 @@
                                 </td>
                             </tr>
                         @empty
-
+                            <tr>
+                                <td class="pt-1 pb-1 text-secondary" colspan="4">No records found</td>
+                            </tr>
                         @endforelse
 
 
@@ -320,7 +322,7 @@
             }
 
             // errormessage.innerHTML = response.errors
-            
+
         }
     })
 

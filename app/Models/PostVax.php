@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PostVax extends Model
 {
@@ -37,4 +38,9 @@ class PostVax extends Model
         'vaccinator_id',
         'dose',
     ];
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }
