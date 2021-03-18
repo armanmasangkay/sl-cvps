@@ -75,6 +75,7 @@ class AdminController extends Controller
         }
      }
 
+
     public function store(Request $request)
     {
         Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
@@ -135,9 +136,12 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $admin)
     {
-        //
+        return view('pages.admin.edit-forms.admin',[
+            'municipalities'=>$this->getMunicipalities(),
+            'admin'=>$admin
+        ]);
     }
 
     /**
@@ -147,9 +151,21 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $admin)
     {
-        //
+        Validator::make($request->all(), [
+        'first_name'            =>      'required',
+        'last_name'             =>      'required',
+        'municipality_id'          =>      'required',
+        ])->validate();
+
+        $admin->update($request->all());
+        
+        return redirect(route('admin.edit',$admin))->with([
+            'registered' => true,
+            'title'      => 'Great!',
+            'text'       => 'Admin account updated successfully!'
+        ]);
     }
 
     /**
