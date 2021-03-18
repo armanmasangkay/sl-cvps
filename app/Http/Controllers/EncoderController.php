@@ -87,7 +87,7 @@ class EncoderController extends Controller
 
     public function edit(User $encoder)
     {
-     
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         return view('pages.admin.edit-forms.encoder',[
             'encoder'=>$encoder
         ]);
@@ -95,6 +95,7 @@ class EncoderController extends Controller
 
     public function update(User $encoder, Request $request)
     {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
         Validator::make($request->all(), [
             'first_name'            =>      'required',
             'last_name'             =>      'required',

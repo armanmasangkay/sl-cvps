@@ -18,8 +18,14 @@
         title: '{{ Session::get("title") }}',
         text: '{{ Session::get("text") }}',
         footer: ' '
+    }).then((res)=>{
+        if(res.isConfirmed)
+        window.location.reload();
     })
+
+
 </script>
+
 @endif
 <div class="container mt-3">
 
@@ -70,8 +76,15 @@
                                 <td class="pt-2 pb-2" colspan="2">
                                     {{-- @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
+<<<<<<< HEAD
                                             <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0 pl-1" style="padding-bottom: 2px !important;">
                                              <i data-feather="file-plus" class="pb-1 pt-1"></i>New Data&nbsp;</a>
+=======
+                                            <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0" style="padding-bottom: 2px !important;">
+
+                                             <i data-feather="file-plus" class="pb-1 pt-1"></i> New Data&nbsp;</a>
+
+>>>>>>> 2d434e333fa60e693ef678bf739bf932c7bc47c8
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">

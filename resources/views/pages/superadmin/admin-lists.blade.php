@@ -40,11 +40,15 @@
                                 <td class="pt-2 pb-0">{{ $user->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
+<<<<<<< HEAD
                                         <form action="" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary mr-1 pl-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Reset &nbsp;</button>
                                         </form>
                                         <a href="" class="btn btn-sm btn-warning pl-1"><i data-feather="edit" class="pt-1 pb-2"></i>Edit&nbsp;</a>
+=======
+                                        <a href="{{route('admin.edit',$user)}}" class="btn btn-sm btn-info">Edit</a>
+>>>>>>> 2d434e333fa60e693ef678bf739bf932c7bc47c8
                                         <form action="{{ route('admin.destroy', $user->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')

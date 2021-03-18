@@ -1,23 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-@if(Session::get('registered') === true)
-<script>
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-    })
-    swalWithBootstrapButtons.fire({
-        icon: 'success',
-        title: '{{ Session::get("title") }}',
-        text: '{{ Session::get("text") }}',
-        footer: ' '
-    })
-</script>
-@endif
+
 @if(Session::get('registered') === false)
 <script>
     const swalWithBootstrapButtons = Swal.mixin({
@@ -36,7 +20,7 @@
 </script>
 @endif
 
-<div class="container mt-5 register">   
+<div class="container mt-5 register">
     @include('templates.form-heading-UI')
 
     <div class="row">
@@ -46,15 +30,15 @@
                     <i data-feather="clipboard" class="mt-1 text-primary"></i>
                     <h4 class="text-primary text-content-heading ml-2"> New Vaccination Information</h4>
                 </div>
-                
-                <form action="" method="post" class="mt-4">
+
+                <form action="{{ route('postvax.store') }}" method="post" class="mt-4">
                     @csrf
                     <div class="d-flex justify-content-start mt-5">
                         <i data-feather="user" class="mt-1 text-secondary pt-1"></i>
                         <h5 class="text-secondary text-p-info ml-2 mt-1"> Basic Information</h5>
                     </div>
                     @include('pages.encoder.new-data.basic-info')
-                    
+
                     <div class="d-flex justify-content-start mt-3">
                         <i data-feather="book-open" class="mt-1 text-secondary pt-1"></i>
                         <h5 class="text-secondary text-p-info ml-2 mt-1"> Counseling Section</h5>

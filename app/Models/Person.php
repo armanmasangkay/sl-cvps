@@ -10,6 +10,8 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $with=['vaccinations'];
+
     protected $table = 'people';
 
     protected $fillable=[
@@ -53,7 +55,7 @@ class Person extends Model
     public function birthday()
     {
        return $this->convertDateToCarbon($this->birth_date)->format('M-d-Y');
-       
+
     }
 
     public function fullnameFormal()
