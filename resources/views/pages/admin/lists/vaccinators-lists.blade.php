@@ -49,11 +49,12 @@
                                 <td class="pt-2 pb-0">{{ $vaccinator->prc }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <a href="{{route('vaccinator.edit',$vaccinator)}}" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="{{route('vaccinator.edit',$vaccinator)}}" class="btn btn-sm btn-info pl-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Edit&nbsp;</a>
                                         <form action="{{ route('vaccinator.destroy', $vaccinator->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this vaccinator will remove all transaction associated to this information.')" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                            <button type="submit" onclick="return confirm('Are you sure? Deleting this vaccinator will remove all transaction associated to this information.')" class="btn btn-sm btn-danger ml-1 pl-1">
+                                            <i data-feather="x" class="pt-1 pb-2"></i>Delete&nbsp;</button>
                                         </form>
                                     </div>
                                 </td>

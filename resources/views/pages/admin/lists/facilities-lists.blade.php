@@ -34,11 +34,11 @@
                                 <td class="pt-2 pb-0">{{ $facility->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <a href="{{route('facility.edit',$facility)}}" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="{{route('facility.edit',$facility)}}" class="btn btn-sm btn-info pl-1"><i data-feather="edit" class="pt-1 pb-2"></i>Edit&nbsp;</a>
                                         <form action="{{ route('facility.destroy', $facility->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger ml-1">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-danger ml-1 pl-1"><i data-feather="x" class="pt-1 pb-2"></i>Delete&nbsp;</button>
                                         </form>
                                     </div>
                                 </td>

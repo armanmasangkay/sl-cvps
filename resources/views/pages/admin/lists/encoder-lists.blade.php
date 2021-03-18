@@ -39,7 +39,7 @@
                                 <td class="pt-2 pb-0">{{ $encoder->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
+                                        <form action="" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary mr-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Reset &nbsp;</button>
                                         </form>
