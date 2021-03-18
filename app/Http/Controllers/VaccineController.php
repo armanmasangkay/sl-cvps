@@ -57,7 +57,7 @@ class VaccineController extends Controller
             'batch_number'  =>   'required',
             'lot_number'    =>   '',
             'vaccine_manufacturer'  =>  'required',
-            'municipality_id'  =>    'required'
+            'municipality_id'  =>    'required|exists:municipalities,id'
         ]);
     }
 
@@ -70,6 +70,8 @@ class VaccineController extends Controller
     public function store(Request $request)
     {
         Auth::user()->allowIf(User::ADMIN);
+
+      
         $validator = $this->makeValidator($request->all());
 
         if ($validator->fails()) {
@@ -85,10 +87,10 @@ class VaccineController extends Controller
         ]);
 
         return redirect(route('vaccine.create'))->with([
-                'created' => true,
-                'title' => 'Great!',
-                'text' => 'New vaccine added'
-            ]);
+            'created' => true,
+            'title' => 'Great!',
+            'text' => 'New vaccine added'
+        ]);
     }
 
     /**

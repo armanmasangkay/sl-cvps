@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Classes\Facades\User as UserRole;
 use App\Models\Municipality;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -10,31 +12,41 @@ use Tests\TestCase;
 class VaccineTest extends TestCase
 {
 
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     public function test_display_the_add_form_vaccine()
     {
-        $response = $this->get(route('vaccine.create'));
-        $response->assertViewIs('pages.vaccine.add-vaccine');
+        Municipality::factory()->create();
+        $admin=User::factory()->create([
+            'role'=>UserRole::ADMIN
+        ]);
+        $response = $this->actingAs($admin)->get(route('vaccine.create'));
+        $response->assertViewIs('pages.admin.add-vaccines');
     }
 
     public function test_add_vaccine_with_valid_information()
     {
-        $response = $this->post(
-            route('vaccine.store'),
-            [
-                'batch_number'          =>      '1',
-                'lot_number'            =>      '1',
-                'vaccine_manufacturer'  =>      'Pfizer',
-                'municipality_id'          =>      'Tomas Oppus'
-            ]
-        );
+        $municipality=Municipality::factory()->create();
 
+        $admin=User::factory()->create([
+            'role'=>UserRole::ADMIN
+        ]);
+
+        
+        $response = $this->actingAs($admin)->post(route('vaccine.store'),[
+            'vaccine_name' => 'Pfizer',
+            'batch_number'  =>   '1',
+            'lot_number'    =>   '1',
+            'vaccine_manufacturer'  =>  'Pfizer',
+            'municipality_id' =>$municipality->id
+            ]);
 
         $response->assertRedirect(route('vaccine.create'));
+        $response->dumpSession();
         $response->assertSessionHasAll([
             'created' => true,
-            'message' => 'New vaccine added'
+            'title' => 'Great!',
+            'text' => 'New vaccine added'
         ]);
 
         $this->assertDatabaseHas('vaccines', [
@@ -46,7 +58,12 @@ class VaccineTest extends TestCase
 
     public function test_fail_if_required_information_are_not_supplied()
     {
-        $response = $this->post(route('vaccine.store'), [
+
+        Municipality::factory()->create();
+        $admin=User::factory()->create([
+            'role'=>UserRole::ADMIN
+        ]);
+        $response = $this->actingAs($admin)->post(route('vaccine.store'), [
             'batch'                 =>      '',
             'lot_number'            =>      '',
             'vaccine_manufacturer'  =>      '',
@@ -56,7 +73,6 @@ class VaccineTest extends TestCase
         $response->assertRedirect(route('vaccine.create'));
         $response->assertSessionHasErrors([
             'batch_number',
-            'lot_number',
             'vaccine_manufacturer',
             'municipality_id'
         ]);
@@ -64,11 +80,17 @@ class VaccineTest extends TestCase
 
     public function test_fail_if_supplied_municipality_not_exist_in_database_list()
     {
-        $response = $this->post(route('vaccine.store'), [
+        Municipality::factory()->create();
+        $admin=User::factory()->create([
+            'role'=>UserRole::ADMIN
+        ]);
+
+    
+        $response = $this->actingAs($admin)->post(route('vaccine.store'), [
             'batch_number'          =>      '1',
             'lot_number'            =>      '1',
             'vaccine_manufacturer'  =>      'Pfizer',
-            'municipality_id'          =>      'Tomas Oppussss'
+            'municipality_id'          =>    99
         ]);
 
         $response->assertRedirect(route('vaccine.create'));
