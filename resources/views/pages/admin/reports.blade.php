@@ -25,7 +25,7 @@
                             <option value="">Select Municipality</option>
                         </select> -->
                         <button type="submit" class="btn btn-primary d-flex justify-content-start mb-1 mr-1"><i data-feather="search" class="pt-1 pb-1"></i> Search</button>
-                        <button type="button" class="btn btn-success d-flex justify-content-start mb-1"><i data-feather="download" class="pt-1 pb-1"></i> Export</button>
+                        <button type="button" class="btn btn-success d-flex justify-content-start mb-1" id="export"><i data-feather="download" class="pt-1 pb-1"></i> Export</button>
                     </form>
                 </div>
             </div>
@@ -260,9 +260,11 @@
 </div>
 <script>
     $(document).ready(function () {
-        $("#vaccinationTable").table2excel({
-            filename: "Employees.xls"
-        });
+        $('#export').click(function(){
+            $("#vaccinationTable").table2excel({
+                filename: "Employees.xls"
+            });
+        })
     });
 </script>
 @endsection
