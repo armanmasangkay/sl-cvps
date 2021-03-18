@@ -14,7 +14,7 @@
                     <h5 class="text-secondary mt-4">Arman Masangkay</h5>
                 </center>
 
-                <label class="text-center mt-3">Programmer</label>
+                <label class="text-center mt-3">Software Engineer</label>
                 <label class="text-center" style="visibility: hidden !important;">Project Leader</label>
 
                 <center>
@@ -43,7 +43,7 @@
                 </center>
 
                 <label class="text-center mt-3">UI/UX Designer</label>
-                <label class="text-center">Programmer</label>
+                <label class="text-center">Software Engineer</label>
 
                 <center>
                     <div class="mt-5">
@@ -70,7 +70,7 @@
                     <h5 class="text-secondary mt-4">June Vic W. Cadayona</h5>
                 </center>
 
-                <label class="text-center mt-3">Programmer</label>
+                <label class="text-center mt-3">Software Engineer</label>
                 <label class="text-center" style="visibility: hidden !important;">Webhost Trustee</label>
 
                 <center>

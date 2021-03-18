@@ -10,7 +10,7 @@
     <div class="row pt-4">
         <div class="col-lg-3 col-md-6 mt-2">
             <label class="text-secondary">First name<small class="text-danger">(required)</small></label>
-            <input type="text" class="form-control" name="firstname" required value="{{ old('firstname') }}" placeholder="Enter first name">
+            <input type="text" class="form-control" name="firstname" id="input" required value="{{ old('firstname') }}" placeholder="Enter first name">
             @error('firstname')
             <small class="text-danger" style="font-size: 12px !important;">{{ $message }}</small>
             @enderror
@@ -106,7 +106,7 @@
             <select name="category" class="form-control" required>
                 <option value="">Select category</option>
                 @foreach($categories as $categoryKey=>$categoryValue)
-                <option value="{{$categoryKey}}" style="color: #c2c2c2 !important;">{{$categoryValue}}</option>
+                <option value="{{$categoryKey}}" >{{$categoryValue}}</option>
                 @endforeach
             </select>
             @error('category')
@@ -118,7 +118,7 @@
             <select name="category_id" class="form-control" required>
                 <option value="">Select category ID</option>
                 @foreach($categoryIds as $categoryIdsKey=>$categoryIdsValue)
-                <option value="{{$categoryIdsKey}}" style="color: #c2c2c2 !important;">{{$categoryIdsValue}}</option>
+                <option value="{{$categoryIdsKey}}">{{$categoryIdsValue}}</option>
                 @endforeach
             </select>
             @error('category_id')

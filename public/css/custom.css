@@ -24,9 +24,9 @@ input::placeholder{
     margin-top: -5px !important;
 }
 
-select ~ option:nth-child(1){
+/* select ~ option:nth-child(1){
     color: #808080 !important
-}
+} */
 select{
     color: #575757 !important
 }
@@ -248,4 +248,22 @@ a{
 
 .register .pre-reg .form-control:focus{
     box-shadow: none !important;
+    /* background-color: #fff !important; */
 }
+
+/* Change autocomplete styles in WebKit */
+.register .pre-reg input:-webkit-autofill,
+.register .pre-reg input:-webkit-autofill:hover, 
+.register .pre-reg input:-webkit-autofill:focus,
+.register .pre-reg textarea:-webkit-autofill,
+.register .pre-reg textarea:-webkit-autofill:hover,
+.register .pre-reg textarea:-webkit-autofill:focus,
+.register .pre-reg select:-webkit-autofill,
+.register .pre-reg select:-webkit-autofill:hover,
+.register .pre-reg select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #333 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* -webkit-text-fill-color: #838B95 !important; */
