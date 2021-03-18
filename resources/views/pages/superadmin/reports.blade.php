@@ -144,6 +144,9 @@
                                 DEFERRAL
                             </td>
                             <td class="border-bottom-0 border-top-0">
+                                REASON FOR DEFERRAL
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
                                 DATE OF VACCINATION
                             </td>
                             <td class="border-bottom-0 border-top-0">

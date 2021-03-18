@@ -61,6 +61,8 @@ class PostVaxController extends Controller
             'vaccinator_id'                                     =>  'required',
             'vaccine_id'                                        =>  'required',
             'date_of_vaccination'                               =>  'required',
+            'deferral'                                          =>  'sometimes',
+            'if_deferral_specify'                               =>  'required_if:deferral,on',
         ]);
     }
 

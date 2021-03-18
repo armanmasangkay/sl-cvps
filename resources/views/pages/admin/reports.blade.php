@@ -142,6 +142,9 @@
                                 DEFERRAL
                             </td>
                             <td class="border-bottom-0 border-top-0">
+                                REASON FOR DEFERRAL
+                            </td>
+                            <td class="border-bottom-0 border-top-0">
                                 DATE OF VACCINATION
                             </td>
                             <td class="border-bottom-0 border-top-0">
@@ -168,26 +171,26 @@
                         </tr>
                     </thead>
                     <tbody style="font-weight: 100 !important;" class="text-secondary">
+                        @php
+                            function transformInteger($int)
+                            {
+                                return $int === 1 ? "YES" : "NO";
+                            }
 
-@php
-    function transformInteger($int)
-    {
-        return $int === 1 ? "YES" : "NO";
-    }
+                            function transformDose($dose)
+                            {
+                                return $dose === 1 || $dose === 2 ? "YES" : "";
 
-    function transformDose($dose)
-    {
-        return $dose === 1 || $dose === 2 ? "YES" : "";
+                            }
 
-    }
+                            function transformNull($string)
+                            {
+                                return $string ?? "N/A" ;
+                            }
+                        @endphp
 
-    function transformNull($string)
-    {
-        return $string ?? "N/A" ;
-    }
-@endphp
-                            @forelse ($vaccinateds as $vaccinated)
-                            <tr class="border-bottom-1">
+                        @forelse ($vaccinateds as $vaccinated)
+                        <tr class="border-bottom-1">
                             <td class="pt-1 pb-1">{{ $vaccinated->person->category }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->category_id }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->person->category_id_num }}</td>
@@ -225,6 +228,7 @@
                             <td class="pt-1 pb-1">{{ transformNull($vaccinated->if_with_mentioned_conditions_specify) }}</td>
                             <td class="pt-1 pb-1">{{ transformInteger($vaccinated->if_with_mentioned_condition_has_presented_medical_clearance) }}</td>
                             <td class="pt-1 pb-1">{{ transformInteger($vaccinated->deferral) }}</td>
+                            <td class="pt-1 pb-1">{{ $vaccinated->if_deferral_specify }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->date_of_vaccination}}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->vaccine->vaccine_manufacturer }}</td>
                             <td class="pt-1 pb-1">{{ $vaccinated->vaccine->batch_number }}</td>
@@ -233,11 +237,12 @@
                             <td class="pt-1 pb-1">{{ $vaccinated->vaccinator->position }}</td>
                             <td class="pt-1 pb-1">{{ ($vaccinated->dose ===1 ? "YES" : "") }}</td>
                             <td class="pt-1 pb-1">{{ ($vaccinated->dose ===2 ? "YES" : "") }}</td>
-
                         </tr>
-                            @empty
-
-                            @endforelse
+                        @empty
+                        <tr>
+                            <td colspan="46" class="text-secondary text-center">No records found</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
 
