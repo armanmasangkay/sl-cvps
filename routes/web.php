@@ -39,6 +39,7 @@ Route::get('/',function(){
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('admin', AdminController::class);
+    Route::post('reset/admin/{admin}', [AdminController::class,'reset'])->name('reset.admin');
     Route::resource('facility', FacilityController::class);
     Route::resource('encoder', EncoderController::class);
     Route::post('/reset/encoder/{encoder}', [EncoderController::class,'reset'])->name('reset.encoder');

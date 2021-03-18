@@ -40,11 +40,11 @@
                                 <td class="pt-2 pb-0">{{ $user->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <form action="" method="post">
+                                        <form action="{{route('reset.admin',$user)}}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary mr-1 pl-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Reset &nbsp;</button>
                                         </form>
-                                        <a href="" class="btn btn-sm btn-warning pl-1"><i data-feather="edit" class="pt-1 pb-2"></i>Edit&nbsp;</a>
+                                        <a href="" class="btn btn-sm btn-info pl-1"><i data-feather="edit" class="pt-1 pb-2"></i>Edit&nbsp;</a>
                                         <form action="{{ route('admin.destroy', $user->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
@@ -70,25 +70,16 @@
     </div>
 </div>
 
-{{-- <script>
-    $(document).ready(function(){
-        const deleteBtn=$(".delete-admin");
+@if(session('success')===true)
+<script>
+Swal.fire(
+  'Great!',
+  "{{session('message')}}",
+  'success'
+)
+</script>
 
-        deleteBtn.click(function(e){
-            e.preventDefault()
-            let userId=$(this).data('userid');
-            showDeleteConfirmation('Deleting this admin cannot be reverted back and will delete all transactions associated with this account').then((result) => {
-                if (result.isConfirmed) {
-                    
-                }
-            })
-        })
-
-    });
-
-
-
-</script> --}}
+@endif
 
 
 @endsection

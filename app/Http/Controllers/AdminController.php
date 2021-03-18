@@ -39,6 +39,17 @@ class AdminController extends Controller
         return view('pages.superadmin.admin-lists')->with('users', $user);
     }
 
+    public function reset(User $admin)
+    {
+        Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
+        $admin->password=Hash::make('1234');
+        $admin->save();
+        return redirect(route('admin.index'))->with([
+            'success'=>true,
+            'message'=>'Reset password succesful!'
+        ]);
+    }
+
     // /**
     //  * Show the form for creating a new resource.
     //  *
