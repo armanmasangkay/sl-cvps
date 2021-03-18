@@ -80,7 +80,7 @@
                                     @if ($person->hasQrCode())
                                         <div class="d-flex justify-content-start">
                                             <a href="{{route('encoder.post-vax',$person)}}" class="btn btn-success ml-1 pt-0 pb-0 pl-1" style="padding-bottom: 2px !important;">
-                                             <i data-feather="file-plus" class="pb-1 pt-1"></i>New Data&nbsp;</a>
+                                            <i data-feather="file-plus" class="pb-1 pt-1"></i>New Data&nbsp;</a>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-start">
