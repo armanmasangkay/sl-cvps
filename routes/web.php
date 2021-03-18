@@ -18,6 +18,7 @@ use App\Http\Controllers\PreRegisteredController;
 use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\SearchPreRegistrationController;
+use App\Http\Controllers\SetupControlller;
 use App\Http\Controllers\UserLogin;
 use App\Models\ActsPerson;
 use App\Models\Vaccination;
@@ -57,6 +58,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/addqr', [PersonController::class, 'addqr'])->name('qr.add');
     Route::get('/search-pre-reg',[SearchPreRegistrationController::class,'search'])->name('search.pre-registered');
 });
+
+
+Route::get('/init',[SetupControlller::class,'init'])->name('init');
 
 
 Route::get('/register', [RegistrationController::class, 'view'])->name('person.register');
