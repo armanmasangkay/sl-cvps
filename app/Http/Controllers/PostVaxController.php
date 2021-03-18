@@ -83,13 +83,13 @@ class PostVaxController extends Controller
 
         if($validator->fails())
         {
-        return back()
-            ->with([
-                    'registered' => false,
-                    'title'    => 'Error!',
-                    'text' => 'An error occured while saving the data. Please recheck your inputs!'
-                ])
-            ->withErrors($validator->errors());
+            return back()
+                ->with([
+                        'registered' => false,
+                        'title'    => 'Error!',
+                        'text' => 'An error occured while saving the data. Please recheck your inputs!'
+                    ])
+                ->withErrors($validator)->withInput();
         }
 
         foreach($request->all() as $requestKey=>$requestValue)

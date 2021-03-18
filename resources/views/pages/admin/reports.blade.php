@@ -10,21 +10,29 @@
         <div class="col-md-12 pl-md-5 pr-md-5">
             <div class="row">
                 <div class="col-lg-6 col-md-8">
+
                     <form action="{{route('reports.admin.filter')}}" method="get" class="form-inline">
                         <div class="d-flex justify-content-between">
-                            <input type="date" class="form-control mr-1 ml-auto mb-1" name="from" value="{{$from??''}}" required>
-                            <input type="date" class="form-control mr-1 mb-1" name="to" value="{{$to??''}}" required>
+                          <div style="position: relative;">
+                                <label style="position: absolute; top: -1.5rem; left: 0rem !important;">Date from:</label>
+                                <input type="date" class="form-control mr-1 ml-auto mb-1" name="from" value="{{$from??''}}" required>
+                            </div>
+                            <div style="position: relative;">
+                                <label style="position: absolute; top: -1.5rem; left: 0rem !important;">Date to:</label>
+                                <input type="date" class="form-control mr-1 mb-1" name="to" value="{{$to??''}}" required>
+                            </div>
+                          
                         </div>
                         <!-- <select name="municipality" class="form-control mb-1 mr-1">
                             <option value="">Select Municipality</option>
                         </select> -->
                         <button type="submit" class="btn btn-primary d-flex justify-content-start mb-1 mr-1"><i data-feather="search" class="pt-1 pb-1"></i> Search</button>
-                        <button type="button" class="btn btn-success d-flex justify-content-start mb-1"><i data-feather="download" class="pt-1 pb-1"></i> Export</button>
+                        <button type="button" class="btn btn-success d-flex justify-content-start mb-1" id="export"><i data-feather="download" class="pt-1 pb-1"></i> Export</button>
                     </form>
                 </div>
             </div>
             <div class="table-responsive shadow-sm bg-white p-0 rounded border border-gray">
-                <table class="table table-hover table-bordered mb-0 pb-0" style="min-width: 5500px !important;">
+                <table class="table table-hover table-bordered mb-0 pb-0" style="min-width: 5500px !important;" id="vaccinationTable">
                     <thead class="text-secondary bg-light">
                         <tr>
                             <td class="border-bottom-0 border-top-0">
@@ -85,58 +93,58 @@
                                 AGE MORE THAN 16 YRS OLD?
                             </td>
                             <td class="border-bottom-0 border-top-0"  rowspan="2">
-                                HAS NO ALLERGIES TO <br>PEG OR POLYSORBATE?
+                                HAS NO ALLERGIES TO PEG OR POLYSORBATE?
                             </td>
                             <td class="border-bottom-0 border-top-0" rowspan="2">
-                                HAS NO SEVERE ALLERGIC <br>REACTION AFTER THE FIRST <br>DOSE OF THE VACCINE?
+                                HAS NO SEVERE ALLERGIC REACTION AFTER THE FIRST DOSE OF THE VACCINE?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NO ALLERGY TO <br>FOOD, EGG, MEDICINES, <br>AND NO ASTHMA?
+                                HAS NO ALLERGY TO FOOD, EGG, MEDICINES, AND NO ASTHMA?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF WITH ALLERGY OR ASTHMA, <br>WILL THE VACCINATOR ABLE <br>TO MONITOR THE PATIENT <br>FOR 30MINUTES?
+                                IF WITH ALLERGY OR ASTHMA, WILL THE VACCINATOR ABLE TO MONITOR THE PATIENT FOR 30MINUTES?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NO HISTORY OF <br>BLEEDING DISORDERS OR <br>CURRENTLY TAKING <br>ANTI-COAGULANTS?
+                                HAS NO HISTORY OF BLEEDING DISORDERS OR CURRENTLY TAKING ANTI-COAGULANTS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF WITH BLEEDING HISTORY, <br>IS GAUGE 23-25 SYRINGE <br>AVAILABLE FOR INJECTION?
+                                IF WITH BLEEDING HISTORY, IS GAUGE 23-25 SYRINGE AVAILABLE FOR INJECTION?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                DOES NOT MANIFEST ANY OF THE <br>FOLLOWING SYPMPTOMS: <br>FEVER/CHILLS, HEADACHE, <br>COUGH, COLDS,
-                                <br>SORE THROAT, MYALGA, <br>FATIGUE, WEAKNESS, <br>LOSS OF SMELL/TASTE, <br>DIARRHEA, SHORTNESS <br>IN BREATHING
+                                DOES NOT MANIFEST ANY OF THE FOLLOWING SYPMPTOMS: FEVER/CHILLS, HEADACHE, COUGH, COLDS,
+                                SORE THROAT, MYALGA, FATIGUE, WEAKNESS, LOSS OF SMELL/TASTE, DIARRHEA, SHORTNESS IN BREATHING
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF MANIFESTING ANY <br>OF THE MENTIONED SYMPTOM/S, <br>SPECIFY ALL THAT APPLY
+                                IF MANIFESTING ANY OF THE MENTIONED SYMPTOM/S, SPECIFY ALL THAT APPLY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NO HISTORY OF EXPOSURE <br>TO A CONFIRMED OR SUSPECTED <br>COVID-19 CASE IN <br>THE PAST 2 WEEKS?
+                                HAS NO HISTORY OF EXPOSURE TO A CONFIRMED OR SUSPECTED COVID-19 CASE IN THE PAST 2 WEEKS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NOT BEEN PREVIOUSLY <br>TREATED FOR COVID-19 <br>IN THE PAST 90 DAYS?
+                                HAS NOT BEEN PREVIOUSLY TREATED FOR COVID-19 IN THE PAST 90 DAYS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NOT RECEIVE ANY <br>VACCINE IN THE <br>PAST 2 WEEKS?
+                                HAS NOT RECEIVE ANY VACCINE IN THE PAST 2 WEEKS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                HAS NOT RECEIVE CONVALESCENT <br>PLASMA OR MONOCLONAL <br>ANTIBODIES FOR COVID-19 <br>IN THE PAST 90 DAYS?
+                                HAS NOT RECEIVE CONVALESCENT PLASMA OR MONOCLONAL ANTIBODIES FOR COVID-19 IN THE PAST 90 DAYS?
                             </td>
                             <td class="border-bottom-0 border-top-0">
                                 NOT PREGNANT?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF PREGNANT, <br>2ND OR 3RD TRIMESTER?
+                                IF PREGNANT, 2ND OR 3RD TRIMESTER?
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                DOES NOT HAVE ANY OF <br>THE FOLLOWING: HIV, <br>CANCER/MALIGNANCY, <br>UNDERWENT TRANSPLANT,
-                                <br>UNDER STEROID MEDICATION/
-                                <br>TREATMENT, BED RIDDEN, <br>TERMINAL ILLNESS, LESS<br> THAN 6 MONTHS PROGNOSIS
+                                DOES NOT HAVE ANY OF THE FOLLOWING: HIV, CANCER/MALIGNANCY, UNDERWENT TRANSPLANT,
+                                UNDER STEROID MEDICATION/
+                                TREATMENT, BED RIDDEN, TERMINAL ILLNESS, LESS THAN 6 MONTHS PROGNOSIS
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF WITH MENTIONED <br>CONDITION/S, SPECIFY
+                                IF WITH MENTIONED CONDITION/S, SPECIFY
                             </td>
                             <td class="border-bottom-0 border-top-0">
-                                IF WITH MENTIONED <br>CONDITION, HAS PRESENTED <br>MEDICAL CLEARANCE <br>PRIOR TO VACCINATION DAY?
+                                IF WITH MENTIONED CONDITION, HAS PRESENTED MEDICAL CLEARANCE PRIOR TO VACCINATION DAY?
                             </td>
                             <td class="border-bottom-0 border-top-0">
                                 DEFERRAL
@@ -257,5 +265,13 @@
     <div class="mt-2">
     </div>
 </div>
-
+<script>
+    $(document).ready(function () {
+        $('#export').click(function(){
+            $("#vaccinationTable").table2excel({
+                filename: "SL-VIMS VAS Export.xls"
+            });
+        })
+    });
+</script>
 @endsection
