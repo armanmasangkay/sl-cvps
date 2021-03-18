@@ -21,4 +21,9 @@ class Vaccine extends Model
     {
         return "{$this->batch_number} | {$this->vaccine_name} ({$this->vaccine_manufacturer})";
     }
+
+    public function postvaxes()
+    {
+        return $this->hasMany(PostVax::class);
+    }
 }

@@ -33,6 +33,7 @@ class PostVax extends Model
         'if_with_mentioned_conditions_specify',
         'if_with_mentioned_condition_has_presented_medical_clearance',
         'deferral',
+        'if_deferral_specify',
         'date_of_vaccination',
         'vaccine_id',
         'vaccinator_id',
@@ -42,5 +43,21 @@ class PostVax extends Model
     public function person()
     {
         return $this->belongsTo(Person::class);
+    }
+
+    public function vaccinator()
+    {
+        return $this->hasOne(Vaccinator::class,'id', 'vaccinator_id');
+    }
+
+    public function getVaccinatorMunicipality()
+    {
+
+        return $this->vaccinator->municipality;
+        // return $this->hasOneThrough(Municipality::class, Vaccinator::class,'municipality_id', 'vaccinator_id','id', 'id');
+    }
+    public function vaccine()
+    {
+        return $this->hasOne(Vaccine::class,'id','vaccine_id');
     }
 }
