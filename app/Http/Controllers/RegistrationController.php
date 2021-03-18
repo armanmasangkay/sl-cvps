@@ -58,7 +58,7 @@ class RegistrationController extends Controller
 
         if($validator->fails())
         {
-            dd($validator->errors());
+        
             return redirect(route('person.register'))
                     ->withErrors($validator)
                     ->withInput();
