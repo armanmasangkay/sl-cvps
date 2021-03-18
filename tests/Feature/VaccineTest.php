@@ -42,7 +42,6 @@ class VaccineTest extends TestCase
             ]);
 
         $response->assertRedirect(route('vaccine.create'));
-        $response->dumpSession();
         $response->assertSessionHasAll([
             'created' => true,
             'title' => 'Great!',
