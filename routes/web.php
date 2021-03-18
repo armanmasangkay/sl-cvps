@@ -1,21 +1,18 @@
 <?php
 
 use App\Http\Controllers\ActsPersonController;
-use App\Models\Person;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminReportsController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\VaccinatorController;
-use App\Http\Controllers\VaccinatorRegistrationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\EncoderController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostVaxController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\PreRegisteredController;
-use App\Http\Controllers\NewDataController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\SearchPreRegistrationController;
 use App\Http\Controllers\SetupControlller;
@@ -23,8 +20,6 @@ use App\Http\Controllers\UserLogin;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\RouteRedirectAfterChangePasswordController;
 use App\Http\Controllers\DeveloperController;
-use App\Models\ActsPerson;
-use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin', AdminController::class);
     Route::resource('facility', FacilityController::class);
     Route::resource('encoder', EncoderController::class);
+    Route::post('/reset/encoder/{encoder}', [EncoderController::class,'reset'])->name('reset.encoder');
     Route::resource('vaccine', VaccineController::class);
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);

@@ -11,6 +11,7 @@ use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 class EncoderController extends Controller
 {
@@ -19,12 +20,26 @@ class EncoderController extends Controller
         return Municipality::all();
     }
 
+
     public function index()
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
         $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->paginate(5);
         return view('pages.admin.lists.encoder-lists',[
             'encoders'=>$encoders
+        ]);
+    }
+
+    public function reset(User $encoder)
+    {
+        Auth::user()->allowIf(FacadesUser::ADMIN);
+
+        $encoder->password=Hash::make('1234');
+        $encoder->save();
+
+        return redirect(route('encoder.index'))->with([
+            'success'=>true,
+            'message'=>'Password reset successful!'
         ]);
     }
 
@@ -89,6 +104,7 @@ class EncoderController extends Controller
 
     public function edit(User $encoder)
     {
+    
         Auth::user()->allowIf(FacadesUser::ADMIN);
         return view('pages.admin.edit-forms.encoder',[
             'encoder'=>$encoder
