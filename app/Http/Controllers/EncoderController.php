@@ -20,18 +20,14 @@ class EncoderController extends Controller
         return Municipality::all();
     }
 
-    private function showEncodersList()
-    {
-        $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->paginate(5);
-        return view('pages.admin.lists.encoder-lists',[
-            'encoders'=>$encoders
-        ]);
-    }
 
     public function index()
     {
         Auth::user()->allowIf(FacadesUser::ADMIN);
-        return $this->showEncodersList();
+        $encoders = User::where('role', '3')->where('municipality_id', Auth::user()->municipality_id)->paginate(5);
+        return view('pages.admin.lists.encoder-lists',[
+            'encoders'=>$encoders
+        ]);
     }
 
     public function reset(User $encoder)
@@ -41,7 +37,7 @@ class EncoderController extends Controller
         $encoder->password=Hash::make('1234');
         $encoder->save();
 
-        return $this->showEncodersList()->with([
+        return redirect(route('encoder.index'))->with([
             'success'=>true,
             'message'=>'Password reset successful!'
         ]);
