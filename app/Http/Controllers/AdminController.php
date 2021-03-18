@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes\Facades\Security;
 use App\Classes\Facades\User as FacadesUser;
-
+use App\Http\Requests\AdminRequest;
 use App\Models\Municipality;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-
+        $this->middleware('password.match',['only'=>['store']]);
     }
     /**
      * Display a listing of the resource.
@@ -79,42 +79,10 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     private function passwordCheck($password, $confirm_password)
-     {
-        if($password !== $confirm_password)
-        {
-            return true;
-        }
-     }
 
-
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
         Auth::user()->allowIf(FacadesUser::SUPER_ADMIN);
-        
-        $validator = Validator::make($request->all(), [
-            'first_name'            =>      'required',
-            'last_name'             =>      'required',
-            'username'              =>      'required|unique:users,username',
-            'password'              =>      'required|min:4',
-            'confirm_password'      =>      'required',
-            'municipality'          =>      'required',
-        ]);
-
-        if($validator->fails())
-        {
-            return redirect(route('admin.create'))->withErrors($validator)->withInput();
-        }
-
-        if($this->passwordCheck($request->password, $request->confirm_password))
-        {
-            return redirect(route('admin.create'))->with([
-                    'matched'  => false,
-                    'title'    => 'Warning!',
-                    'text' => 'Password does not match'
-                ])->withInput();
-        }
-
 
         User::create([
             'first_name'    =>      Str::title($request->first_name),
@@ -124,6 +92,8 @@ class AdminController extends Controller
             'municipality_id'  =>      $request->municipality,
             'role'          =>      FacadesUser::ADMIN
         ]);
+
+    
         return redirect(route('admin.create'))->with([
                 'registered' => true,
                 'title'      => 'Great!',
