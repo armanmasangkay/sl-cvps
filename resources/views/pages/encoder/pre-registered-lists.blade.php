@@ -74,7 +74,7 @@
                                 <td class="pt-2 pb-0">{{ $person->address() }}</td>
                                 <td class="pt-2 pb-0">{{ $person->birthday() }}</td>
                                 <td class="pt-2 pb-2" colspan="2">
-                                @if (count($person->postvaxes) > 2)
+                                @if(count($person->postvaxes) > 2)
                                     <button class="btn btn-secodary pl-1 btn-complete"><i data-feather="check" class="pt-1 pb-2"></i>Completed!&nbsp;</button>
                                 @else
                                     @if ($person->hasQrCode())

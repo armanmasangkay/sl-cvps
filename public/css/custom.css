@@ -63,6 +63,14 @@ a{
     color: #fff !important;
 }
 
+.btn-complete{
+    height: 25px !important;
+    padding-top: 0px !important;
+    padding-bottom: 5px !important;
+    box-shadow: none !important;
+    cursor: text !important;
+}
+
 .btn-scan{
     padding-bottom: 2px !important;
 }
