@@ -8,17 +8,17 @@
             <div class="col-md-6">
                 <h5 class="text-secondary mt-3">ACTS Data</h5>
                 <div class="card shadow-sm pt-3 px-3">
-                    <p>First name : <span class="text-primary">{{ $actspersondatas[0]['first_name'] }}</span></p>
-                    <p>Middle name: <span class="text-primary">{{ $actspersondatas[0]['middle_name'] }}</span></p>
-                    <p>Last name  : <span class="text-primary">{{ $actspersondatas[0]['last_name'] }}</span></p>
+                    <p>First name : <span class="text-primary"><strong>{{ $actspersondatas[0]['first_name'] }}</strong></span></p>
+                    <p>Middle name: <span class="text-primary"><strong>{{ $actspersondatas[0]['middle_name'] }}</strong></span></p>
+                    <p>Last name  : <span class="text-primary"><strong>{{ $actspersondatas[0]['last_name'] }}</strong></span></p>
                 </div>
             </div>
             <div class="col-md-6">
                 <h5 class="text-secondary mt-3">Pre-Registered Data</h5>
                 <div class="card shadow-sm pt-3 px-3">
-                    <p>First name : <span class="text-primary">{{ $persondatas['firstname'] }}</span></p>
-                    <p>Middle name: <span class="text-primary">{{ $persondatas['middlename'] }}</span></p>
-                    <p>Last name  : <span class="text-primary">{{ $persondatas['lastname'] }}</span></p>
+                    <p>First name : <span class="text-primary"><strong>{{ $persondatas['firstname'] }}</strong></span></p>
+                    <p>Middle name: <span class="text-primary"><strong>{{ $persondatas['middlename'] }}</strong></span></p>
+                    <p>Last name  : <span class="text-primary"><strong>{{ $persondatas['lastname'] }}</strong></span></p>
                 </div>
             </div>
         </div>
