@@ -18,9 +18,6 @@
         title: '{{ Session::get("title") }}',
         text: '{{ Session::get("text") }}',
         footer: ' '
-    }).then((res)=>{
-        if(res.isConfirmed)
-        window.location.reload();
     })
 
 
