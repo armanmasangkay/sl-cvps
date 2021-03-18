@@ -20,74 +20,68 @@ class RegistrationTest extends TestCase
     public function test_fail_registration_when_all_required_files_are_not_filled()
     {
         $response=$this->post(route('person.register'),[
-            'category'=>'',
-            'category_id'=>'',
-            'category_id_num'=>'',
-            'philhealth_id'=>'',
-            'pwd_id'=>'',
-            'lastname'=>'',
-            'firstname'=>'',
-            'middlename'=>'',
-            'suffix'=>'',
-            'contact_num'=>'',
-            'loc_region'=>'',
-            'loc_prov'=>'',
-            'loc_muni'=>'',
-            'loc_brgy'=>'',
-            'sex'=>'',
-            'birth_date'=>'',
+            'category'       => '',
+            'category_id'    => '',
+            'category_id_num'=> '',
+            'lastname'      => '',
+            'firstname'     => '',
+            'contact_num'    => '',
+            'loc_region'     => '',
+            'loc_prov'       => '',
+            'loc_muni'       => '',
+            'loc_brgy'       => '',
+            'sex'            => '',
+            'birth_date'     => ''
         ]);
         
         $response->assertRedirect(route('person.register'));
         $response->assertSessionHasErrors([
-            'category',
-            'category_id',
+            'category'       ,
+            'category_id'    ,
             'category_id_num',
-            'lastname',
-            'firstname',
-            'contact_num',
-            'loc_region',
-            'loc_prov',
-            'loc_muni',
-            'loc_brgy',
-            'sex',
-            'birth_date',
+            'lastname'      ,
+            'firstname'     ,
+            'contact_num'    ,
+            'loc_region'     ,
+            'loc_prov'       ,
+            'loc_muni'       ,
+            'loc_brgy'       ,
+            'sex'            ,
+            'birth_date'     
         ]);
         $this->assertDatabaseCount('people',0);
     }
 
     public function test_save_registration_data()
     {
-        $response=$this->post(route('person.store'),[
-            'category'=>'Health Care Worker',
-            'category_id'=>'PRC Number',
-            'category_id_num'=>'123123',
-            'philhealth_id'=>'123',
-            'pwd_id'=>'123',
-            'lastname'=>'Masangkay',
-            'firstname'=>'Arman',
-            'middlename'=>'Macasuhot',
-            'suffix'=>'123',
-            'contact_num'=>'09757375747',
-            'loc_region'=>'Region 8',
-            'loc_prov'=>'Southern Leyte',
-            'loc_muni'=>'Malitbog',
-            'loc_brgy'=>'Taliwa',
-            'sex'=>'male',
-            'birth_date'=>'1992-01-07'
+        $response=$this->post(route('person.register'),[
+            'category'       => '1',
+            'category_id'    => '1',
+            'category_id_num'=> '1',
+            'lastname'      => 'Masangkay',
+            'firstname'     => 'Arman',
+            'contact_num'    => '09757375747',
+            'loc_region'     => '8',
+            'loc_prov'       => 'Southern Leyte',
+            'loc_muni'       => 'Malitbog',
+            'loc_brgy'       => 'Taliwa',
+            'sex'            => 'male',
+            'birth_date'     => '1992-01-07',
+            'confirm'=>true
         ]);
         
         $response->assertRedirect(route('person.register'));
+
         $response->assertSessionHasAll([
-            'registered'=>true,
-            'title'=>'Great!',
-            'text'=>'Registration went through successfully. Thank you!'
+            'registered' => true,
+            'title'      => 'Great!',
+            'text'       => 'Registration went successfully. Thank you!'
         ]);
         $this->assertDatabaseCount('people',1);
         $this->assertDatabaseHas('people',[
             'firstname'=>'Arman',
             'lastname'=>'Masangkay',
-            'middlename'=>'Macasuhot',
+            'middlename'=>'',
         ]);
 
     }
