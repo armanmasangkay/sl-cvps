@@ -23,6 +23,7 @@ use App\Http\Controllers\UserLogin;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\RouteRedirectAfterChangePasswordController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\ResetEncoderPasswordController;
 use App\Models\ActsPerson;
 use App\Models\Vaccination;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('admin', AdminController::class);
     Route::resource('facility', FacilityController::class);
     Route::resource('encoder', EncoderController::class);
+    Route::post('/reset/encoder/{encoder}', [EncoderController::class,'reset'])->name('reset.encoder');
     Route::resource('vaccine', VaccineController::class);
     Route::resource('vaccinator',VaccinatorController::class);
     Route::resource('administrator', SuperAdminController::class);
