@@ -39,15 +39,16 @@
                                 <td class="pt-2 pb-0">{{ $encoder->municipality->name }}</td>
                                 <td class="pt-2 pb-0" colspan="2">
                                     <div class="d-flex justify-content-start">
-                                        <form action="" method="post">
+
+                                        <form action="{{route('reset.encoder', $encoder)}}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary mr-1"><i data-feather="refresh-ccw" class="pt-1 pb-2"></i>Reset &nbsp;</button>
                                         </form>
-                                        <a href="{{route('encoder.edit',$encoder)}}" class="btn btn-sm btn-warning"><i data-feather="edit" class="pt-1 pb-2"></i>Edit &nbsp;</a>
+                                        <a href="{{route('encoder.edit',$encoder)}}" class="btn btn-sm btn-info"><i data-feather="edit" class="pt-1 pb-2"></i>Edit &nbsp;</a>
                                         <form action="{{ route('encoder.destroy', $encoder->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger ml-1 pl-1"><i data-feather="x" class="pt-1 pb-2"></i>Delete &nbsp;</button>
+                                            <button type="submit" class="btn btn-sm btn-danger ml-1 pl-1" onclick="return confirm('Are you sure? This cannot be reverted back.')"><i data-feather="x" class="pt-1 pb-2"></i>Delete &nbsp;</button>
                                         </form>
                                     </div>
                                 </td>
@@ -67,5 +68,15 @@
         {{$encoders->links()}}
     </div>
 </div>
+
+@if(session('success')===true)
+<script>
+Swal.fire(
+  'Great!',
+  "{{session('message')}}",
+  'success'
+)
+</script>
+@endif
 
 @endsection
