@@ -229,8 +229,8 @@ a{
 }
 
 .img-wrapper img{
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    /* margin-right: auto; */
     width: 100% !important;
 }
 

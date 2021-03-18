@@ -205,7 +205,8 @@
 
                 <div class="d-flex justify-content-start ml-3 mt-4">
                     <input type="checkbox" class="mt-2 mr-2" id="toggle" name="if_with_mentioned_condition_has_presented_medical_clearance">
-                    <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance
+                    <p class="ml-3 mt-1 pt-1 text-secondary">If with mentioned condition, has presented medical clearance 
+
                         prior to vaccination day?</p>
                 </div>
 
