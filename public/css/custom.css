@@ -5,17 +5,22 @@
 
 select, input[type="date"],
 input::placeholder, p, .form-control, 
-button, small, .register label, 
+button, small, .register label,
 .basic-info, a.btn{
     font-weight: 100 !important;
 }
 
+.register .pre-reg label{
+    font-weight: 400 !important;
+}
+
 input::placeholder{
-    color: #c2c2c2 !important
+    color: #999999 !important
 }
 
 .register input[type='text'], .register select,
-.register input[type='date'], .register input[type="password"]{
+.register input[type='date'], .register input[type="password"],
+.register input[type="number"]{
     margin-top: -5px !important;
 }
 
@@ -206,4 +211,34 @@ a{
 
 .dropdown-menu a:active{
     color: #fff !important;
+}
+
+.img-wrapper{
+    height: 8rem !important;
+    width: 8rem !important;
+    overflow: hidden !important;
+    border-radius: calc(8rem/2) !important;
+}
+
+.form-control[readonly]{
+    background-color: #fff !important;
+}
+
+.register .pre-reg .form-control{
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #b3b3b3 !important;
+}
+
+.register .pre-reg .form-control:focus{
+    box-shadow: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    background-color: white !important;
 }

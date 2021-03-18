@@ -21,6 +21,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('change-password.index')}}"><i data-feather="edit-3" class="pt-1 pb-1"></i> Change Password</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}"><i data-feather="log-out" class="pt-1 pb-1"></i> Signout</a>
                 </li>
                 @endif
@@ -38,7 +41,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="search" class="pt-1 pb-1 mb-1"></i> View Lists&nbsp;</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="search" class="pt-1 pb-1 mb-1"></i> View&nbsp;</a>
                     <div class="dropdown-menu pl-1 pr-1" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item text-secondary" href="{{ route('vaccinator.index') }}"><i data-feather="users" class="pt-1 pb-1"></i> Vaccinators</a>
                         <a class="dropdown-item text-secondary" href="{{ route('facility.index') }}"><i data-feather="home" class="pt-1 pb-1"></i> Facilities</a>
@@ -47,8 +50,15 @@
                     </div>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
+                    <a class="nav-link" href="{{ route('reports.admin') }}"><i data-feather="file" class="pt-1 pb-1 mb-1"></i> Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('change-password.index')}}"><i data-feather="edit-3" class="pt-1 pb-1"></i> Change Password</a>
+=======
                     <a class="nav-link" href="{{ route('reports.admin') }}"><i data-feather="file" class="pt-1 pb-1 mb-1"></i> View Reports</a>
 
+>>>>>>> 82096b3e3970bfc1c6fa3531625b79dc40f2e1d2
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('user.logout')}}"> <i data-feather="log-out" class="pt-1 pb-1"></i> Signout</a>
@@ -66,7 +76,12 @@
                     Search</button>
                 </form>
                 <li class="nav-item">
-                    <a class="btn btn-secondary text-white mt-2" href="{{route('user.logout')}}" style="position: relative; top: 1px;">
+                    <a class="btn btn-secondary text-white mt-2 mr-1" href="{{route('change-password.index')}}">
+                    <i data-feather="edit-3" class="pt-1 pb-1"></i>
+                    Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger text-white mt-2" href="{{route('user.logout')}}">
                     <i data-feather="log-out" class="pt-1 pb-1"></i>
                     Signout</a>
                 </li>
