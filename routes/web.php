@@ -49,7 +49,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('pre', PreRegisteredController::class);
     Route::resource('change-password', ChangePasswordController::class);
     Route::resource('check-route', RouteRedirectAfterChangePasswordController::class);
-    Route::resource('developer', DeveloperController::class);
     Route::get('/reports/superadmin', [ReportsController::class, 'index'])->name('reports.superadmin');
     Route::get('/reports/admin',[AdminReportsController::class,'index'])->name('reports.admin');
     Route::get('/post-vax/{person}/',[PostVaxController::class,'index'])->name('encoder.post-vax');
@@ -71,5 +70,6 @@ Route::get('/register', [RegistrationController::class, 'view'])->name('person.r
 Route::post('/register', [RegistrationController::class, 'store']);
 Route::get('/login',[UserLogin::class,'view'])->name('user.login');
 Route::post('/login',[UserLogin::class,'authenticate']);
+Route::get('/developer', [DeveloperController::class, 'index'])->name('developer');
 
 

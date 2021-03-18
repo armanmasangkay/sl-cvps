@@ -14,8 +14,8 @@
 
 <div class="row">
     <div class="col-md-6 pl-md-5 pl-sm-3">
-        <p class="mt-1 pt-1 text-secondary">Vaccine Used</p>
-        <small class="mb-3 text-info">Format: Batch number | Name (Manufacturer)</small>
+        <p class="mt-1 pt-1 text-secondary mb-1">Vaccine Used</p>
+        <small class="mb-3 text-info" style="position: relative; top: -10px;">Format: Batch number | Name (Manufacturer)</small>
         <select name="vaccine_id" class="form-control">
             @foreach($vaccines as $vaccine)
             <option value="{{$vaccine->id}}">{{$vaccine->details()}}</option>
