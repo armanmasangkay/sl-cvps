@@ -23,6 +23,10 @@ class Vaccinator extends Model
 
     public function middleInitial()
     {
+        if(!$this->middlename)
+        {
+            return "";
+        }
         return Str::substr($this->middlename,0,1).'.';
     }
 
@@ -34,5 +38,15 @@ class Vaccinator extends Model
     public function fullname()
     {
         return "{$this->firstname} {$this->middleInitial()} {$this->lastname} {$this->suffix}";
+    }
+
+    public function postvaxes()
+    {
+        return $this->hasMany(PostVax::class);
+    }
+
+    public function municipality()
+    {
+        return $this->hasOne(Municipality::class, 'id', 'municipality_id');
     }
 }

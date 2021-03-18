@@ -34,9 +34,6 @@
 <div class="row">
     <div class="col-md-6 pl-md-5 pl-sm-3">
         <p class="mt-1 pt-1 text-secondary">Dose</p>
-        <select name="dose" class="form-control">
-            <option value="1">1st Dose</option>
-            <option value="2">2nd Dose</option>
-        </select>
+        <input type="text" readonly name="dose" value="{{ $person->postvaxes->count() >= 1 ? 2: 1 }}" class="form-control">
     </div>
 </div>
