@@ -13,7 +13,7 @@ class ActsPersonController extends Controller
 {
     public function index()
     {
-        // Auth::user()->allowIf(User::ENCODER);
+    
         $actsperson = ActsPerson::take(5)->get();
         return $actsperson;
     }
@@ -58,9 +58,6 @@ class ActsPersonController extends Controller
             ->with('status', true)
             ->with('actsperson', $request->actsperson)
             ->with('person', $request->person);
-
-        // return response()->json($request->all());
-        // return response()->json($request->actsperson);
     }
 
     public function details()

@@ -66,6 +66,7 @@ class FacilityController extends Controller
 
     public function edit(Facility $facility)
     {
+        Auth::user()->allowIf(User::SUPER_ADMIN);
         return view('pages.admin.edit-forms.facility',[
             'facility'=>$facility
         ]);
@@ -73,6 +74,7 @@ class FacilityController extends Controller
 
     public function update(Facility $facility,Request $request)
     {
+        Auth::user()->allowIf(User::SUPER_ADMIN);
        $this->makeValidator($request->all())->validate();
 
        $facility->facility_name=$request->facility_name;

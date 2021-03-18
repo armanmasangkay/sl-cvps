@@ -110,6 +110,7 @@ class VaccineController extends Controller
     //  */
     public function edit(Vaccine $vaccine)
     {
+        Auth::user()->allowIf(User::ADMIN);
         return view('pages.admin.edit-forms.vaccine',[
             'vaccine'=>$vaccine
         ]);
@@ -124,6 +125,7 @@ class VaccineController extends Controller
     //  */
     public function update(Request $request, Vaccine $vaccine)
     {
+        Auth::user()->allowIf(User::ADMIN);
         $this->makeValidator($request->all())->validate();
         $vaccine->vaccine_name=$request->vaccine_name;
         $vaccine->batch_number=$request->batch_number;
