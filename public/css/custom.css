@@ -267,4 +267,56 @@ a{
     transition: background-color 5000s ease-in-out 0s;
 }
 
-/* -webkit-text-fill-color: #838B95 !important; */
+.error{
+    font-size: 8em !important;
+    letter-spacing: 0.9rem !important;
+    font-weight: bolder !important;
+    color: #7c7c7c !important;
+    text-shadow: 0 0 10px #f8aaaa !important;
+}
+
+.error-msg{
+    color: #e06868 !important;
+}
+
+.body-msg, .error-msg{
+    font-weight: 400 !important;
+}
+
+.body-msg, .error-msg{
+    letter-spacing: 0.1rem !important;
+}
+
+.error, .error-msg, .body-msg{
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px)
+{
+    .error{
+        font-size: 6em !important;
+    }
+
+    .error-msg{
+        font-size: 1em !important;
+    }
+
+    .body-msg{
+        font-size: 1.1em !important;
+    }
+}
+
+@media screen and (max-width: 320px)
+{
+    .error{
+        font-size: 5em !important;
+    }
+
+    .error-msg{
+        font-size: 0.75em !important;
+    }
+
+    .body-msg{
+        font-size: 0.9em !important;
+    }
+}
