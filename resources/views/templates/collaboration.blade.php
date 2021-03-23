@@ -8,3 +8,6 @@
         </div>
     </div>
 </div>
+<div class="container mt-2">
+    <p class="text-center text-gray text-muted text-dev">Developed by: SLSU-CCSIT Development Team</p>
+</div>
